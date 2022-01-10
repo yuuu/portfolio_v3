@@ -8,8 +8,9 @@ Amplify.configure(awsconfig)
 import { listApps } from '../src/graphql/queries'
 
 const fetch = async () => {
-  const apps = await API.graphql(graphqlOperation(listApps))
+  // const apps = await API.graphql(graphqlOperation(listApps))
   // console.log(apps)
+  await API.graphql(graphqlOperation(listApps))
 }
 fetch()
 
