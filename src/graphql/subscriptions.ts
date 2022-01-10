@@ -16,7 +16,7 @@ export const onCreateApp = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onUpdateApp = /* GraphQL */ `
   subscription OnUpdateApp($owner: String) {
     onUpdateApp(owner: $owner) {
@@ -31,7 +31,7 @@ export const onUpdateApp = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onDeleteApp = /* GraphQL */ `
   subscription OnDeleteApp($owner: String) {
     onDeleteApp(owner: $owner) {
@@ -46,7 +46,7 @@ export const onDeleteApp = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onCreateArticle = /* GraphQL */ `
   subscription OnCreateArticle($owner: String) {
     onCreateArticle(owner: $owner) {
@@ -61,7 +61,7 @@ export const onCreateArticle = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onUpdateArticle = /* GraphQL */ `
   subscription OnUpdateArticle($owner: String) {
     onUpdateArticle(owner: $owner) {
@@ -76,7 +76,7 @@ export const onUpdateArticle = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onDeleteArticle = /* GraphQL */ `
   subscription OnDeleteArticle($owner: String) {
     onDeleteArticle(owner: $owner) {
@@ -91,7 +91,7 @@ export const onDeleteArticle = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onCreateBook = /* GraphQL */ `
   subscription OnCreateBook($owner: String) {
     onCreateBook(owner: $owner) {
@@ -105,7 +105,7 @@ export const onCreateBook = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onUpdateBook = /* GraphQL */ `
   subscription OnUpdateBook($owner: String) {
     onUpdateBook(owner: $owner) {
@@ -119,7 +119,7 @@ export const onUpdateBook = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onDeleteBook = /* GraphQL */ `
   subscription OnDeleteBook($owner: String) {
     onDeleteBook(owner: $owner) {
@@ -133,7 +133,7 @@ export const onDeleteBook = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onCreateProfile = /* GraphQL */ `
   subscription OnCreateProfile($owner: String) {
     onCreateProfile(owner: $owner) {
@@ -148,7 +148,7 @@ export const onCreateProfile = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onUpdateProfile = /* GraphQL */ `
   subscription OnUpdateProfile($owner: String) {
     onUpdateProfile(owner: $owner) {
@@ -163,7 +163,7 @@ export const onUpdateProfile = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onDeleteProfile = /* GraphQL */ `
   subscription OnDeleteProfile($owner: String) {
     onDeleteProfile(owner: $owner) {
@@ -178,7 +178,7 @@ export const onDeleteProfile = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onCreateSkill = /* GraphQL */ `
   subscription OnCreateSkill($owner: String) {
     onCreateSkill(owner: $owner) {
@@ -190,7 +190,7 @@ export const onCreateSkill = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onUpdateSkill = /* GraphQL */ `
   subscription OnUpdateSkill($owner: String) {
     onUpdateSkill(owner: $owner) {
@@ -202,7 +202,7 @@ export const onUpdateSkill = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onDeleteSkill = /* GraphQL */ `
   subscription OnDeleteSkill($owner: String) {
     onDeleteSkill(owner: $owner) {
@@ -214,7 +214,7 @@ export const onDeleteSkill = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onCreateSlide = /* GraphQL */ `
   subscription OnCreateSlide($owner: String) {
     onCreateSlide(owner: $owner) {
@@ -228,7 +228,7 @@ export const onCreateSlide = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onUpdateSlide = /* GraphQL */ `
   subscription OnUpdateSlide($owner: String) {
     onUpdateSlide(owner: $owner) {
@@ -242,7 +242,7 @@ export const onUpdateSlide = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const onDeleteSlide = /* GraphQL */ `
   subscription OnDeleteSlide($owner: String) {
     onDeleteSlide(owner: $owner) {
@@ -256,4 +256,4 @@ export const onDeleteSlide = /* GraphQL */ `
       owner
     }
   }
-`;
+`

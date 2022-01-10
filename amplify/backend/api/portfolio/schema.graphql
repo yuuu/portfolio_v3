@@ -1,11 +1,11 @@
 # This "input" configures a global authorization rule to enable public access to
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
-input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
-
-type App @model @auth(rules: [
-  { allow: public, operations: [read]}
-  { allow: owner }
-]) {
+input AMPLIFY {
+  globalAuthRule: AuthRule = { allow: public }
+} # FOR TESTING ONLY!
+type App
+  @model
+  @auth(rules: [{ allow: public, operations: [read] }, { allow: owner }]) {
   id: ID!
   title: String!
   description: String!
@@ -14,10 +14,9 @@ type App @model @auth(rules: [
   link: String!
 }
 
-type Article @model @auth(rules: [
-  { allow: public, operations: [read]}
-  { allow: owner }
-]) {
+type Article
+  @model
+  @auth(rules: [{ allow: public, operations: [read] }, { allow: owner }]) {
   id: ID!
   title: String!
   body: String!
@@ -26,10 +25,9 @@ type Article @model @auth(rules: [
   publishedAt: AWSDateTime!
 }
 
-type Book @model @auth(rules: [
-  { allow: public, operations: [read]}
-  { allow: owner }
-]) {
+type Book
+  @model
+  @auth(rules: [{ allow: public, operations: [read] }, { allow: owner }]) {
   id: ID!
   title: String!
   description: String!
@@ -37,10 +35,9 @@ type Book @model @auth(rules: [
   link: String!
 }
 
-type Profile @model @auth(rules: [
-  { allow: public, operations: [read]}
-  { allow: owner }
-]) {
+type Profile
+  @model
+  @auth(rules: [{ allow: public, operations: [read] }, { allow: owner }]) {
   id: ID!
   introduction: String!
   residence: String!
@@ -49,19 +46,17 @@ type Profile @model @auth(rules: [
   hobby: String!
 }
 
-type Skill @model @auth(rules: [
-  { allow: public, operations: [read]}
-  { allow: owner }
-]) {
+type Skill
+  @model
+  @auth(rules: [{ allow: public, operations: [read] }, { allow: owner }]) {
   id: ID!
   title: String!
   storageKey: String!
 }
 
-type Slide @model @auth(rules: [
-  { allow: public, operations: [read]}
-  { allow: owner }
-]) {
+type Slide
+  @model
+  @auth(rules: [{ allow: public, operations: [read] }, { allow: owner }]) {
   id: ID!
   title: String!
   body: String!
