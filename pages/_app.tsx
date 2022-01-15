@@ -35,7 +35,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <Navbar />
         <div className="container mx-auto flex flex-grow">
           <div
-            className={`max-w-7xl px-4 mx-auto flex ${
+            className={`px-4 mx-auto flex flex-grow ${
               router.pathname == '/' ? 'justify-center' : ''
             }`}
           >

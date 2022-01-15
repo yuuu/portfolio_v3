@@ -39,7 +39,7 @@ export type Profile = {
 
 const ProfilePage: NextPage<{ profile: Profile }> = ({ profile }) => {
   return (
-    <div className="flex flex-col justify-start w-screen">
+    <div className="flex flex-col justify-start">
       <Header title="Profile" />
       <div className="flex flex-col md:flex-row md:space-x-4 pb-4">
         <div className="flex-none flex justify-center">
