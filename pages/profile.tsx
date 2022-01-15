@@ -15,7 +15,7 @@ import {
 import Header from '../components/Header'
 
 export const getStaticProps = async () => {
-  const data = {
+  const profile = {
     introduction:
       '2018年から福岡でWeb/IoTエンジニアしてます。2017年まで関西で組込みエンジニアしてました。\nRailsを使った開発や、IoTに興味がある方はぜひお声掛けを！',
     residence: '福岡県糟屋郡',
@@ -24,8 +24,8 @@ export const getStaticProps = async () => {
     hobby: 'ボウリング, ゲーム, ルービックキューブ',
   }
   return {
-    props: { profile: data },
-    revalidate: 10,
+    props: { profile },
+    revalidate: 60,
   }
 }
 

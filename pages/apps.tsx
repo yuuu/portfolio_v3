@@ -43,8 +43,8 @@ export const getStaticProps = async () => {
   ]
 
   return {
-    props: { apps: apps },
-    revalidate: 10,
+    props: { apps },
+    revalidate: 60,
   }
 }
 
