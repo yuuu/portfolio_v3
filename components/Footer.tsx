@@ -4,11 +4,11 @@ import Link from 'next/link'
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-800 body-font">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-14">
           <p className="flex flex-col text-white sm:py-2">
             <span className="text-xs">
-              Copyright © { new Date().getFullYear() } yuuu. All Rights Reserved.
+              Copyright © {new Date().getFullYear()} yuuu. All Rights Reserved.
             </span>
           </p>
           <span className="inline-flex flex-col sm:ml-auto justify-end">

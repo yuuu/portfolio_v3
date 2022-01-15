@@ -23,6 +23,9 @@
     ]
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
     "aws-amplify": "^4.3.12",
     "next": "12.0.7",
     "react": "17.0.2",
