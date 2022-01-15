@@ -39,9 +39,9 @@ export type Profile = {
 
 const ProfilePage: NextPage<{ profile: Profile }> = ({ profile }) => {
   return (
-    <div className="flex flex-col justify-start">
+    <div className="flex flex-col flex-grow justify-start">
       <Header title="Profile" />
-      <div className="flex flex-col md:flex-row md:space-x-4 pb-4">
+      <div className="flex flex-col px-4 md:flex-row md:space-x-4 pb-4">
         <div className="flex-none flex justify-center">
           <img
             src="/images/profile.png"
