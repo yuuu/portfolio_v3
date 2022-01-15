@@ -36,7 +36,7 @@ const Articles: NextPage<{ articles: Article[] }> = ({ articles }) => {
       <div className="flex flex-wrap">
         {articles?.map((article) => (
           <div
-            className="flex mb-16 md:flex-row w-full flex-col items-center"
+            className="flex px-4 mb-16 md:flex-row w-full flex-col items-center"
             key={article.id}
           >
             <div className="md:w-1/3 mb-4">

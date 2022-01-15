@@ -37,7 +37,7 @@ const Slides: NextPage<{ slides: Slide[] }> = ({ slides }) => {
       <div className="flex flex-wrap">
         {slides?.map((slide) => (
           <div
-            className="flex mb-16 md:flex-row w-full flex-col items-center"
+            className="flex px-4 mb-16 md:flex-row w-full flex-col items-center"
             key={slide.id}
           >
             <div className="md:w-1/3 mb-4">

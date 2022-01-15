@@ -68,7 +68,7 @@ const Skills: NextPage<{ skills: Skill[] }> = ({ skills }) => {
       <Header title="Skills" />
       <dl className="flex flex-wrap justify-items-center items-center">
         {skills.map((skill) => (
-          <div key={skill.id} className="w-1/2 md:w-1/6">
+          <div key={skill.id} className="px-4 w-1/2 md:w-1/6">
             <div className="my-4 rounded-md bg-indigo-500">
               <Tooltip title={skill.title} position="top" trigger="mouseenter">
                 <img className="" src={skill.image} />
