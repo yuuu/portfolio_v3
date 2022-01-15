@@ -7,35 +7,39 @@ export const getStaticProps = async () => {
     {
       id: '1',
       link: 'https://portfolio.y-uuu.net/apps',
-      image: 'https://image.portfolio.y-uuu.net/e546cc90-d929-4975-865f-d22679f80807',
+      image:
+        'https://image.portfolio.y-uuu.net/e546cc90-d929-4975-865f-d22679f80807',
       title: 'yuuu‘s portfolio',
       category: 'Web System',
-      description: 'このページです。Next.js + Ruby on Railsで構築しています。'
+      description: 'このページです。Next.js + Ruby on Railsで構築しています。',
     },
     {
       id: '2',
       link: 'https://portfolio.y-uuu.net/apps',
-      image: 'https://image.portfolio.y-uuu.net/e546cc90-d929-4975-865f-d22679f80807',
+      image:
+        'https://image.portfolio.y-uuu.net/e546cc90-d929-4975-865f-d22679f80807',
       title: 'yuuu‘s portfolio',
       category: 'Web System',
-      description: 'このページです。Next.js + Ruby on Railsで構築しています。'
+      description: 'このページです。Next.js + Ruby on Railsで構築しています。',
     },
     {
       id: '3',
       link: 'https://portfolio.y-uuu.net/apps',
-      image: 'https://image.portfolio.y-uuu.net/e546cc90-d929-4975-865f-d22679f80807',
+      image:
+        'https://image.portfolio.y-uuu.net/e546cc90-d929-4975-865f-d22679f80807',
       title: 'yuuu‘s portfolio',
       category: 'Web System',
-      description: 'このページです。Next.js + Ruby on Railsで構築しています。'
+      description: 'このページです。Next.js + Ruby on Railsで構築しています。',
     },
     {
       id: '4',
       link: 'https://portfolio.y-uuu.net/apps',
-      image: 'https://image.portfolio.y-uuu.net/e546cc90-d929-4975-865f-d22679f80807',
+      image:
+        'https://image.portfolio.y-uuu.net/e546cc90-d929-4975-865f-d22679f80807',
       title: 'yuuu‘s portfolio',
       category: 'Web System',
-      description: 'このページです。Next.js + Ruby on Railsで構築しています。'
-    }
+      description: 'このページです。Next.js + Ruby on Railsで構築しています。',
+    },
   ]
 
   return {
@@ -53,9 +57,7 @@ export type App = {
   description: string
 }
 
-const Apps: NextPage<{ apps: App[] }> = ({
-  apps,
-}) => {
+const Apps: NextPage<{ apps: App[] }> = ({ apps }) => {
   return (
     <div className="flex flex-col flex-grow justify-start">
       <Header title="Apps" />
