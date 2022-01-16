@@ -1,9 +1,12 @@
 import '../styles/globals.css'
 import 'react-tippy/dist/tippy.css'
+import 'react-toastify/dist/ReactToastify.css'
+import '@aws-amplify/ui-react/styles.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import Navbar from '../src/components/Navbar'
+import Footer from '../src/components/Footer'
+import Toast from '../src/components/Toast'
 import { useRouter } from 'next/router'
 
 import { Amplify } from 'aws-amplify'
@@ -45,6 +48,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         </div>
         <Footer />
       </div>
+      <Toast />
     </>
   )
 }

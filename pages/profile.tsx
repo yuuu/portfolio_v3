@@ -12,35 +12,31 @@ import {
   faTwitter,
   faFacebook,
 } from '@fortawesome/free-brands-svg-icons'
-import Header from '../components/Header'
+import Header from '../src/components/Header'
+import LinkButton from '../src/components/LinkButton'
+
+import { API, graphqlOperation } from 'aws-amplify'
+import { GraphQLResult } from '@aws-amplify/api-graphql'
+import { listProfiles } from '../src/graphql/queries'
+import { ListProfilesQuery, Profile } from '../src/API'
 
 export const getStaticProps = async () => {
-  const profile = {
-    introduction:
-      '2018年から福岡でWeb/IoTエンジニアしてます。2017年まで関西で組込みエンジニアしてました。\nRailsを使った開発や、IoTに興味がある方はぜひお声掛けを！',
-    residence: '福岡県糟屋郡',
-    birthplace: '山口県下松市',
-    birthday: '1989-07-27',
-    hobby: 'ボウリング, ゲーム, ルービックキューブ',
-  }
+  const { data } = (await API.graphql(
+    graphqlOperation(listProfiles)
+  )) as GraphQLResult<ListProfilesQuery>
   return {
-    props: { profile },
-    revalidate: 60,
+    props: { profile: data?.listProfiles?.items[0] },
+    revalidate: false,
   }
-}
-
-export type Profile = {
-  introduction: string
-  residence: string
-  birthplace: string
-  birthday: string
-  hobby: string
 }
 
 const ProfilePage: NextPage<{ profile: Profile }> = ({ profile }) => {
   return (
     <div className="flex flex-col flex-grow justify-start">
       <Header title="Profile" />
+      <div className="flex flex-row justify-end mb-4">
+        <LinkButton href="/admin/profile/edit">Edit</LinkButton>
+      </div>
       <div className="flex flex-col px-4 md:flex-row md:space-x-4 pb-4">
         <div className="flex-none flex justify-center">
           <img

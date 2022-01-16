@@ -1,7 +1,7 @@
 import React from 'react'
 import { NextPage } from 'next'
 import { Tooltip } from 'react-tippy'
-import Header from '../components/Header'
+import Header from '../src/components/Header'
 
 export const getStaticProps = async () => {
   const skills = [
