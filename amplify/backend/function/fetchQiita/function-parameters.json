@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "api": {
+      "portfolio": [
+        "Query",
+        "Mutation"
+      ]
+    },
+    "storage": {
+      "Article:@model(appsync)": [
+        "create",
+        "read",
+        "update"
+      ]
+    }
+  },
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "portfolioNpm",
+      "env": "dev",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true
+    }
+  ]
+}

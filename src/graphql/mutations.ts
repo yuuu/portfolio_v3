@@ -19,7 +19,7 @@ export const createApp = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const updateApp = /* GraphQL */ `
   mutation UpdateApp(
     $input: UpdateAppInput!
@@ -37,7 +37,7 @@ export const updateApp = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const deleteApp = /* GraphQL */ `
   mutation DeleteApp(
     $input: DeleteAppInput!
@@ -55,7 +55,7 @@ export const deleteApp = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const createArticle = /* GraphQL */ `
   mutation CreateArticle(
     $input: CreateArticleInput!
@@ -73,7 +73,7 @@ export const createArticle = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const updateArticle = /* GraphQL */ `
   mutation UpdateArticle(
     $input: UpdateArticleInput!
@@ -91,7 +91,7 @@ export const updateArticle = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const deleteArticle = /* GraphQL */ `
   mutation DeleteArticle(
     $input: DeleteArticleInput!
@@ -109,7 +109,7 @@ export const deleteArticle = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const createBook = /* GraphQL */ `
   mutation CreateBook(
     $input: CreateBookInput!
@@ -126,7 +126,7 @@ export const createBook = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const updateBook = /* GraphQL */ `
   mutation UpdateBook(
     $input: UpdateBookInput!
@@ -143,7 +143,7 @@ export const updateBook = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const deleteBook = /* GraphQL */ `
   mutation DeleteBook(
     $input: DeleteBookInput!
@@ -160,7 +160,7 @@ export const deleteBook = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const createProfile = /* GraphQL */ `
   mutation CreateProfile(
     $input: CreateProfileInput!
@@ -178,7 +178,7 @@ export const createProfile = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const updateProfile = /* GraphQL */ `
   mutation UpdateProfile(
     $input: UpdateProfileInput!
@@ -196,7 +196,7 @@ export const updateProfile = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const deleteProfile = /* GraphQL */ `
   mutation DeleteProfile(
     $input: DeleteProfileInput!
@@ -214,7 +214,7 @@ export const deleteProfile = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const createSkill = /* GraphQL */ `
   mutation CreateSkill(
     $input: CreateSkillInput!
@@ -229,7 +229,7 @@ export const createSkill = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const updateSkill = /* GraphQL */ `
   mutation UpdateSkill(
     $input: UpdateSkillInput!
@@ -244,7 +244,7 @@ export const updateSkill = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const deleteSkill = /* GraphQL */ `
   mutation DeleteSkill(
     $input: DeleteSkillInput!
@@ -259,7 +259,7 @@ export const deleteSkill = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const createSlide = /* GraphQL */ `
   mutation CreateSlide(
     $input: CreateSlideInput!
@@ -276,7 +276,7 @@ export const createSlide = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const updateSlide = /* GraphQL */ `
   mutation UpdateSlide(
     $input: UpdateSlideInput!
@@ -293,7 +293,7 @@ export const updateSlide = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const deleteSlide = /* GraphQL */ `
   mutation DeleteSlide(
     $input: DeleteSlideInput!
@@ -310,4 +310,4 @@ export const deleteSlide = /* GraphQL */ `
       owner
     }
   }
-`
+`;

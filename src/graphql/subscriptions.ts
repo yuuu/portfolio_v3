@@ -3,8 +3,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateApp = /* GraphQL */ `
-  subscription OnCreateApp($owner: String) {
-    onCreateApp(owner: $owner) {
+  subscription OnCreateApp {
+    onCreateApp {
       id
       title
       description
@@ -16,10 +16,10 @@ export const onCreateApp = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onUpdateApp = /* GraphQL */ `
-  subscription OnUpdateApp($owner: String) {
-    onUpdateApp(owner: $owner) {
+  subscription OnUpdateApp {
+    onUpdateApp {
       id
       title
       description
@@ -31,10 +31,10 @@ export const onUpdateApp = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onDeleteApp = /* GraphQL */ `
-  subscription OnDeleteApp($owner: String) {
-    onDeleteApp(owner: $owner) {
+  subscription OnDeleteApp {
+    onDeleteApp {
       id
       title
       description
@@ -46,10 +46,10 @@ export const onDeleteApp = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onCreateArticle = /* GraphQL */ `
-  subscription OnCreateArticle($owner: String) {
-    onCreateArticle(owner: $owner) {
+  subscription OnCreateArticle {
+    onCreateArticle {
       id
       title
       body
@@ -61,10 +61,10 @@ export const onCreateArticle = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onUpdateArticle = /* GraphQL */ `
-  subscription OnUpdateArticle($owner: String) {
-    onUpdateArticle(owner: $owner) {
+  subscription OnUpdateArticle {
+    onUpdateArticle {
       id
       title
       body
@@ -76,10 +76,10 @@ export const onUpdateArticle = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onDeleteArticle = /* GraphQL */ `
-  subscription OnDeleteArticle($owner: String) {
-    onDeleteArticle(owner: $owner) {
+  subscription OnDeleteArticle {
+    onDeleteArticle {
       id
       title
       body
@@ -91,10 +91,10 @@ export const onDeleteArticle = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onCreateBook = /* GraphQL */ `
-  subscription OnCreateBook($owner: String) {
-    onCreateBook(owner: $owner) {
+  subscription OnCreateBook {
+    onCreateBook {
       id
       title
       description
@@ -105,10 +105,10 @@ export const onCreateBook = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onUpdateBook = /* GraphQL */ `
-  subscription OnUpdateBook($owner: String) {
-    onUpdateBook(owner: $owner) {
+  subscription OnUpdateBook {
+    onUpdateBook {
       id
       title
       description
@@ -119,10 +119,10 @@ export const onUpdateBook = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onDeleteBook = /* GraphQL */ `
-  subscription OnDeleteBook($owner: String) {
-    onDeleteBook(owner: $owner) {
+  subscription OnDeleteBook {
+    onDeleteBook {
       id
       title
       description
@@ -133,10 +133,10 @@ export const onDeleteBook = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onCreateProfile = /* GraphQL */ `
-  subscription OnCreateProfile($owner: String) {
-    onCreateProfile(owner: $owner) {
+  subscription OnCreateProfile {
+    onCreateProfile {
       id
       introduction
       residence
@@ -148,10 +148,10 @@ export const onCreateProfile = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onUpdateProfile = /* GraphQL */ `
-  subscription OnUpdateProfile($owner: String) {
-    onUpdateProfile(owner: $owner) {
+  subscription OnUpdateProfile {
+    onUpdateProfile {
       id
       introduction
       residence
@@ -163,10 +163,10 @@ export const onUpdateProfile = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onDeleteProfile = /* GraphQL */ `
-  subscription OnDeleteProfile($owner: String) {
-    onDeleteProfile(owner: $owner) {
+  subscription OnDeleteProfile {
+    onDeleteProfile {
       id
       introduction
       residence
@@ -178,10 +178,10 @@ export const onDeleteProfile = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onCreateSkill = /* GraphQL */ `
-  subscription OnCreateSkill($owner: String) {
-    onCreateSkill(owner: $owner) {
+  subscription OnCreateSkill {
+    onCreateSkill {
       id
       title
       storageKey
@@ -190,10 +190,10 @@ export const onCreateSkill = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onUpdateSkill = /* GraphQL */ `
-  subscription OnUpdateSkill($owner: String) {
-    onUpdateSkill(owner: $owner) {
+  subscription OnUpdateSkill {
+    onUpdateSkill {
       id
       title
       storageKey
@@ -202,10 +202,10 @@ export const onUpdateSkill = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onDeleteSkill = /* GraphQL */ `
-  subscription OnDeleteSkill($owner: String) {
-    onDeleteSkill(owner: $owner) {
+  subscription OnDeleteSkill {
+    onDeleteSkill {
       id
       title
       storageKey
@@ -214,10 +214,10 @@ export const onDeleteSkill = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onCreateSlide = /* GraphQL */ `
-  subscription OnCreateSlide($owner: String) {
-    onCreateSlide(owner: $owner) {
+  subscription OnCreateSlide {
+    onCreateSlide {
       id
       title
       body
@@ -228,10 +228,10 @@ export const onCreateSlide = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onUpdateSlide = /* GraphQL */ `
-  subscription OnUpdateSlide($owner: String) {
-    onUpdateSlide(owner: $owner) {
+  subscription OnUpdateSlide {
+    onUpdateSlide {
       id
       title
       body
@@ -242,10 +242,10 @@ export const onUpdateSlide = /* GraphQL */ `
       owner
     }
   }
-`
+`;
 export const onDeleteSlide = /* GraphQL */ `
-  subscription OnDeleteSlide($owner: String) {
-    onDeleteSlide(owner: $owner) {
+  subscription OnDeleteSlide {
+    onDeleteSlide {
       id
       title
       body
@@ -256,4 +256,4 @@ export const onDeleteSlide = /* GraphQL */ `
       owner
     }
   }
-`
+`;

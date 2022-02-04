@@ -1,0 +1,104 @@
+/* Amplify Params - DO NOT EDIT
+	API_PORTFOLIO_ARTICLETABLE_ARN
+	API_PORTFOLIO_ARTICLETABLE_NAME
+	API_PORTFOLIO_GRAPHQLAPIENDPOINTOUTPUT
+	API_PORTFOLIO_GRAPHQLAPIIDOUTPUT
+	ENV
+	REGION
+Amplify Params - DO NOT EDIT */
+
+const https = require('https');
+const axios = require('axios');
+const gql = require('graphql-tag');
+const graphql = require('graphql');
+const { create } = require('domain');
+const { print } = graphql;
+
+const listArticles = gql`
+  query ListArticles(
+    $filter: ModelArticleFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listArticles(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        body
+        image
+        link
+        publishedAt
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`
+
+const createArticle = gql`
+  mutation CreateArticle(
+    $input: CreateArticleInput!
+    $condition: ModelArticleConditionInput
+  ) {
+    createArticle(input: $input, condition: $condition) {
+      id
+      title
+      body
+      image
+      link
+      publishedAt
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`
+
+exports.handler = async (event) => {
+    let body = '';
+
+    const graphqlData = await axios({
+        url: process.env.API_PORTFOLIO_GRAPHQLAPIENDPOINTOUTPUT,
+        method: 'post',
+        headers: {
+          'x-api-key': process.env.API_PORTFOLIO_GRAPHQLAPIKEYOUTPUT
+        },
+        data: {
+          query: print(listArticles),
+        }
+      });
+    const urls = graphqlData.data.data.listArticles.items.map(articles => articles.link)
+
+    const res = await axios(process.env.QIITA_URL)
+    const articles = res.data.filter(({url}) => !urls.includes(url))
+
+    Promise.all(articles.map((article) => {
+        return axios({
+            url: process.env.API_PORTFOLIO_GRAPHQLAPIENDPOINTOUTPUT,
+            method: 'post',
+            headers: {
+                'x-api-key': process.env.API_PORTFOLIO_GRAPHQLAPIKEYOUTPUT
+            },
+            data: {
+                query: print(createArticle),
+                variables: {
+                    input: {
+                    title: article.title,
+                    body: article.body.length <= 100 ? article.body : (article.body.substr(0, 100) + "..."),
+                    image: '',
+                    link: article.url,
+                    publishedAt: article.created_at,
+                    }
+                }
+            }
+        })
+    })).then(res => console.log(res[0].data))
+
+    const response = {
+        statusCode: 200,
+        body: JSON.stringify('complete.'),
+    };
+    return response;
+};

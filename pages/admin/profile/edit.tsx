@@ -26,7 +26,7 @@ export const getStaticProps = async () => {
   )) as GraphQLResult<ListProfilesQuery>
   return {
     props: { profile: data?.listProfiles?.items[0] },
-    revalidate: false,
+    revalidate: 0,
   }
 }
 
