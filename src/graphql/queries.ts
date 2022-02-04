@@ -16,7 +16,7 @@ export const getApp = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const listApps = /* GraphQL */ `
   query ListApps(
     $filter: ModelAppFilterInput
@@ -38,7 +38,7 @@ export const listApps = /* GraphQL */ `
       nextToken
     }
   }
-`;
+`
 export const getArticle = /* GraphQL */ `
   query GetArticle($id: ID!) {
     getArticle(id: $id) {
@@ -53,7 +53,7 @@ export const getArticle = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const listArticles = /* GraphQL */ `
   query ListArticles(
     $filter: ModelArticleFilterInput
@@ -75,7 +75,7 @@ export const listArticles = /* GraphQL */ `
       nextToken
     }
   }
-`;
+`
 export const getBook = /* GraphQL */ `
   query GetBook($id: ID!) {
     getBook(id: $id) {
@@ -89,7 +89,7 @@ export const getBook = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const listBooks = /* GraphQL */ `
   query ListBooks(
     $filter: ModelBookFilterInput
@@ -110,7 +110,7 @@ export const listBooks = /* GraphQL */ `
       nextToken
     }
   }
-`;
+`
 export const getProfile = /* GraphQL */ `
   query GetProfile($id: ID!) {
     getProfile(id: $id) {
@@ -125,7 +125,7 @@ export const getProfile = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const listProfiles = /* GraphQL */ `
   query ListProfiles(
     $filter: ModelProfileFilterInput
@@ -147,7 +147,7 @@ export const listProfiles = /* GraphQL */ `
       nextToken
     }
   }
-`;
+`
 export const getSkill = /* GraphQL */ `
   query GetSkill($id: ID!) {
     getSkill(id: $id) {
@@ -159,7 +159,7 @@ export const getSkill = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const listSkills = /* GraphQL */ `
   query ListSkills(
     $filter: ModelSkillFilterInput
@@ -178,7 +178,7 @@ export const listSkills = /* GraphQL */ `
       nextToken
     }
   }
-`;
+`
 export const getSlide = /* GraphQL */ `
   query GetSlide($id: ID!) {
     getSlide(id: $id) {
@@ -192,7 +192,7 @@ export const getSlide = /* GraphQL */ `
       owner
     }
   }
-`;
+`
 export const listSlides = /* GraphQL */ `
   query ListSlides(
     $filter: ModelSlideFilterInput
@@ -213,4 +213,4 @@ export const listSlides = /* GraphQL */ `
       nextToken
     }
   }
-`;
+`

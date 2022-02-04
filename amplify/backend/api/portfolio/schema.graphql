@@ -5,11 +5,13 @@ input AMPLIFY {
 } # FOR TESTING ONLY!
 type App
   @model
-  @auth(rules: [
-    { allow: public, operations: [read, create] },
-    { allow: owner, operations: [update, delete] },
-    { allow: private, provider: iam , operations:[create] }
-  ]) {
+  @auth(
+    rules: [
+      { allow: public, operations: [read, create] }
+      { allow: owner, operations: [update, delete] }
+      { allow: private, provider: iam, operations: [create] }
+    ]
+  ) {
   id: ID!
   title: String!
   description: String!
@@ -20,11 +22,13 @@ type App
 
 type Article
   @model
-  @auth(rules: [
-    { allow: public, operations: [read, create] },
-    { allow: owner, operations: [update, delete] },
-    { allow: private, provider: iam , operations:[create] }
-  ]) {
+  @auth(
+    rules: [
+      { allow: public, operations: [read, create] }
+      { allow: owner, operations: [update, delete] }
+      { allow: private, provider: iam, operations: [create] }
+    ]
+  ) {
   id: ID!
   title: String!
   body: String!
@@ -35,11 +39,13 @@ type Article
 
 type Book
   @model
-  @auth(rules: [
-    { allow: public, operations: [read, create] },
-    { allow: owner, operations: [update, delete] },
-    { allow: private, provider: iam , operations:[create] }
-  ]) {
+  @auth(
+    rules: [
+      { allow: public, operations: [read, create] }
+      { allow: owner, operations: [update, delete] }
+      { allow: private, provider: iam, operations: [create] }
+    ]
+  ) {
   id: ID!
   title: String!
   description: String!
@@ -49,11 +55,13 @@ type Book
 
 type Profile
   @model
-  @auth(rules: [
-    { allow: public, operations: [read, create] },
-    { allow: owner, operations: [update, delete] },
-    { allow: private, provider: iam , operations:[create] }
-  ]) {
+  @auth(
+    rules: [
+      { allow: public, operations: [read, create] }
+      { allow: owner, operations: [update, delete] }
+      { allow: private, provider: iam, operations: [create] }
+    ]
+  ) {
   id: ID!
   introduction: String!
   residence: String!
@@ -64,11 +72,13 @@ type Profile
 
 type Skill
   @model
-  @auth(rules: [
-    { allow: public, operations: [read, create] },
-    { allow: owner, operations: [update, delete] },
-    { allow: private, provider: iam , operations:[create] }
-  ]) {
+  @auth(
+    rules: [
+      { allow: public, operations: [read, create] }
+      { allow: owner, operations: [update, delete] }
+      { allow: private, provider: iam, operations: [create] }
+    ]
+  ) {
   id: ID!
   title: String!
   storageKey: String!
@@ -76,11 +86,13 @@ type Skill
 
 type Slide
   @model
-  @auth(rules: [
-    { allow: public, operations: [read, create] },
-    { allow: owner, operations: [update, delete] },
-    { allow: private, provider: iam , operations:[create] }
-  ]) {
+  @auth(
+    rules: [
+      { allow: public, operations: [read, create] }
+      { allow: owner, operations: [update, delete] }
+      { allow: private, provider: iam, operations: [create] }
+    ]
+  ) {
   id: ID!
   title: String!
   body: String!

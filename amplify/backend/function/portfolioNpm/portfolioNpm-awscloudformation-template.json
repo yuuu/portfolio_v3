@@ -66,9 +66,7 @@
     "LambdaLayerVersionfe78b93e": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
-        "CompatibleRuntimes": [
-          "nodejs14.x"
-        ],
+        "CompatibleRuntimes": ["nodejs14.x"],
         "Content": {
           "S3Bucket": {
             "Ref": "deploymentBucketName"
@@ -103,9 +101,7 @@
     "LambdaLayerVersiona604619c": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
-        "CompatibleRuntimes": [
-          "nodejs14.x"
-        ],
+        "CompatibleRuntimes": ["nodejs14.x"],
         "Content": {
           "S3Bucket": {
             "Ref": "deploymentBucketName"
@@ -140,9 +136,7 @@
     "LambdaLayerVersionebf8c5f5": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
-        "CompatibleRuntimes": [
-          "nodejs14.x"
-        ],
+        "CompatibleRuntimes": ["nodejs14.x"],
         "Content": {
           "S3Bucket": {
             "Ref": "deploymentBucketName"
@@ -177,9 +171,7 @@
     "LambdaLayerVersion14f5bab4": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
-        "CompatibleRuntimes": [
-          "nodejs14.x"
-        ],
+        "CompatibleRuntimes": ["nodejs14.x"],
         "Content": {
           "S3Bucket": {
             "Ref": "deploymentBucketName"
@@ -214,9 +206,7 @@
     "LambdaLayerVersiond9ca92b3": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
-        "CompatibleRuntimes": [
-          "nodejs14.x"
-        ],
+        "CompatibleRuntimes": ["nodejs14.x"],
         "Content": {
           "S3Bucket": {
             "Ref": "deploymentBucketName"
@@ -251,9 +241,7 @@
     "LambdaLayerVersion15314678": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
-        "CompatibleRuntimes": [
-          "nodejs14.x"
-        ],
+        "CompatibleRuntimes": ["nodejs14.x"],
         "Content": {
           "S3Bucket": {
             "Ref": "deploymentBucketName"
