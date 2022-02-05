@@ -20,7 +20,7 @@
     }
   },
   "Resources": {
-    "LambdaLayerVersionbc5d8542": {
+    "LambdaLayerVersione92005ea": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
         "CompatibleRuntimes": {
@@ -51,13 +51,83 @@
       "DeletionPolicy": "Delete",
       "UpdateReplacePolicy": "Retain"
     },
-    "LambdaLayerPermissionPrivatebc5d8542": {
+    "LambdaLayerPermissionPrivatee92005ea": {
       "Type": "AWS::Lambda::LayerVersionPermission",
       "Properties": {
         "Action": "lambda:GetLayerVersion",
         "LayerVersionArn": {
-          "Ref": "LambdaLayerVersionbc5d8542"
+          "Ref": "LambdaLayerVersione92005ea"
         },
+        "Principal": {
+          "Ref": "AWS::AccountId"
+        }
+      }
+    },
+    "LambdaLayerVersion8e1bd0ab": {
+      "Type": "AWS::Lambda::LayerVersion",
+      "Properties": {
+        "CompatibleRuntimes": ["nodejs14.x"],
+        "Content": {
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
+          },
+          "S3Key": "amplify-builds/portfolioNpm-LambdaLayerVersion8e1bd0ab-build.zip"
+        },
+        "Description": "Updated layer version 2022-02-05T03:56:00.962Z",
+        "LayerName": {
+          "Fn::Sub": [
+            "portfolioNpm-${env}",
+            {
+              "env": {
+                "Ref": "env"
+              }
+            }
+          ]
+        }
+      },
+      "DeletionPolicy": "Delete",
+      "UpdateReplacePolicy": "Retain"
+    },
+    "LambdaLayerPermissionPrivate8e1bd0ab": {
+      "Type": "AWS::Lambda::LayerVersionPermission",
+      "Properties": {
+        "Action": "lambda:GetLayerVersion",
+        "LayerVersionArn": "arn:aws:lambda:ap-northeast-1:175444414663:layer:portfolioNpm-dev:8",
+        "Principal": {
+          "Ref": "AWS::AccountId"
+        }
+      }
+    },
+    "LambdaLayerVersionbc5d8542": {
+      "Type": "AWS::Lambda::LayerVersion",
+      "Properties": {
+        "CompatibleRuntimes": ["nodejs14.x"],
+        "Content": {
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
+          },
+          "S3Key": "amplify-builds/portfolioNpm-LambdaLayerVersionbc5d8542-build.zip"
+        },
+        "Description": "Updated layer version 2022-02-04T21:52:33.215Z",
+        "LayerName": {
+          "Fn::Sub": [
+            "portfolioNpm-${env}",
+            {
+              "env": {
+                "Ref": "env"
+              }
+            }
+          ]
+        }
+      },
+      "DeletionPolicy": "Delete",
+      "UpdateReplacePolicy": "Retain"
+    },
+    "LambdaLayerPermissionPrivatebc5d8542": {
+      "Type": "AWS::Lambda::LayerVersionPermission",
+      "Properties": {
+        "Action": "lambda:GetLayerVersion",
+        "LayerVersionArn": "arn:aws:lambda:ap-northeast-1:175444414663:layer:portfolioNpm-dev:7",
         "Principal": {
           "Ref": "AWS::AccountId"
         }
@@ -277,7 +347,7 @@
   "Outputs": {
     "Arn": {
       "Value": {
-        "Ref": "LambdaLayerVersionbc5d8542"
+        "Ref": "LambdaLayerVersione92005ea"
       }
     }
   }

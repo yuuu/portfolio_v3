@@ -24,11 +24,11 @@
       "function": {
         "fetchQiita": {
           "deploymentBucketName": "amplify-portfolio-dev-63000-deployment",
-          "s3Key": "amplify-builds/fetchQiita-537973714a6779684666-build.zip"
+          "s3Key": "amplify-builds/fetchQiita-577a4f4170464d666541-build.zip"
         },
         "portfolioNpm": {
           "deploymentBucketName": "amplify-portfolio-dev-63000-deployment",
-          "s3Key": "amplify-builds/portfolioNpm-LambdaLayerVersionbc5d8542-build.zip"
+          "s3Key": "amplify-builds/portfolioNpm-LambdaLayerVersione92005ea-build.zip"
         }
       }
     }
