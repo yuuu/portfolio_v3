@@ -4,7 +4,10 @@
   "main": "index.js",
   "dependencies": {
     "aws-appsync": "^4.1.4",
+    "axios": "^0.25.0",
     "graphql-tag": "^2.12.6",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "node-html-parser": "^5.2.0",
+    "rss-parser": "^3.12.0"
   }
 }

@@ -10,6 +10,7 @@ Amplify Params - DO NOT EDIT */
 const AWSAppSyncClient = require('aws-appsync').default
 const gql = require('graphql-tag')
 global.fetch = require('node-fetch')
+const axios = require('axios')
 
 const listArticles = gql`
   query ListArticles(
@@ -34,10 +35,27 @@ const listArticles = gql`
   }
 `
 
+const createArticle = gql`
+  mutation CreateArticle(
+    $input: CreateArticleInput!
+    $condition: ModelArticleConditionInput
+  ) {
+    createArticle(input: $input, condition: $condition) {
+      id
+      title
+      body
+      image
+      link
+      publishedAt
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`
+
 exports.handler = async (event) => {
   const { env } = process
-
-  console.log({ env })
 
   const graphql_auth = {
     type: 'AWS_IAM',
@@ -55,12 +73,35 @@ exports.handler = async (event) => {
     disableOffline: true,
   })
 
-  const res = await graphqlClient.query({
-    query: listArticles,
-    fetchPolicy: 'network-only',
-    variables: { limit: 100 },
+  const fetchArticlesFromApi = async () => {
+    const res = await graphqlClient.query({
+      query: listArticles,
+      fetchPolicy: 'network-only',
+      variables: { limit: 100 },
+    })
+    return res.data.listArticles.items
+  }
+
+  const fetchArticlesFromQiita = async () => {
+    const res = await axios.get(
+      'https://qiita.com/api/v2/users/Y_uuu/items?per_page=100'
+    )
+    return res.data
+  }
+
+  const registerArticleToApi = async (article) => {
+    const res = await graphqlClient.mutate({})
+  }
+
+  const articlesFromApi = await fetchArticlesFromApi()
+  const articlesFromQiita = await fetchArticlesFromQiita()
+
+  const urls = articlesFromApi.map((article) => article.link)
+  articlesFromQiita.forEach((article) => {
+    if (urls.includes(article.url)) return
+
+    console.log(`register: ${article.title}`)
   })
-  console.log(res.data.listArticles)
 
   const response = {
     statusCode: 200,
