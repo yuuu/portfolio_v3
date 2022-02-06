@@ -11,6 +11,7 @@ const AWSAppSyncClient = require('aws-appsync').default
 const gql = require('graphql-tag')
 global.fetch = require('node-fetch')
 const axios = require('axios')
+const ogp = require('ogp-parser')
 
 const listArticles = gql`
   query ListArticles(
@@ -90,18 +91,37 @@ exports.handler = async (event) => {
   }
 
   const registerArticleToApi = async (article) => {
-    const res = await graphqlClient.mutate({})
+    // fetch og:image
+    const ret = await ogp(article.link)
+
+    return graphqlClient.mutate({
+      mutation: createArticle,
+      variables: { input: { image: ret.ogp['og:image'][0], ...article } },
+    })
   }
 
   const articlesFromApi = await fetchArticlesFromApi()
   const articlesFromQiita = await fetchArticlesFromQiita()
 
   const urls = articlesFromApi.map((article) => article.link)
-  articlesFromQiita.forEach((article) => {
-    if (urls.includes(article.url)) return
+  const registers = articlesFromQiita
+    .map((article) => {
+      if (urls.includes(article.url)) return
 
-    console.log(`register: ${article.title}`)
-  })
+      return registerArticleToApi({
+        title: article.title,
+        body:
+          article.body <= 100
+            ? article.body
+            : `${article.body.substr(0, 100)}...`,
+        publishedAt: article.created_at,
+        link: article.url,
+      })
+    })
+    .filter((v) => v)
+
+  const ret = await Promise.all(registers)
+  console.log(ret)
 
   const response = {
     statusCode: 200,
