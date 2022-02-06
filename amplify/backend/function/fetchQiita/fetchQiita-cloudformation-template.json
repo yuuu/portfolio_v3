@@ -125,7 +125,8 @@
             "Ref": "functionportfolioNpmArn"
           }
         ],
-        "Timeout": 25
+        "MemorySize": 256,
+        "Timeout": 60
       }
     },
     "LambdaExecutionRole": {
