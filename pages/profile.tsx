@@ -18,15 +18,15 @@ import LinkButton from '../src/components/LinkButton'
 import { GraphQLResult } from '@aws-amplify/api-graphql'
 import { listProfiles } from '../src/graphql/queries'
 import { ListProfilesQuery, Profile } from '../src/API'
-import { withSSRContext } from 'aws-amplify';
+import { withSSRContext } from 'aws-amplify'
 import { GetServerSideProps } from 'next'
 
 export const getStaticProps: GetServerSideProps = async (context) => {
   try {
-    const { API } = withSSRContext(context);
-    const { data } = await API.graphql({
+    const { API } = withSSRContext(context)
+    const { data } = (await API.graphql({
       query: listProfiles,
-    }) as GraphQLResult<ListProfilesQuery>;
+    })) as GraphQLResult<ListProfilesQuery>
     return {
       props: { profile: data?.listProfiles?.items[0] },
       revalidate: 60,
