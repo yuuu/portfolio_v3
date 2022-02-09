@@ -7,7 +7,7 @@ type App
   @model
   @auth(
     rules: [
-      { allow: public, operations: [read, create] }
+      { allow: public, provider: iam, operations: [read] }
       { allow: owner, operations: [update, delete] }
       { allow: private, provider: iam, operations: [create] }
     ]
@@ -24,7 +24,7 @@ type Article
   @model
   @auth(
     rules: [
-      { allow: public, operations: [read, create] }
+      { allow: public, provider: iam, operations: [read] }
       { allow: owner, operations: [update, delete] }
       { allow: private, provider: iam, operations: [create] }
     ]
@@ -41,7 +41,7 @@ type Book
   @model
   @auth(
     rules: [
-      { allow: public, operations: [read, create] }
+      { allow: public, provider: iam, operations: [read] }
       { allow: owner, operations: [update, delete] }
       { allow: private, provider: iam, operations: [create] }
     ]
@@ -57,7 +57,7 @@ type Profile
   @model
   @auth(
     rules: [
-      { allow: public, operations: [read, create] }
+      { allow: public, provider: iam, operations: [read] }
       { allow: owner, operations: [update, delete] }
       { allow: private, provider: iam, operations: [create] }
     ]
@@ -74,7 +74,7 @@ type Skill
   @model
   @auth(
     rules: [
-      { allow: public, operations: [read, create] }
+      { allow: public, provider: iam, operations: [read] }
       { allow: owner, operations: [update, delete] }
       { allow: private, provider: iam, operations: [create] }
     ]
@@ -88,7 +88,7 @@ type Slide
   @model
   @auth(
     rules: [
-      { allow: public, operations: [read, create] }
+      { allow: public, provider: iam, operations: [read] }
       { allow: owner, operations: [update, delete] }
       { allow: private, provider: iam, operations: [create] }
     ]

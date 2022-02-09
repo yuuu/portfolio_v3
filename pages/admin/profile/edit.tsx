@@ -19,14 +19,24 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
+import { withSSRContext } from 'aws-amplify';
+import { GetServerSideProps } from 'next'
 
-export const getStaticProps = async () => {
-  const { data } = (await API.graphql(
-    graphqlOperation(listProfiles)
-  )) as GraphQLResult<ListProfilesQuery>
-  return {
-    props: { profile: data?.listProfiles?.items[0] },
-    revalidate: 0,
+export const getStaticProps: GetServerSideProps = async (context) => {
+  try {
+    const { API } = withSSRContext(context);
+    const { data } = (await API.graphql(
+      graphqlOperation(listProfiles)
+    )) as GraphQLResult<ListProfilesQuery>
+    return {
+      props: { profile: data?.listProfiles?.items[0] },
+      revalidate: 0,
+    }
+  } catch (e) {
+    return {
+      props: { profile: {} },
+      revalidate: 1,
+    }
   }
 }
 

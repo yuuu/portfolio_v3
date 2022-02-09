@@ -15,18 +15,27 @@ import {
 import Header from '../src/components/Header'
 import LinkButton from '../src/components/LinkButton'
 
-import { API, graphqlOperation } from 'aws-amplify'
 import { GraphQLResult } from '@aws-amplify/api-graphql'
 import { listProfiles } from '../src/graphql/queries'
 import { ListProfilesQuery, Profile } from '../src/API'
+import { withSSRContext } from 'aws-amplify';
+import { GetServerSideProps } from 'next'
 
-export const getStaticProps = async () => {
-  const { data } = (await API.graphql(
-    graphqlOperation(listProfiles)
-  )) as GraphQLResult<ListProfilesQuery>
-  return {
-    props: { profile: data?.listProfiles?.items[0] },
-    revalidate: 60,
+export const getStaticProps: GetServerSideProps = async (context) => {
+  try {
+    const { API } = withSSRContext(context);
+    const { data } = await API.graphql({
+      query: listProfiles,
+    }) as GraphQLResult<ListProfilesQuery>;
+    return {
+      props: { profile: data?.listProfiles?.items[0] },
+      revalidate: 60,
+    }
+  } catch (e) {
+    return {
+      props: { profile: {} },
+      revalidate: 1,
+    }
   }
 }
 
@@ -73,7 +82,7 @@ const ProfilePage: NextPage<{ profile: Profile }> = ({ profile }) => {
             </a>
           </div>
           <p className="mb-4">
-            {profile?.introduction.split('\n').map((str, index) => (
+            {profile?.introduction?.split('\n')?.map((str, index) => (
               <React.Fragment key={index}>
                 {str}
                 <br />
