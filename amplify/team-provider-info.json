@@ -12,9 +12,6 @@
       "AmplifyAppId": "d32xyvwuqsnepf"
     },
     "categories": {
-      "auth": {
-        "portfolio5bc5a039": {}
-      },
       "hosting": {
         "amplifyhosting": {
           "appId": "d32xyvwuqsnepf",
@@ -22,14 +19,17 @@
         }
       },
       "function": {
-        "fetchQiita": {
-          "deploymentBucketName": "amplify-portfolio-dev-63000-deployment",
-          "s3Key": "amplify-builds/fetchQiita-657a43454c4c7a52412b-build.zip"
-        },
         "portfolioNpm": {
           "deploymentBucketName": "amplify-portfolio-dev-63000-deployment",
-          "s3Key": "amplify-builds/portfolioNpm-LambdaLayerVersion97bd79cc-build.zip"
+          "s3Key": "amplify-builds/portfolioNpm-LambdaLayerVersion7ea6963f-build.zip"
+        },
+        "fetchQiita": {
+          "deploymentBucketName": "amplify-portfolio-dev-63000-deployment",
+          "s3Key": "amplify-builds/fetchQiita-4e506655766d47422f56-build.zip"
         }
+      },
+      "auth": {
+        "portfolio88ead49188ead491": {}
       }
     }
   }

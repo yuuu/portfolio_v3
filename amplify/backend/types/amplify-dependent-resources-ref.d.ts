@@ -1,13 +1,12 @@
 export type AmplifyDependentResourcesAttributes = {
   api: {
     portfolio: {
-      GraphQLAPIKeyOutput: 'string'
       GraphQLAPIIdOutput: 'string'
       GraphQLAPIEndpointOutput: 'string'
     }
   }
   auth: {
-    portfolio5bc5a039: {
+    portfolio88ead49188ead491: {
       IdentityPoolId: 'string'
       IdentityPoolName: 'string'
       UserPoolId: 'string'
@@ -18,15 +17,15 @@ export type AmplifyDependentResourcesAttributes = {
     }
   }
   function: {
+    portfolioNpm: {
+      Arn: 'string'
+    }
     fetchQiita: {
       Name: 'string'
       Arn: 'string'
       Region: 'string'
       LambdaExecutionRole: 'string'
       CloudWatchEventRule: 'string'
-    }
-    portfolioNpm: {
-      Arn: 'string'
     }
   }
 }

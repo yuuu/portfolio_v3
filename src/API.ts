@@ -1015,6 +1015,10 @@ export type ListSlidesQuery = {
   } | null
 }
 
+export type OnCreateAppSubscriptionVariables = {
+  owner?: string | null
+}
+
 export type OnCreateAppSubscription = {
   onCreateApp?: {
     __typename: 'App'
@@ -1028,6 +1032,10 @@ export type OnCreateAppSubscription = {
     updatedAt: string
     owner?: string | null
   } | null
+}
+
+export type OnUpdateAppSubscriptionVariables = {
+  owner?: string | null
 }
 
 export type OnUpdateAppSubscription = {
@@ -1045,6 +1053,10 @@ export type OnUpdateAppSubscription = {
   } | null
 }
 
+export type OnDeleteAppSubscriptionVariables = {
+  owner?: string | null
+}
+
 export type OnDeleteAppSubscription = {
   onDeleteApp?: {
     __typename: 'App'
@@ -1058,6 +1070,10 @@ export type OnDeleteAppSubscription = {
     updatedAt: string
     owner?: string | null
   } | null
+}
+
+export type OnCreateArticleSubscriptionVariables = {
+  owner?: string | null
 }
 
 export type OnCreateArticleSubscription = {
@@ -1075,6 +1091,10 @@ export type OnCreateArticleSubscription = {
   } | null
 }
 
+export type OnUpdateArticleSubscriptionVariables = {
+  owner?: string | null
+}
+
 export type OnUpdateArticleSubscription = {
   onUpdateArticle?: {
     __typename: 'Article'
@@ -1088,6 +1108,10 @@ export type OnUpdateArticleSubscription = {
     updatedAt: string
     owner?: string | null
   } | null
+}
+
+export type OnDeleteArticleSubscriptionVariables = {
+  owner?: string | null
 }
 
 export type OnDeleteArticleSubscription = {
@@ -1105,6 +1129,10 @@ export type OnDeleteArticleSubscription = {
   } | null
 }
 
+export type OnCreateBookSubscriptionVariables = {
+  owner?: string | null
+}
+
 export type OnCreateBookSubscription = {
   onCreateBook?: {
     __typename: 'Book'
@@ -1117,6 +1145,10 @@ export type OnCreateBookSubscription = {
     updatedAt: string
     owner?: string | null
   } | null
+}
+
+export type OnUpdateBookSubscriptionVariables = {
+  owner?: string | null
 }
 
 export type OnUpdateBookSubscription = {
@@ -1133,6 +1165,10 @@ export type OnUpdateBookSubscription = {
   } | null
 }
 
+export type OnDeleteBookSubscriptionVariables = {
+  owner?: string | null
+}
+
 export type OnDeleteBookSubscription = {
   onDeleteBook?: {
     __typename: 'Book'
@@ -1145,6 +1181,10 @@ export type OnDeleteBookSubscription = {
     updatedAt: string
     owner?: string | null
   } | null
+}
+
+export type OnCreateProfileSubscriptionVariables = {
+  owner?: string | null
 }
 
 export type OnCreateProfileSubscription = {
@@ -1162,6 +1202,10 @@ export type OnCreateProfileSubscription = {
   } | null
 }
 
+export type OnUpdateProfileSubscriptionVariables = {
+  owner?: string | null
+}
+
 export type OnUpdateProfileSubscription = {
   onUpdateProfile?: {
     __typename: 'Profile'
@@ -1175,6 +1219,10 @@ export type OnUpdateProfileSubscription = {
     updatedAt: string
     owner?: string | null
   } | null
+}
+
+export type OnDeleteProfileSubscriptionVariables = {
+  owner?: string | null
 }
 
 export type OnDeleteProfileSubscription = {
@@ -1192,6 +1240,10 @@ export type OnDeleteProfileSubscription = {
   } | null
 }
 
+export type OnCreateSkillSubscriptionVariables = {
+  owner?: string | null
+}
+
 export type OnCreateSkillSubscription = {
   onCreateSkill?: {
     __typename: 'Skill'
@@ -1202,6 +1254,10 @@ export type OnCreateSkillSubscription = {
     updatedAt: string
     owner?: string | null
   } | null
+}
+
+export type OnUpdateSkillSubscriptionVariables = {
+  owner?: string | null
 }
 
 export type OnUpdateSkillSubscription = {
@@ -1216,6 +1272,10 @@ export type OnUpdateSkillSubscription = {
   } | null
 }
 
+export type OnDeleteSkillSubscriptionVariables = {
+  owner?: string | null
+}
+
 export type OnDeleteSkillSubscription = {
   onDeleteSkill?: {
     __typename: 'Skill'
@@ -1226,6 +1286,10 @@ export type OnDeleteSkillSubscription = {
     updatedAt: string
     owner?: string | null
   } | null
+}
+
+export type OnCreateSlideSubscriptionVariables = {
+  owner?: string | null
 }
 
 export type OnCreateSlideSubscription = {
@@ -1242,6 +1306,10 @@ export type OnCreateSlideSubscription = {
   } | null
 }
 
+export type OnUpdateSlideSubscriptionVariables = {
+  owner?: string | null
+}
+
 export type OnUpdateSlideSubscription = {
   onUpdateSlide?: {
     __typename: 'Slide'
@@ -1254,6 +1322,10 @@ export type OnUpdateSlideSubscription = {
     updatedAt: string
     owner?: string | null
   } | null
+}
+
+export type OnDeleteSlideSubscriptionVariables = {
+  owner?: string | null
 }
 
 export type OnDeleteSlideSubscription = {

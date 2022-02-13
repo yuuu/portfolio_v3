@@ -7,9 +7,9 @@ type App
   @model
   @auth(
     rules: [
+      { allow: owner }
       { allow: public, provider: iam, operations: [read] }
-      { allow: owner, operations: [update, delete] }
-      { allow: private, provider: iam, operations: [create] }
+      { allow: private, provider: iam, operations: [read, create] }
     ]
   ) {
   id: ID!
@@ -24,9 +24,9 @@ type Article
   @model
   @auth(
     rules: [
+      { allow: owner }
       { allow: public, provider: iam, operations: [read] }
-      { allow: owner, operations: [update, delete] }
-      { allow: private, provider: iam, operations: [create] }
+      { allow: private, provider: iam, operations: [read, create] }
     ]
   ) {
   id: ID!
@@ -41,9 +41,9 @@ type Book
   @model
   @auth(
     rules: [
+      { allow: owner }
       { allow: public, provider: iam, operations: [read] }
-      { allow: owner, operations: [update, delete] }
-      { allow: private, provider: iam, operations: [create] }
+      { allow: private, provider: iam, operations: [read, create] }
     ]
   ) {
   id: ID!
@@ -57,9 +57,9 @@ type Profile
   @model
   @auth(
     rules: [
+      { allow: owner }
       { allow: public, provider: iam, operations: [read] }
-      { allow: owner, operations: [update, delete] }
-      { allow: private, provider: iam, operations: [create] }
+      { allow: private, provider: iam, operations: [read, create] }
     ]
   ) {
   id: ID!
@@ -74,9 +74,9 @@ type Skill
   @model
   @auth(
     rules: [
+      { allow: owner }
       { allow: public, provider: iam, operations: [read] }
-      { allow: owner, operations: [update, delete] }
-      { allow: private, provider: iam, operations: [create] }
+      { allow: private, provider: iam, operations: [read, create] }
     ]
   ) {
   id: ID!
@@ -88,9 +88,9 @@ type Slide
   @model
   @auth(
     rules: [
+      { allow: owner }
       { allow: public, provider: iam, operations: [read] }
-      { allow: owner, operations: [update, delete] }
-      { allow: private, provider: iam, operations: [create] }
+      { allow: private, provider: iam, operations: [read, create] }
     ]
   ) {
   id: ID!

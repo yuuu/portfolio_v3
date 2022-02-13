@@ -11,7 +11,6 @@ import { useRouter } from 'next/router'
 
 import { Amplify } from 'aws-amplify'
 import awsconfig from '../src/aws-exports'
-awsconfig.aws_appsync_authenticationType = 'AWS_IAM'
 Amplify.configure(awsconfig)
 
 const MyApp = ({ Component, pageProps }: AppProps) => {

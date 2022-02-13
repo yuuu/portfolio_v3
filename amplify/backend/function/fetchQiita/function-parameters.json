@@ -2,9 +2,6 @@
   "permissions": {
     "api": {
       "portfolio": ["Query", "Mutation"]
-    },
-    "storage": {
-      "Article:@model(appsync)": ["create", "read", "update"]
     }
   },
   "lambdaLayers": [

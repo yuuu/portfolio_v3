@@ -20,12 +20,14 @@ import { listProfiles } from '../src/graphql/queries'
 import { ListProfilesQuery, Profile } from '../src/API'
 import { withSSRContext } from 'aws-amplify'
 import { GetServerSideProps } from 'next'
+import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api'
 
 export const getStaticProps: GetServerSideProps = async (context) => {
   try {
-    const { API } = withSSRContext(context)
-    const { data } = (await API.graphql({
+    const { API: APISSR } = withSSRContext(context)
+    const { data } = (await APISSR.graphql({
       query: listProfiles,
+      authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
     })) as GraphQLResult<ListProfilesQuery>
     return {
       props: { profile: data?.listProfiles?.items[0] },
@@ -40,6 +42,14 @@ export const getStaticProps: GetServerSideProps = async (context) => {
 }
 
 const ProfilePage: NextPage<{ profile: Profile }> = ({ profile }) => {
+  // useEffect(() => {
+  //   ;(async () => {
+  //     ;(await API.graphql({
+  //       query: listProfiles,
+  //       authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+  //     })) as GraphQLResult<ListProfilesQuery>
+  //   })()
+  // }, [])
   return (
     <div className="flex flex-col flex-grow justify-start">
       <Header title="Profile" />

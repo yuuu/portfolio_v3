@@ -13,21 +13,13 @@
       "output": {
         "authConfig": {
           "defaultAuthentication": {
-            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-            "userPoolConfig": {
-              "userPoolId": "authportfolio5bc5a039"
-            }
+            "authenticationType": "AWS_IAM"
           },
           "additionalAuthenticationProviders": [
             {
-              "authenticationType": "AWS_IAM"
-            },
-            {
-              "authenticationType": "API_KEY",
-              "apiKeyConfig": {
-                "apiKeyExpirationDays": 7,
-                "apiKeyExpirationDate": "2022-02-08T21:50:48.454Z",
-                "description": ""
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authportfolio88ead49188ead491"
               }
             }
           ]
@@ -36,14 +28,14 @@
     }
   },
   "auth": {
-    "portfolio5bc5a039": {
+    "portfolio88ead49188ead491": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "customAuth": false,
       "frontendAuthConfig": {
         "socialProviders": [],
-        "usernameAttributes": ["EMAIL"],
+        "usernameAttributes": [],
         "signupAttributes": ["EMAIL"],
         "passwordProtectionSettings": {
           "passwordPolicyMinLength": 8,
@@ -56,27 +48,27 @@
     }
   },
   "function": {
+    "portfolioNpm": {
+      "providerPlugin": "awscloudformation",
+      "service": "LambdaLayer",
+      "build": true
+    },
     "fetchQiita": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
       "dependsOn": [
         {
-          "category": "function",
-          "resourceName": "portfolioNpm",
-          "attributes": ["Arn"]
-        },
-        {
           "category": "api",
           "resourceName": "portfolio",
           "attributes": ["GraphQLAPIIdOutput", "GraphQLAPIEndpointOutput"]
+        },
+        {
+          "category": "function",
+          "resourceName": "portfolioNpm",
+          "attributes": ["Arn"]
         }
       ]
-    },
-    "portfolioNpm": {
-      "providerPlugin": "awscloudformation",
-      "service": "LambdaLayer",
-      "build": true
     }
   }
 }
