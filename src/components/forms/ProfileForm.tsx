@@ -7,7 +7,15 @@ import {
   faHeart,
   faMapMarker,
 } from "@fortawesome/free-solid-svg-icons";
-import { Profile } from "../../API";
+// import { Profile } from "../../API";
+type Profile = {
+  id?: string;
+  introduction?: string;
+  residence?: string;
+  birthplace?: string;
+  birthday?: string;
+  hobby?: string;
+}
 
 type Props = {
   profile?: Profile;

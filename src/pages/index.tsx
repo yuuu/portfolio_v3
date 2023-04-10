@@ -1,47 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { API } from "aws-amplify";
-import { GraphQLResult } from "@aws-amplify/api-graphql";
-import { listArticles } from "../src/graphql/queries";
-import { GRAPHQL_AUTH_MODE } from "@aws-amplify/api-graphql/lib/types";
-import { Article, ListArticlesQuery } from "../src/API";
-import { GetServerSideProps } from "next";
-
-// export const getStaticProps: GetServerSideProps = async () => {
-//   try {
-//     // const { API:APISSR } = withSSRContext(context)
-//     const { data } = (await API.graphql({
-//       query: listArticles,
-//       authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
-//     })) as GraphQLResult<ListArticlesQuery>
-//     return {
-//       props: { articles: data?.listArticles?.items[0] },
-//       revalidate: 60,
-//     }
-//   } catch (e) {
-//     return {
-//       props: { articles: {} },
-//       revalidate: 1,
-//     }
-//   }
-// }
-
-type Props = {
-  articles: Article[];
-};
-const Home: React.FC<Props> = ({ articles }) => {
-  console.log(articles); // eslint-disable-line
-  // const fetch = async () => {
-  //   const res = await API.graphql({
-  //     query: listArticles,
-  //     authMode: GRAPHQL_AUTH_MODE.AWS_IAM
-  //   })
-  //   console.log(res.data.listArticles)
-  // }
-  // useEffect(() => {
-  //   fetch()
-  // }, [])
+const Home: React.FC = () => {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center">
       <div>

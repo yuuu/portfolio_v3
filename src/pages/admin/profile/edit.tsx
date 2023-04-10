@@ -3,10 +3,10 @@ import { NextPage } from "next";
 
 import { API, graphqlOperation } from "aws-amplify";
 import { GraphQLResult } from "@aws-amplify/api-graphql";
-import { listProfiles } from "../../../src/graphql/queries";
-import { updateProfile } from "../../../src/graphql/mutations";
-import { ListProfilesQuery, Profile } from "../../../src/API";
-import { withAuthenticator } from "@aws-amplify/ui-react";
+// import { listProfiles } from "../../../src/graphql/queries";
+// import { updateProfile } from "../../../src/graphql/mutations";
+// import { ListProfilesQuery, Profile } from "../../../src/API";
+// import { withAuthenticator } from "@aws-amplify/ui-react";
 
 import ProfileForm from "../../../components/forms/ProfileForm";
 import LinkButton from "../../../components/LinkButton";
@@ -22,41 +22,49 @@ import { toast } from "react-toastify";
 import { withSSRContext } from "aws-amplify";
 import { GetServerSideProps } from "next";
 
-export const getStaticProps: GetServerSideProps = async (context) => {
-  try {
-    const { API } = withSSRContext(context);
-    const { data } = (await API.graphql(
-      graphqlOperation(listProfiles)
-    )) as GraphQLResult<ListProfilesQuery>;
-    return {
-      props: { profile: data?.listProfiles?.items[0] },
-      revalidate: 0,
-    };
-  } catch (e) {
-    return {
-      props: { profile: {} },
-      revalidate: 1,
-    };
-  }
-};
+// export const getStaticProps: GetServerSideProps = async (context) => {
+//   try {
+//     const { API } = withSSRContext(context);
+//     const { data } = (await API.graphql(
+//       graphqlOperation(listProfiles)
+//     )) as GraphQLResult<ListProfilesQuery>;
+//     return {
+//       props: { profile: data?.listProfiles?.items[0] },
+//       revalidate: 0,
+//     };
+//   } catch (e) {
+//     return {
+//       props: { profile: {} },
+//       revalidate: 1,
+//     };
+//   }
+// };
+type Profile = {
+  id?: string;
+  introduction?: string;
+  residence?: string;
+  birthplace?: string;
+  birthday?: string;
+  hobby?: string;
+}
 
 const EditProfile: NextPage<{ profile: Profile }> = ({ profile }) => {
   const router = useRouter();
 
   const onSubmit = async (newProfile: Profile) => {
-    try {
-      await API.graphql({
-        query: updateProfile,
-        variables: { input: newProfile },
-        authMode: "AMAZON_COGNITO_USER_POOLS",
-      });
-      toast.success("Saved Successfully");
-      router.push("/profile");
-    } catch (e: any) {
-      if (e?.errors[0]?.message) {
-        toast.error(e.errors[0].message);
-      }
-    }
+    // try {
+    //   await API.graphql({
+    //     query: updateProfile,
+    //     variables: { input: newProfile },
+    //     authMode: "AMAZON_COGNITO_USER_POOLS",
+    //   });
+    //   toast.success("Saved Successfully");
+    //   router.push("/profile");
+    // } catch (e: any) {
+    //   if (e?.errors[0]?.message) {
+    //     toast.error(e.errors[0].message);
+    //   }
+    // }
   };
   const onError = () => {
     toast.error("Please reconfirm your input");
@@ -114,4 +122,5 @@ const EditProfile: NextPage<{ profile: Profile }> = ({ profile }) => {
   );
 };
 
-export default withAuthenticator(EditProfile);
+// export default withAuthenticator(EditProfile);
+export default EditProfile;

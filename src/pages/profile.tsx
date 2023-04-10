@@ -51,6 +51,14 @@ export const getStaticProps: GetServerSideProps = async (context) => {
     revalidate: 60,
   }
 }
+type Profile = {
+  id?: string;
+  introduction?: string;
+  residence?: string;
+  birthplace?: string;
+  birthday?: string;
+  hobby?: string;
+}
 
 const ProfilePage: NextPage<{ profile: Profile }> = ({ profile }) => {
   // useEffect(() => {

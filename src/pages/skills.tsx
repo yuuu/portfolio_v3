@@ -70,9 +70,9 @@ const Skills: NextPage<{ skills: Skill[] }> = ({ skills }) => {
         {skills.map((skill) => (
           <div key={skill.id} className="px-4 w-1/2 md:w-1/6">
             <div className="my-4 rounded-md bg-indigo-500">
-              <Tooltip title={skill.title} position="top" trigger="mouseenter">
+              {/* <Tooltip title={skill.title} position="top" trigger="mouseenter">
                 <img className="" src={skill.image} />
-              </Tooltip>
+              </Tooltip> */}
             </div>
           </div>
         ))}
