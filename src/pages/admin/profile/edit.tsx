@@ -46,7 +46,7 @@ type Profile = {
   birthplace?: string;
   birthday?: string;
   hobby?: string;
-}
+};
 
 const EditProfile: NextPage<{ profile: Profile }> = ({ profile }) => {
   const router = useRouter();

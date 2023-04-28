@@ -1,63 +1,40 @@
 import React from "react";
 import { NextPage } from "next";
 import Header from "../components/Header";
+import { listApps } from "../graphql/queries";
+import { Storage } from "aws-amplify";
+import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
+import { ListAppsQuery, App } from "@/API";
+
+type AppV = App & { imageUrl?: string };
+
+const fetchApps = async () => {
+  const { data } = await API.graphql<GraphQLQuery<ListAppsQuery>>({
+    query: listApps,
+    authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+  });
+  return data?.listApps?.items?.filter((item): item is App => !!item) || [];
+};
+
+const attachImages = async (apps: AppV[]) => {
+  return await Promise.all(
+    apps.map(async (app) => {
+      const imageUrl = await Storage.get(app.image);
+      return { ...app, imageUrl };
+    })
+  );
+};
 
 export const getStaticProps = async () => {
-  const apps = [
-    {
-      id: "1",
-      link: "https://portfolio.y-uuu.net/apps",
-      image:
-        "https://image.portfolio.y-uuu.net/e546cc90-d929-4975-865f-d22679f80807",
-      title: "yuuu‘s portfolio",
-      category: "Web System",
-      description: "このページです。Next.js + Ruby on Railsで構築しています。",
-    },
-    {
-      id: "2",
-      link: "https://portfolio.y-uuu.net/apps",
-      image:
-        "https://image.portfolio.y-uuu.net/e546cc90-d929-4975-865f-d22679f80807",
-      title: "yuuu‘s portfolio",
-      category: "Web System",
-      description: "このページです。Next.js + Ruby on Railsで構築しています。",
-    },
-    {
-      id: "3",
-      link: "https://portfolio.y-uuu.net/apps",
-      image:
-        "https://image.portfolio.y-uuu.net/e546cc90-d929-4975-865f-d22679f80807",
-      title: "yuuu‘s portfolio",
-      category: "Web System",
-      description: "このページです。Next.js + Ruby on Railsで構築しています。",
-    },
-    {
-      id: "4",
-      link: "https://portfolio.y-uuu.net/apps",
-      image:
-        "https://image.portfolio.y-uuu.net/e546cc90-d929-4975-865f-d22679f80807",
-      title: "yuuu‘s portfolio",
-      category: "Web System",
-      description: "このページです。Next.js + Ruby on Railsで構築しています。",
-    },
-  ];
-
+  const apps = await fetchApps();
+  const appsV = await attachImages(apps);
   return {
-    props: { apps },
+    props: { apps: appsV },
     revalidate: 60,
   };
 };
 
-export type App = {
-  id: string;
-  link: string;
-  image: string;
-  title: string;
-  category: string;
-  description: string;
-};
-
-const Apps: NextPage<{ apps: App[] }> = ({ apps }) => {
+const Apps: NextPage<{ apps: AppV[] }> = ({ apps }) => {
   return (
     <div className="flex flex-col flex-grow justify-start">
       <Header title="Apps" />
@@ -67,8 +44,8 @@ const Apps: NextPage<{ apps: App[] }> = ({ apps }) => {
             <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
               <a href={app.link} target="_blank" rel="noreferrer">
                 <img
-                  className="lg:h-48 md:h-36 w-full object-cover object-center"
-                  src={app.image}
+                  className="lg:h-64 md:h-64 w-full object-cover object-center"
+                  src={app?.imageUrl}
                   alt={app.title}
                 />
               </a>

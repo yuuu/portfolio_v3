@@ -42,15 +42,16 @@ export const getStaticProps: GetServerSideProps = async (context) => {
   return {
     props: {
       profile: {
-        residence: '福岡県糟屋郡',
-        birthplace: '山口県下松市',
-        birthday: '1989-07-27',
-        hobby: 'ルービックキューブ, ベース演奏, めだか, ボウリング, スプラトゥーン',
-      }
+        residence: "福岡県糟屋郡",
+        birthplace: "山口県下松市",
+        birthday: "1989-07-27",
+        hobby:
+          "ルービックキューブ, ベース演奏, めだか, ボウリング, スプラトゥーン",
+      },
     },
     revalidate: 60,
-  }
-}
+  };
+};
 type Profile = {
   id?: string;
   introduction?: string;
@@ -58,7 +59,7 @@ type Profile = {
   birthplace?: string;
   birthday?: string;
   hobby?: string;
-}
+};
 
 const ProfilePage: NextPage<{ profile: Profile }> = ({ profile }) => {
   // useEffect(() => {

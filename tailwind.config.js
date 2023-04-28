@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors");
 
 module.exports = {
   content: [
@@ -16,8 +16,8 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        transparent: 'transparent',
-        current: 'currentColor',
+        transparent: "transparent",
+        current: "currentColor",
         black: colors.black,
         white: colors.white,
         gray: colors.coolGray,
@@ -26,8 +26,8 @@ module.exports = {
         blue: colors.blue,
         pink: colors.pink,
         accent: {
-          dark: '#880e27',
-          DEFAULT: '#ff2a63',
+          dark: "#880e27",
+          DEFAULT: "#ff2a63",
         },
       },
     },

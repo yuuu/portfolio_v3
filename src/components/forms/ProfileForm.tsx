@@ -15,7 +15,7 @@ type Profile = {
   birthplace?: string;
   birthday?: string;
   hobby?: string;
-}
+};
 
 type Props = {
   profile?: Profile;
