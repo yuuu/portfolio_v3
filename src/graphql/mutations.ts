@@ -16,6 +16,9 @@ export const createApp = /* GraphQL */ `
       description
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -33,6 +36,9 @@ export const updateApp = /* GraphQL */ `
       description
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -50,6 +56,9 @@ export const deleteApp = /* GraphQL */ `
       description
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -67,6 +76,9 @@ export const createArticle = /* GraphQL */ `
       publishedAt
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -84,6 +96,9 @@ export const updateArticle = /* GraphQL */ `
       publishedAt
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -101,6 +116,9 @@ export const deleteArticle = /* GraphQL */ `
       publishedAt
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -117,6 +135,9 @@ export const createBook = /* GraphQL */ `
       description
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -133,6 +154,9 @@ export const updateBook = /* GraphQL */ `
       description
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -149,6 +173,9 @@ export const deleteBook = /* GraphQL */ `
       description
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -166,6 +193,9 @@ export const createProfile = /* GraphQL */ `
       hobby
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -183,6 +213,9 @@ export const updateProfile = /* GraphQL */ `
       hobby
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -200,6 +233,9 @@ export const deleteProfile = /* GraphQL */ `
       hobby
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -215,6 +251,9 @@ export const createSkill = /* GraphQL */ `
       category
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -230,6 +269,9 @@ export const updateSkill = /* GraphQL */ `
       category
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -245,6 +287,9 @@ export const deleteSkill = /* GraphQL */ `
       category
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -262,6 +307,9 @@ export const createSlide = /* GraphQL */ `
       publishedAt
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -279,6 +327,9 @@ export const updateSlide = /* GraphQL */ `
       publishedAt
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -296,6 +347,9 @@ export const deleteSlide = /* GraphQL */ `
       publishedAt
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
