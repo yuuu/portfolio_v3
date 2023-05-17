@@ -1,35 +1,40 @@
 import React from "react";
 import { NextPage } from "next";
 import Header from "../components/Header";
+import { listBooks } from "../graphql/queries";
+import { Storage } from "aws-amplify";
+import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
+import { ListBooksQuery, Book } from "@/API";
+
+type BookV = Book & { imageUrl?: string };
+
+const fetchBooks = async () => {
+  const { data } = await API.graphql<GraphQLQuery<ListBooksQuery>>({
+    query: listBooks,
+    authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+  });
+  return data?.listBooks?.items?.filter((item): item is Book => !!item) || [];
+};
+
+const attachImages = async (books: BookV[]) => {
+  return await Promise.all(
+    books.map(async (book) => {
+      const imageUrl = await Storage.get(book.image);
+      return { ...book, imageUrl };
+    })
+  );
+};
 
 export const getStaticProps = async () => {
-  const books = [
-    {
-      id: "1",
-      link: "https://techbookfest.org/product/5273269798174720?productVariantID=6321568303022080",
-      image:
-        "https://image.portfolio.y-uuu.net/c4395107-90d8-453a-9dff-e58aad71d397",
-      title: "作って学ぶSORACOM入門",
-      description:
-        "本書はIoT向けの無線通信プラットフォームである「SORACOM」の入門書です。読者の皆様がより簡単にSORACOMを使えるようになることを目的に執筆しました。",
-    },
-  ];
-
+  const books = await fetchBooks();
+  const booksV = await attachImages(books);
   return {
-    props: { books },
+    props: { books: booksV },
     revalidate: 60,
   };
 };
 
-export type Book = {
-  id: string;
-  link: string;
-  image: string;
-  title: string;
-  description: string;
-};
-
-const Books: NextPage<{ books: Book[] }> = ({ books }) => {
+const Books: NextPage<{ books: BookV[] }> = ({ books }) => {
   return (
     <div className="flex flex-col flex-grow justify-start">
       <Header title="Books" />
@@ -44,7 +49,7 @@ const Books: NextPage<{ books: Book[] }> = ({ books }) => {
                 <img
                   className="object-cover object-center rounded"
                   alt={book.title}
-                  src={book.image}
+                  src={book.imageUrl}
                 />
               </a>
             </div>
