@@ -25,13 +25,13 @@ export default function ArticleUpdateForm(props) {
   } = props;
   const initialValues = {
     link: "",
-    image: "",
+    imageUrl: "",
     title: "",
     body: "",
     publishedAt: "",
   };
   const [link, setLink] = React.useState(initialValues.link);
-  const [image, setImage] = React.useState(initialValues.image);
+  const [imageUrl, setImageUrl] = React.useState(initialValues.imageUrl);
   const [title, setTitle] = React.useState(initialValues.title);
   const [body, setBody] = React.useState(initialValues.body);
   const [publishedAt, setPublishedAt] = React.useState(
@@ -43,7 +43,7 @@ export default function ArticleUpdateForm(props) {
       ? { ...initialValues, ...articleRecord }
       : initialValues;
     setLink(cleanValues.link);
-    setImage(cleanValues.image);
+    setImageUrl(cleanValues.imageUrl);
     setTitle(cleanValues.title);
     setBody(cleanValues.body);
     setPublishedAt(cleanValues.publishedAt);
@@ -62,7 +62,7 @@ export default function ArticleUpdateForm(props) {
   React.useEffect(resetStateValues, [articleRecord]);
   const validations = {
     link: [{ type: "Required" }],
-    image: [{ type: "Required" }],
+    imageUrl: [{ type: "Required" }],
     title: [{ type: "Required" }],
     body: [],
     publishedAt: [],
@@ -117,7 +117,7 @@ export default function ArticleUpdateForm(props) {
         event.preventDefault();
         let modelFields = {
           link,
-          image,
+          imageUrl,
           title,
           body,
           publishedAt,
@@ -177,7 +177,7 @@ export default function ArticleUpdateForm(props) {
           if (onChange) {
             const modelFields = {
               link: value,
-              image,
+              imageUrl,
               title,
               body,
               publishedAt,
@@ -196,32 +196,32 @@ export default function ArticleUpdateForm(props) {
         {...getOverrideProps(overrides, "link")}
       ></TextField>
       <TextField
-        label="Image"
+        label="Image url"
         isRequired={true}
         isReadOnly={false}
-        value={image}
+        value={imageUrl}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
               link,
-              image: value,
+              imageUrl: value,
               title,
               body,
               publishedAt,
             };
             const result = onChange(modelFields);
-            value = result?.image ?? value;
+            value = result?.imageUrl ?? value;
           }
-          if (errors.image?.hasError) {
-            runValidationTasks("image", value);
+          if (errors.imageUrl?.hasError) {
+            runValidationTasks("imageUrl", value);
           }
-          setImage(value);
+          setImageUrl(value);
         }}
-        onBlur={() => runValidationTasks("image", image)}
-        errorMessage={errors.image?.errorMessage}
-        hasError={errors.image?.hasError}
-        {...getOverrideProps(overrides, "image")}
+        onBlur={() => runValidationTasks("imageUrl", imageUrl)}
+        errorMessage={errors.imageUrl?.errorMessage}
+        hasError={errors.imageUrl?.hasError}
+        {...getOverrideProps(overrides, "imageUrl")}
       ></TextField>
       <TextField
         label="Title"
@@ -233,7 +233,7 @@ export default function ArticleUpdateForm(props) {
           if (onChange) {
             const modelFields = {
               link,
-              image,
+              imageUrl,
               title: value,
               body,
               publishedAt,
@@ -261,7 +261,7 @@ export default function ArticleUpdateForm(props) {
           if (onChange) {
             const modelFields = {
               link,
-              image,
+              imageUrl,
               title,
               body: value,
               publishedAt,
@@ -293,7 +293,7 @@ export default function ArticleUpdateForm(props) {
           if (onChange) {
             const modelFields = {
               link,
-              image,
+              imageUrl,
               title,
               body,
               publishedAt: value,

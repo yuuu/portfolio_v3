@@ -9,41 +9,36 @@ import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { App } from "../models";
 export declare type ValidationResponse = {
-  hasError: boolean;
-  errorMessage?: string;
+    hasError: boolean;
+    errorMessage?: string;
 };
-export declare type ValidationFunction<T> = (
-  value: T,
-  validationResponse: ValidationResponse
-) => ValidationResponse | Promise<ValidationResponse>;
+export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type AppUpdateFormInputValues = {
-  link?: string;
-  image?: string;
-  title?: string;
-  category?: string;
-  description?: string;
+    link?: string;
+    image?: string;
+    title?: string;
+    category?: string;
+    description?: string;
 };
 export declare type AppUpdateFormValidationValues = {
-  link?: ValidationFunction<string>;
-  image?: ValidationFunction<string>;
-  title?: ValidationFunction<string>;
-  category?: ValidationFunction<string>;
-  description?: ValidationFunction<string>;
+    link?: ValidationFunction<string>;
+    image?: ValidationFunction<string>;
+    title?: ValidationFunction<string>;
+    category?: ValidationFunction<string>;
+    description?: ValidationFunction<string>;
 };
-export declare type PrimitiveOverrideProps<T> = Partial<T> &
-  React.DOMAttributes<HTMLDivElement>;
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type AppUpdateFormOverridesProps = {
-  AppUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
-  link?: PrimitiveOverrideProps<TextFieldProps>;
-  image?: PrimitiveOverrideProps<TextFieldProps>;
-  title?: PrimitiveOverrideProps<TextFieldProps>;
-  category?: PrimitiveOverrideProps<TextFieldProps>;
-  description?: PrimitiveOverrideProps<TextFieldProps>;
+    AppUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
+    link?: PrimitiveOverrideProps<TextFieldProps>;
+    image?: PrimitiveOverrideProps<TextFieldProps>;
+    title?: PrimitiveOverrideProps<TextFieldProps>;
+    category?: PrimitiveOverrideProps<TextFieldProps>;
+    description?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
-export declare type AppUpdateFormProps = React.PropsWithChildren<
-  {
+export declare type AppUpdateFormProps = React.PropsWithChildren<{
     overrides?: AppUpdateFormOverridesProps | undefined | null;
-  } & {
+} & {
     id?: string;
     app?: App;
     onSubmit?: (fields: AppUpdateFormInputValues) => AppUpdateFormInputValues;
@@ -51,8 +46,5 @@ export declare type AppUpdateFormProps = React.PropsWithChildren<
     onError?: (fields: AppUpdateFormInputValues, errorMessage: string) => void;
     onChange?: (fields: AppUpdateFormInputValues) => AppUpdateFormInputValues;
     onValidate?: AppUpdateFormValidationValues;
-  } & React.CSSProperties
->;
-export default function AppUpdateForm(
-  props: AppUpdateFormProps
-): React.ReactElement;
+} & React.CSSProperties>;
+export default function AppUpdateForm(props: AppUpdateFormProps): React.ReactElement;

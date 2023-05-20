@@ -18,7 +18,7 @@ type Article
   @auth(rules: [{ allow: public, operations: [read], provider: iam }]) {
   id: ID!
   link: String!
-  image: String!
+  imageUrl: String!
   title: String!
   body: String
   publishedAt: AWSTimestamp
@@ -59,7 +59,7 @@ type Slide
   @auth(rules: [{ allow: public, operations: [read], provider: iam }]) {
   id: ID!
   link: String!
-  image: String!
+  imageUrl: String!
   title: String!
   body: String
   publishedAt: AWSTimestamp!

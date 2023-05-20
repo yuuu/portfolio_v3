@@ -70,7 +70,7 @@ export const createArticle = /* GraphQL */ `
     createArticle(input: $input, condition: $condition) {
       id
       link
-      image
+      imageUrl
       title
       body
       publishedAt
@@ -90,7 +90,7 @@ export const updateArticle = /* GraphQL */ `
     updateArticle(input: $input, condition: $condition) {
       id
       link
-      image
+      imageUrl
       title
       body
       publishedAt
@@ -110,7 +110,7 @@ export const deleteArticle = /* GraphQL */ `
     deleteArticle(input: $input, condition: $condition) {
       id
       link
-      image
+      imageUrl
       title
       body
       publishedAt
@@ -301,7 +301,7 @@ export const createSlide = /* GraphQL */ `
     createSlide(input: $input, condition: $condition) {
       id
       link
-      image
+      imageUrl
       title
       body
       publishedAt
@@ -321,7 +321,7 @@ export const updateSlide = /* GraphQL */ `
     updateSlide(input: $input, condition: $condition) {
       id
       link
-      image
+      imageUrl
       title
       body
       publishedAt
@@ -341,7 +341,7 @@ export const deleteSlide = /* GraphQL */ `
     deleteSlide(input: $input, condition: $condition) {
       id
       link
-      image
+      imageUrl
       title
       body
       publishedAt

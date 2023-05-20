@@ -58,7 +58,7 @@ export const onCreateArticle = /* GraphQL */ `
     onCreateArticle(filter: $filter) {
       id
       link
-      image
+      imageUrl
       title
       body
       publishedAt
@@ -75,7 +75,7 @@ export const onUpdateArticle = /* GraphQL */ `
     onUpdateArticle(filter: $filter) {
       id
       link
-      image
+      imageUrl
       title
       body
       publishedAt
@@ -92,7 +92,7 @@ export const onDeleteArticle = /* GraphQL */ `
     onDeleteArticle(filter: $filter) {
       id
       link
-      image
+      imageUrl
       title
       body
       publishedAt
@@ -253,7 +253,7 @@ export const onCreateSlide = /* GraphQL */ `
     onCreateSlide(filter: $filter) {
       id
       link
-      image
+      imageUrl
       title
       body
       publishedAt
@@ -270,7 +270,7 @@ export const onUpdateSlide = /* GraphQL */ `
     onUpdateSlide(filter: $filter) {
       id
       link
-      image
+      imageUrl
       title
       body
       publishedAt
@@ -287,7 +287,7 @@ export const onDeleteSlide = /* GraphQL */ `
     onDeleteSlide(filter: $filter) {
       id
       link
-      image
+      imageUrl
       title
       body
       publishedAt

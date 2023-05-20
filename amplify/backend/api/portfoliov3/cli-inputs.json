@@ -10,6 +10,7 @@
       "defaultResolutionStrategy": {
         "type": "AUTOMERGE"
       }
-    }
+    },
+    "additionalAuthTypes": []
   }
 }

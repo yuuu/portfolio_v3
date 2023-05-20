@@ -1,33 +1,24 @@
-import React from "react";
 import { NextPage } from "next";
 import Header from "../components/Header";
+import { listSlides } from "../graphql/queries";
+import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
+import { ListSlidesQuery, Slide } from "@/API";
+import * as dayjs from 'dayjs'
+
+const fetchSlides = async () => {
+  const { data } = await API.graphql<GraphQLQuery<ListSlidesQuery>>({
+    query: listSlides,
+    authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+  });
+  return data?.listSlides?.items?.filter((item): item is Slide => !!item) || [];
+};
 
 export const getStaticProps = async () => {
-  const slides = [
-    {
-      id: "1",
-      link: "https://speakerdeck.com/yuuu/akuasiyatutaf-iotyi-chang-tong-bao-sisutemukai-fa-ji-awstosoracomtomockmock",
-      image:
-        "https://files.speakerdeck.com/presentations/745308558150496bb6fab3c159a2fc95/slide_0.jpg?17960151",
-      title:
-        "アクアシャッターｆ IoT異常通報システム開発記 〜 AWSとSORACOMとmockmock",
-      body: "2021-04-27(Tue) 19:00〜 Fusic Tech Live Vol.1：AWS 活用事例 にて発表 https://fusic.connpass.com/event/206957/...",
-      publishedAt: "2021-04-27",
-    },
-  ];
+  const slides = await fetchSlides();
   return {
     props: { slides },
     revalidate: 60,
   };
-};
-
-export type Slide = {
-  id: string;
-  link: string;
-  image: string;
-  title: string;
-  body: string;
-  publishedAt: string;
 };
 
 const Slides: NextPage<{ slides: Slide[] }> = ({ slides }) => {
@@ -45,13 +36,13 @@ const Slides: NextPage<{ slides: Slide[] }> = ({ slides }) => {
                 <img
                   className="object-cover object-center rounded"
                   alt={slide.title}
-                  src={slide.image}
+                  src={slide.imageUrl}
                 />
               </a>
             </div>
             <div className="md:flex-grow md:w-1/2 w-full md:pl-16 flex flex-col items-start text-left">
               <h3 className="text-xl text-gray-600 font-bold mb-2">
-                {slide.publishedAt}
+                {slide.publishedAt && dayjs.unix(slide.publishedAt).format('YYYY-MM-DD')}  
               </h3>
               <a href={slide.link} target="_blank" rel="noreferrer">
                 <h2 className="title-font text-2xl mb-4 font-medium text-gray-900 break-all">

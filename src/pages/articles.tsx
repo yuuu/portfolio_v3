@@ -1,12 +1,9 @@
 import { NextPage } from "next";
 import Header from "../components/Header";
 import { listArticles } from "../graphql/queries";
-import { Storage } from "aws-amplify";
 import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
 import { ListArticlesQuery, Article } from "@/API";
 import * as dayjs from 'dayjs'
-
-type ArticleV = Article & { imageUrl?: string };
 
 const fetchArticles = async () => {
   const { data } = await API.graphql<GraphQLQuery<ListArticlesQuery>>({
@@ -16,25 +13,15 @@ const fetchArticles = async () => {
   return data?.listArticles?.items?.filter((item): item is Article => !!item) || [];
 };
 
-const attachImages = async (articles: ArticleV[]) => {
-  return await Promise.all(
-    articles.map(async (article) => {
-      const imageUrl = await Storage.get(article.image);
-      return { ...article, imageUrl };
-    })
-  );
-};
-
 export const getStaticProps = async () => {
   const articles = await fetchArticles();
-  const articlesV = await attachImages(articles);
   return {
-    props: { articles: articlesV },
+    props: { articles },
     revalidate: 60,
   };
 };
 
-const Articles: NextPage<{ articles: ArticleV[] }> = ({ articles }) => {
+const Articles: NextPage<{ articles: Article[] }> = ({ articles }) => {
   return (
     <div className="flex flex-col flex-grow justify-start">
       <Header title="Articles" />

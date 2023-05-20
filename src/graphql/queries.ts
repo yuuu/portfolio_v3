@@ -80,7 +80,7 @@ export const getArticle = /* GraphQL */ `
     getArticle(id: $id) {
       id
       link
-      image
+      imageUrl
       title
       body
       publishedAt
@@ -102,7 +102,7 @@ export const listArticles = /* GraphQL */ `
       items {
         id
         link
-        image
+        imageUrl
         title
         body
         publishedAt
@@ -133,7 +133,7 @@ export const syncArticles = /* GraphQL */ `
       items {
         id
         link
-        image
+        imageUrl
         title
         body
         publishedAt
@@ -363,7 +363,7 @@ export const getSlide = /* GraphQL */ `
     getSlide(id: $id) {
       id
       link
-      image
+      imageUrl
       title
       body
       publishedAt
@@ -385,7 +385,7 @@ export const listSlides = /* GraphQL */ `
       items {
         id
         link
-        image
+        imageUrl
         title
         body
         publishedAt
@@ -416,7 +416,7 @@ export const syncSlides = /* GraphQL */ `
       items {
         id
         link
-        image
+        imageUrl
         title
         body
         publishedAt

@@ -8,56 +8,41 @@ import * as React from "react";
 import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 export declare type ValidationResponse = {
-  hasError: boolean;
-  errorMessage?: string;
+    hasError: boolean;
+    errorMessage?: string;
 };
-export declare type ValidationFunction<T> = (
-  value: T,
-  validationResponse: ValidationResponse
-) => ValidationResponse | Promise<ValidationResponse>;
+export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type ProfileCreateFormInputValues = {
-  introduction?: string;
-  residence?: string;
-  birthplace?: string;
-  birthday?: number;
-  hobby?: string;
+    introduction?: string;
+    residence?: string;
+    birthplace?: string;
+    birthday?: number;
+    hobby?: string;
 };
 export declare type ProfileCreateFormValidationValues = {
-  introduction?: ValidationFunction<string>;
-  residence?: ValidationFunction<string>;
-  birthplace?: ValidationFunction<string>;
-  birthday?: ValidationFunction<number>;
-  hobby?: ValidationFunction<string>;
+    introduction?: ValidationFunction<string>;
+    residence?: ValidationFunction<string>;
+    birthplace?: ValidationFunction<string>;
+    birthday?: ValidationFunction<number>;
+    hobby?: ValidationFunction<string>;
 };
-export declare type PrimitiveOverrideProps<T> = Partial<T> &
-  React.DOMAttributes<HTMLDivElement>;
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type ProfileCreateFormOverridesProps = {
-  ProfileCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
-  introduction?: PrimitiveOverrideProps<TextFieldProps>;
-  residence?: PrimitiveOverrideProps<TextFieldProps>;
-  birthplace?: PrimitiveOverrideProps<TextFieldProps>;
-  birthday?: PrimitiveOverrideProps<TextFieldProps>;
-  hobby?: PrimitiveOverrideProps<TextFieldProps>;
+    ProfileCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
+    introduction?: PrimitiveOverrideProps<TextFieldProps>;
+    residence?: PrimitiveOverrideProps<TextFieldProps>;
+    birthplace?: PrimitiveOverrideProps<TextFieldProps>;
+    birthday?: PrimitiveOverrideProps<TextFieldProps>;
+    hobby?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
-export declare type ProfileCreateFormProps = React.PropsWithChildren<
-  {
+export declare type ProfileCreateFormProps = React.PropsWithChildren<{
     overrides?: ProfileCreateFormOverridesProps | undefined | null;
-  } & {
+} & {
     clearOnSuccess?: boolean;
-    onSubmit?: (
-      fields: ProfileCreateFormInputValues
-    ) => ProfileCreateFormInputValues;
+    onSubmit?: (fields: ProfileCreateFormInputValues) => ProfileCreateFormInputValues;
     onSuccess?: (fields: ProfileCreateFormInputValues) => void;
-    onError?: (
-      fields: ProfileCreateFormInputValues,
-      errorMessage: string
-    ) => void;
-    onChange?: (
-      fields: ProfileCreateFormInputValues
-    ) => ProfileCreateFormInputValues;
+    onError?: (fields: ProfileCreateFormInputValues, errorMessage: string) => void;
+    onChange?: (fields: ProfileCreateFormInputValues) => ProfileCreateFormInputValues;
     onValidate?: ProfileCreateFormValidationValues;
-  } & React.CSSProperties
->;
-export default function ProfileCreateForm(
-  props: ProfileCreateFormProps
-): React.ReactElement;
+} & React.CSSProperties>;
+export default function ProfileCreateForm(props: ProfileCreateFormProps): React.ReactElement;
