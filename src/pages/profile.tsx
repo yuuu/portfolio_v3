@@ -13,70 +13,31 @@ import {
   faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
 import Header from "@/components/Header";
-// import LinkButton from "@/components/LinkButton";
+import { listProfiles } from "../graphql/queries";
+import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
+import { ListProfilesQuery, Profile } from "@/API";
+import * as dayjs from 'dayjs'
 
-// import { GraphQLResult } from '@aws-amplify/api-graphql'
-// import { listProfiles } from '../src/graphql/queries'
-// import { ListProfilesQuery, Profile } from '../src/API'
-// import { withSSRContext } from 'aws-amplify'
-import { GetServerSideProps } from "next";
-// import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api'
+const fetchProfile = async () => {
+  const { data } = await API.graphql<GraphQLQuery<ListProfilesQuery>>({
+    query: listProfiles,
+    authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+  });
+  return data?.listProfiles?.items[0];
+};
 
-export const getStaticProps: GetServerSideProps = async (context) => {
-  // try {
-  //   const { API: APISSR } = withSSRContext(context)
-  //   const { data } = (await APISSR.graphql({
-  //     query: listProfiles,
-  //     authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
-  //   })) as GraphQLResult<ListProfilesQuery>
-  //   return {
-  //     props: { profile: data?.listProfiles?.items[0] },
-  //     revalidate: 60,
-  //   }
-  // } catch (e) {
-  //   return {
-  //     props: { profile: {} },
-  //     revalidate: 1,
-  //   }
-  // }
+export const getStaticProps = async () => {
+  const profile = await fetchProfile();
   return {
-    props: {
-      profile: {
-        residence: "福岡県糟屋郡",
-        birthplace: "山口県下松市",
-        birthday: "1989-07-27",
-        hobby:
-          "ルービックキューブ, ベース演奏, めだか, ボウリング, スプラトゥーン",
-      },
-    },
+    props: { profile },
     revalidate: 60,
   };
 };
-type Profile = {
-  id?: string;
-  introduction?: string;
-  residence?: string;
-  birthplace?: string;
-  birthday?: string;
-  hobby?: string;
-};
 
 const ProfilePage: NextPage<{ profile: Profile }> = ({ profile }) => {
-  // useEffect(() => {
-  //   ;(async () => {
-  //     ;(await API.graphql({
-  //       query: listProfiles,
-  //       authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
-  //     })) as GraphQLResult<ListProfilesQuery>
-  //   })()
-  // }, [])
-
   return (
     <div className="flex flex-col flex-grow justify-start">
       <Header title="Profile" />
-      {/* <div className="flex flex-row justify-end mb-4">
-        <LinkButton href="/admin/profile/edit">Edit</LinkButton>
-      </div> */}
       <div className="flex flex-col px-4 md:flex-row md:space-x-4 pb-4">
         <div className="flex-none flex justify-center">
           <img
@@ -149,7 +110,9 @@ const ProfilePage: NextPage<{ profile: Profile }> = ({ profile }) => {
                   />
                 </th>
                 <th className="py-2 text-left">生年月日</th>
-                <td>{profile?.birthday}</td>
+                <td>
+                  {profile?.birthday && dayjs.unix(profile.birthday).format('YYYY-MM-DD')}  
+                </td>
               </tr>
               <tr>
                 <th className="py-2">
