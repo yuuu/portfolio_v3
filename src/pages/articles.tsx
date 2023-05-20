@@ -1,35 +1,40 @@
-import React from "react";
 import { NextPage } from "next";
 import Header from "../components/Header";
+import { listArticles } from "../graphql/queries";
+import { Storage } from "aws-amplify";
+import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
+import { ListArticlesQuery, Article } from "@/API";
+import * as dayjs from 'dayjs'
+
+type ArticleV = Article & { imageUrl?: string };
+
+const fetchArticles = async () => {
+  const { data } = await API.graphql<GraphQLQuery<ListArticlesQuery>>({
+    query: listArticles,
+    authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+  });
+  return data?.listArticles?.items?.filter((item): item is Article => !!item) || [];
+};
+
+const attachImages = async (articles: ArticleV[]) => {
+  return await Promise.all(
+    articles.map(async (article) => {
+      const imageUrl = await Storage.get(article.image);
+      return { ...article, imageUrl };
+    })
+  );
+};
 
 export const getStaticProps = async () => {
-  const articles = [
-    {
-      id: "1",
-      link: "https://tech.fusic.co.jp/posts/2022-01-06-aws-iot-core-patlite/",
-      image: "https://tech.fusic.co.jp/uploads/patlite.jpg",
-      title: "パトライトをAWS IoT Coreに接続してリモート制御する",
-      body: "岡嵜です。あけましておめでとうございます。 年末に株式会社パトライトの 評価用機材貸出し を利用して、NHP-FV2 というパトライトをお借りしました。これはAWS IoT Coreと接続可能......",
-      publishedAt: "2022-01-06",
-    },
-  ];
-
+  const articles = await fetchArticles();
+  const articlesV = await attachImages(articles);
   return {
-    props: { articles },
+    props: { articles: articlesV },
     revalidate: 60,
   };
 };
 
-export type Article = {
-  id: string;
-  link: string;
-  image: string;
-  title: string;
-  body: string;
-  publishedAt: string;
-};
-
-const Articles: NextPage<{ articles: Article[] }> = ({ articles }) => {
+const Articles: NextPage<{ articles: ArticleV[] }> = ({ articles }) => {
   return (
     <div className="flex flex-col flex-grow justify-start">
       <Header title="Articles" />
@@ -44,13 +49,13 @@ const Articles: NextPage<{ articles: Article[] }> = ({ articles }) => {
                 <img
                   className="object-cover object-center rounded"
                   alt={article.title}
-                  src={article.image}
+                  src={article.imageUrl}
                 />
               </a>
             </div>
             <div className="md:flex-grow md:w-1/2 w-full md:pl-16 flex flex-col items-start text-left">
               <h3 className="text-xl text-gray-600 font-bold mb-2">
-                {article.publishedAt}
+                {article.publishedAt && dayjs.unix(article.publishedAt).format('YYYY-MM-DD')}  
               </h3>
               <a href={article.link} target="_blank" rel="noreferrer">
                 <h2 className="title-font text-2xl mb-4 font-medium text-gray-900 break-all">

@@ -1,78 +1,52 @@
-import React from "react";
 import { NextPage } from "next";
-import { Tooltip } from "react-tippy";
 import Header from "../components/Header";
+import { listSkills } from "../graphql/queries";
+import { Storage } from "aws-amplify";
+import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
+import { ListSkillsQuery, Skill } from "@/API";
+import { Tooltip } from 'react-tooltip'
+
+type SkillV = Skill & { imageUrl?: string };
+
+const fetchSkills = async () => {
+  const { data } = await API.graphql<GraphQLQuery<ListSkillsQuery>>({
+    query: listSkills,
+    authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+  });
+  return data?.listSkills?.items?.filter((item): item is Skill => !!item) || [];
+};
+
+const attachImages = async (skills: SkillV[]) => {
+  return await Promise.all(
+    skills.map(async (skill) => {
+      const imageUrl = await Storage.get(skill.image);
+      return { ...skill, imageUrl };
+    })
+  );
+};
 
 export const getStaticProps = async () => {
-  const skills = [
-    {
-      id: "1",
-      image:
-        "https://image.portfolio.y-uuu.net/0581824d-63b6-49a7-a1bb-bbd17b131f04",
-      title: "AWS Certified Database - Specialty",
-      category: "AWS Certified",
-    },
-    {
-      id: "2",
-      image:
-        "https://image.portfolio.y-uuu.net/0581824d-63b6-49a7-a1bb-bbd17b131f04",
-      title: "AWS Certified Database - Specialty",
-      category: "AWS Certified",
-    },
-    {
-      id: "3",
-      image:
-        "https://image.portfolio.y-uuu.net/0581824d-63b6-49a7-a1bb-bbd17b131f04",
-      title: "AWS Certified Database - Specialty",
-      category: "AWS Certified",
-    },
-    {
-      id: "4",
-      image:
-        "https://image.portfolio.y-uuu.net/0581824d-63b6-49a7-a1bb-bbd17b131f04",
-      title: "AWS Certified Database - Specialty",
-      category: "AWS Certified",
-    },
-    {
-      id: "5",
-      image:
-        "https://image.portfolio.y-uuu.net/0581824d-63b6-49a7-a1bb-bbd17b131f04",
-      title: "AWS Certified Database - Specialty",
-      category: "AWS Certified",
-    },
-    {
-      id: "6",
-      image:
-        "https://image.portfolio.y-uuu.net/0581824d-63b6-49a7-a1bb-bbd17b131f04",
-      title: "AWS Certified Database - Specialty",
-      category: "AWS Certified",
-    },
-  ];
-
+  const skills = await fetchSkills();
+  const skillsV = await attachImages(skills);
   return {
-    props: { skills },
+    props: { skills: skillsV },
     revalidate: 60,
   };
 };
 
-export type Skill = {
-  id: string;
-  image: string;
-  title: string;
-  category: string;
-};
-
-const Skills: NextPage<{ skills: Skill[] }> = ({ skills }) => {
+const Skills: NextPage<{ skills: SkillV[] }> = ({ skills }) => {
+  console.log(skills)
   return (
     <div className="flex flex-col flex-grow justify-start">
       <Header title="Skills" />
       <dl className="flex flex-wrap justify-items-center items-center">
         {skills.map((skill) => (
           <div key={skill.id} className="px-4 w-1/2 md:w-1/6">
-            <div className="my-4 rounded-md bg-indigo-500">
-              {/* <Tooltip title={skill.title} position="top" trigger="mouseenter">
-                <img className="" src={skill.image} />
-              </Tooltip> */}
+            <div className="my-4 rounded-md">
+              <a id={skill.id} data-tooltip-content={skill.title}>
+                <img className="" src={skill.imageUrl} />
+              </a>
+              <Tooltip anchorSelect={`#${skill.id}`} />
             </div>
           </div>
         ))}

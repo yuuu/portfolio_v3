@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import "react-tippy/dist/tippy.css";
+import 'react-tooltip/dist/react-tooltip.css'
 import "react-toastify/dist/ReactToastify.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";

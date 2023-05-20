@@ -25,8 +25,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.9",
-    "react-tippy": "^1.4.0",
     "react-toastify": "^9.1.2",
+    "react-tooltip": "^5.13.1",
     "tailwindcss": "3.3.1",
     "typescript": "5.0.4"
   },
