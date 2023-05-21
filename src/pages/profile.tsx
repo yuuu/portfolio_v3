@@ -23,7 +23,8 @@ const fetchProfile = async () => {
     query: listProfiles,
     authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
   });
-  return data?.listProfiles?.items[0];
+  const items = data?.listProfiles?.items || [null];
+  return items[0];
 };
 
 export const getStaticProps = async () => {
