@@ -99,7 +99,8 @@ export type CreateArticleInput = {
   imageUrl: string,
   title: string,
   body?: string | null,
-  publishedAt?: number | null,
+  publishedAt: number,
+  type: string,
   _version?: number | null,
 };
 
@@ -108,22 +109,9 @@ export type ModelArticleConditionInput = {
   imageUrl?: ModelStringInput | null,
   title?: ModelStringInput | null,
   body?: ModelStringInput | null,
-  publishedAt?: ModelIntInput | null,
   and?: Array< ModelArticleConditionInput | null > | null,
   or?: Array< ModelArticleConditionInput | null > | null,
   not?: ModelArticleConditionInput | null,
-};
-
-export type ModelIntInput = {
-  ne?: number | null,
-  eq?: number | null,
-  le?: number | null,
-  lt?: number | null,
-  ge?: number | null,
-  gt?: number | null,
-  between?: Array< number | null > | null,
-  attributeExists?: boolean | null,
-  attributeType?: ModelAttributeTypes | null,
 };
 
 export type Article = {
@@ -133,7 +121,8 @@ export type Article = {
   imageUrl: string,
   title: string,
   body?: string | null,
-  publishedAt?: number | null,
+  publishedAt: number,
+  type: string,
   createdAt: string,
   updatedAt: string,
   _version: number,
@@ -142,17 +131,19 @@ export type Article = {
 };
 
 export type UpdateArticleInput = {
-  id: string,
+  id?: string | null,
   link?: string | null,
   imageUrl?: string | null,
   title?: string | null,
   body?: string | null,
-  publishedAt?: number | null,
+  publishedAt: number,
+  type: string,
   _version?: number | null,
 };
 
 export type DeleteArticleInput = {
-  id: string,
+  type: string,
+  publishedAt: number,
   _version?: number | null,
 };
 
@@ -222,6 +213,18 @@ export type ModelProfileConditionInput = {
   and?: Array< ModelProfileConditionInput | null > | null,
   or?: Array< ModelProfileConditionInput | null > | null,
   not?: ModelProfileConditionInput | null,
+};
+
+export type ModelIntInput = {
+  ne?: number | null,
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
 };
 
 export type Profile = {
@@ -304,6 +307,7 @@ export type CreateSlideInput = {
   title: string,
   body?: string | null,
   publishedAt: number,
+  type: string,
   _version?: number | null,
 };
 
@@ -312,7 +316,6 @@ export type ModelSlideConditionInput = {
   imageUrl?: ModelStringInput | null,
   title?: ModelStringInput | null,
   body?: ModelStringInput | null,
-  publishedAt?: ModelIntInput | null,
   and?: Array< ModelSlideConditionInput | null > | null,
   or?: Array< ModelSlideConditionInput | null > | null,
   not?: ModelSlideConditionInput | null,
@@ -326,6 +329,7 @@ export type Slide = {
   title: string,
   body?: string | null,
   publishedAt: number,
+  type: string,
   createdAt: string,
   updatedAt: string,
   _version: number,
@@ -334,17 +338,19 @@ export type Slide = {
 };
 
 export type UpdateSlideInput = {
-  id: string,
+  id?: string | null,
   link?: string | null,
   imageUrl?: string | null,
   title?: string | null,
   body?: string | null,
-  publishedAt?: number | null,
+  publishedAt: number,
+  type: string,
   _version?: number | null,
 };
 
 export type DeleteSlideInput = {
-  id: string,
+  type: string,
+  publishedAt: number,
   _version?: number | null,
 };
 
@@ -383,6 +389,15 @@ export type ModelAppConnection = {
   startedAt?: number | null,
 };
 
+export type ModelIntKeyConditionInput = {
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+};
+
 export type ModelArticleFilterInput = {
   id?: ModelIDInput | null,
   link?: ModelStringInput | null,
@@ -390,10 +405,17 @@ export type ModelArticleFilterInput = {
   title?: ModelStringInput | null,
   body?: ModelStringInput | null,
   publishedAt?: ModelIntInput | null,
+  type?: ModelStringInput | null,
   and?: Array< ModelArticleFilterInput | null > | null,
   or?: Array< ModelArticleFilterInput | null > | null,
   not?: ModelArticleFilterInput | null,
 };
+
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
 
 export type ModelArticleConnection = {
   __typename: "ModelArticleConnection",
@@ -463,6 +485,7 @@ export type ModelSlideFilterInput = {
   title?: ModelStringInput | null,
   body?: ModelStringInput | null,
   publishedAt?: ModelIntInput | null,
+  type?: ModelStringInput | null,
   and?: Array< ModelSlideFilterInput | null > | null,
   or?: Array< ModelSlideFilterInput | null > | null,
   not?: ModelSlideFilterInput | null,
@@ -523,6 +546,7 @@ export type ModelSubscriptionArticleFilterInput = {
   title?: ModelSubscriptionStringInput | null,
   body?: ModelSubscriptionStringInput | null,
   publishedAt?: ModelSubscriptionIntInput | null,
+  type?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionArticleFilterInput | null > | null,
   or?: Array< ModelSubscriptionArticleFilterInput | null > | null,
 };
@@ -576,6 +600,7 @@ export type ModelSubscriptionSlideFilterInput = {
   title?: ModelSubscriptionStringInput | null,
   body?: ModelSubscriptionStringInput | null,
   publishedAt?: ModelSubscriptionIntInput | null,
+  type?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionSlideFilterInput | null > | null,
   or?: Array< ModelSubscriptionSlideFilterInput | null > | null,
 };
@@ -659,7 +684,8 @@ export type CreateArticleMutation = {
     imageUrl: string,
     title: string,
     body?: string | null,
-    publishedAt?: number | null,
+    publishedAt: number,
+    type: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -681,7 +707,8 @@ export type UpdateArticleMutation = {
     imageUrl: string,
     title: string,
     body?: string | null,
-    publishedAt?: number | null,
+    publishedAt: number,
+    type: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -703,7 +730,8 @@ export type DeleteArticleMutation = {
     imageUrl: string,
     title: string,
     body?: string | null,
-    publishedAt?: number | null,
+    publishedAt: number,
+    type: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -915,6 +943,7 @@ export type CreateSlideMutation = {
     title: string,
     body?: string | null,
     publishedAt: number,
+    type: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -937,6 +966,7 @@ export type UpdateSlideMutation = {
     title: string,
     body?: string | null,
     publishedAt: number,
+    type: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -959,6 +989,7 @@ export type DeleteSlideMutation = {
     title: string,
     body?: string | null,
     publishedAt: number,
+    type: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1046,7 +1077,8 @@ export type SyncAppsQuery = {
 };
 
 export type GetArticleQueryVariables = {
-  id: string,
+  type: string,
+  publishedAt: number,
 };
 
 export type GetArticleQuery = {
@@ -1057,7 +1089,8 @@ export type GetArticleQuery = {
     imageUrl: string,
     title: string,
     body?: string | null,
-    publishedAt?: number | null,
+    publishedAt: number,
+    type: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1067,9 +1100,12 @@ export type GetArticleQuery = {
 };
 
 export type ListArticlesQueryVariables = {
+  type?: string | null,
+  publishedAt?: ModelIntKeyConditionInput | null,
   filter?: ModelArticleFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
+  sortDirection?: ModelSortDirection | null,
 };
 
 export type ListArticlesQuery = {
@@ -1082,7 +1118,8 @@ export type ListArticlesQuery = {
       imageUrl: string,
       title: string,
       body?: string | null,
-      publishedAt?: number | null,
+      publishedAt: number,
+      type: string,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -1111,7 +1148,8 @@ export type SyncArticlesQuery = {
       imageUrl: string,
       title: string,
       body?: string | null,
-      publishedAt?: number | null,
+      publishedAt: number,
+      type: string,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -1349,7 +1387,8 @@ export type SyncSkillsQuery = {
 };
 
 export type GetSlideQueryVariables = {
-  id: string,
+  type: string,
+  publishedAt: number,
 };
 
 export type GetSlideQuery = {
@@ -1361,6 +1400,7 @@ export type GetSlideQuery = {
     title: string,
     body?: string | null,
     publishedAt: number,
+    type: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1370,9 +1410,12 @@ export type GetSlideQuery = {
 };
 
 export type ListSlidesQueryVariables = {
+  type?: string | null,
+  publishedAt?: ModelIntKeyConditionInput | null,
   filter?: ModelSlideFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
+  sortDirection?: ModelSortDirection | null,
 };
 
 export type ListSlidesQuery = {
@@ -1386,6 +1429,7 @@ export type ListSlidesQuery = {
       title: string,
       body?: string | null,
       publishedAt: number,
+      type: string,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -1415,6 +1459,7 @@ export type SyncSlidesQuery = {
       title: string,
       body?: string | null,
       publishedAt: number,
+      type: string,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -1501,7 +1546,8 @@ export type OnCreateArticleSubscription = {
     imageUrl: string,
     title: string,
     body?: string | null,
-    publishedAt?: number | null,
+    publishedAt: number,
+    type: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1522,7 +1568,8 @@ export type OnUpdateArticleSubscription = {
     imageUrl: string,
     title: string,
     body?: string | null,
-    publishedAt?: number | null,
+    publishedAt: number,
+    type: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1543,7 +1590,8 @@ export type OnDeleteArticleSubscription = {
     imageUrl: string,
     title: string,
     body?: string | null,
-    publishedAt?: number | null,
+    publishedAt: number,
+    type: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1745,6 +1793,7 @@ export type OnCreateSlideSubscription = {
     title: string,
     body?: string | null,
     publishedAt: number,
+    type: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1766,6 +1815,7 @@ export type OnUpdateSlideSubscription = {
     title: string,
     body?: string | null,
     publishedAt: number,
+    type: string,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1787,6 +1837,7 @@ export type OnDeleteSlideSubscription = {
     title: string,
     body?: string | null,
     publishedAt: number,
+    type: string,
     createdAt: string,
     updatedAt: string,
     _version: number,

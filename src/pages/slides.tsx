@@ -9,6 +9,10 @@ const fetchSlides = async () => {
   const { data } = await API.graphql<GraphQLQuery<ListSlidesQuery>>({
     query: listSlides,
     authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+    variables: {
+      type: "Slide",
+      sortDirection: "DESC",
+    }
   });
   return data?.listSlides?.items?.filter((item): item is Slide => !!item) || [];
 };

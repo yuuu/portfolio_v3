@@ -1,4 +1,4 @@
-import { ModelInit, MutableModel, __modelMeta__, ManagedIdentifier } from "@aws-amplify/datastore";
+import { ModelInit, MutableModel, __modelMeta__, ManagedIdentifier, CompositeIdentifier } from "@aws-amplify/datastore";
 // @ts-ignore
 import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
@@ -44,7 +44,7 @@ export declare const App: (new (init: ModelInit<App>) => App) & {
 
 type EagerArticle = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Article, 'id'>;
+    identifier: CompositeIdentifier<Article, ['type', 'publishedAt']>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
@@ -52,14 +52,15 @@ type EagerArticle = {
   readonly imageUrl: string;
   readonly title: string;
   readonly body?: string | null;
-  readonly publishedAt?: number | null;
+  readonly publishedAt: number;
+  readonly type: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
 
 type LazyArticle = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Article, 'id'>;
+    identifier: CompositeIdentifier<Article, ['type', 'publishedAt']>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
@@ -67,7 +68,8 @@ type LazyArticle = {
   readonly imageUrl: string;
   readonly title: string;
   readonly body?: string | null;
-  readonly publishedAt?: number | null;
+  readonly publishedAt: number;
+  readonly type: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -182,7 +184,7 @@ export declare const Skill: (new (init: ModelInit<Skill>) => Skill) & {
 
 type EagerSlide = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Slide, 'id'>;
+    identifier: CompositeIdentifier<Slide, ['type', 'publishedAt']>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
@@ -191,13 +193,14 @@ type EagerSlide = {
   readonly title: string;
   readonly body?: string | null;
   readonly publishedAt: number;
+  readonly type: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
 
 type LazySlide = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Slide, 'id'>;
+    identifier: CompositeIdentifier<Slide, ['type', 'publishedAt']>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
@@ -206,6 +209,7 @@ type LazySlide = {
   readonly title: string;
   readonly body?: string | null;
   readonly publishedAt: number;
+  readonly type: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

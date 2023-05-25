@@ -127,7 +127,14 @@ export const schema = {
                     "name": "publishedAt",
                     "isArray": false,
                     "type": "AWSTimestamp",
-                    "isRequired": false,
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "type": {
+                    "name": "type",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
                     "attributes": []
                 },
                 "createdAt": {
@@ -153,6 +160,15 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "fields": [
+                            "type",
+                            "publishedAt"
+                        ]
+                    }
                 },
                 {
                     "type": "auth",
@@ -449,6 +465,13 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "type": {
+                    "name": "type",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -474,6 +497,15 @@ export const schema = {
                     "properties": {}
                 },
                 {
+                    "type": "key",
+                    "properties": {
+                        "fields": [
+                            "type",
+                            "publishedAt"
+                        ]
+                    }
+                },
+                {
                     "type": "auth",
                     "properties": {
                         "rules": [
@@ -493,5 +525,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.3",
-    "version": "e8dbcc5060a4046120677544ba038807"
+    "version": "b9e87086b12aed19fa61a8c58226a8ae"
 };

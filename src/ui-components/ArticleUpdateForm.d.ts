@@ -19,6 +19,7 @@ export declare type ArticleUpdateFormInputValues = {
     title?: string;
     body?: string;
     publishedAt?: number;
+    type?: string;
 };
 export declare type ArticleUpdateFormValidationValues = {
     link?: ValidationFunction<string>;
@@ -26,6 +27,7 @@ export declare type ArticleUpdateFormValidationValues = {
     title?: ValidationFunction<string>;
     body?: ValidationFunction<string>;
     publishedAt?: ValidationFunction<number>;
+    type?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type ArticleUpdateFormOverridesProps = {
@@ -35,11 +37,15 @@ export declare type ArticleUpdateFormOverridesProps = {
     title?: PrimitiveOverrideProps<TextFieldProps>;
     body?: PrimitiveOverrideProps<TextFieldProps>;
     publishedAt?: PrimitiveOverrideProps<TextFieldProps>;
+    type?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type ArticleUpdateFormProps = React.PropsWithChildren<{
     overrides?: ArticleUpdateFormOverridesProps | undefined | null;
 } & {
-    id?: string;
+    id?: {
+        type: string;
+        publishedAt: number;
+    };
     article?: Article;
     onSubmit?: (fields: ArticleUpdateFormInputValues) => ArticleUpdateFormInputValues;
     onSuccess?: (fields: ArticleUpdateFormInputValues) => void;

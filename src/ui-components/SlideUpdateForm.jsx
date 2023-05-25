@@ -29,6 +29,7 @@ export default function SlideUpdateForm(props) {
     title: "",
     body: "",
     publishedAt: "",
+    type: "",
   };
   const [link, setLink] = React.useState(initialValues.link);
   const [imageUrl, setImageUrl] = React.useState(initialValues.imageUrl);
@@ -37,6 +38,7 @@ export default function SlideUpdateForm(props) {
   const [publishedAt, setPublishedAt] = React.useState(
     initialValues.publishedAt
   );
+  const [type, setType] = React.useState(initialValues.type);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = slideRecord
@@ -47,6 +49,7 @@ export default function SlideUpdateForm(props) {
     setTitle(cleanValues.title);
     setBody(cleanValues.body);
     setPublishedAt(cleanValues.publishedAt);
+    setType(cleanValues.type);
     setErrors({});
   };
   const [slideRecord, setSlideRecord] = React.useState(slideModelProp);
@@ -66,6 +69,7 @@ export default function SlideUpdateForm(props) {
     title: [{ type: "Required" }],
     body: [],
     publishedAt: [{ type: "Required" }],
+    type: [{ type: "Required" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -121,6 +125,7 @@ export default function SlideUpdateForm(props) {
           title,
           body,
           publishedAt,
+          type,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -181,6 +186,7 @@ export default function SlideUpdateForm(props) {
               title,
               body,
               publishedAt,
+              type,
             };
             const result = onChange(modelFields);
             value = result?.link ?? value;
@@ -209,6 +215,7 @@ export default function SlideUpdateForm(props) {
               title,
               body,
               publishedAt,
+              type,
             };
             const result = onChange(modelFields);
             value = result?.imageUrl ?? value;
@@ -237,6 +244,7 @@ export default function SlideUpdateForm(props) {
               title: value,
               body,
               publishedAt,
+              type,
             };
             const result = onChange(modelFields);
             value = result?.title ?? value;
@@ -265,6 +273,7 @@ export default function SlideUpdateForm(props) {
               title,
               body: value,
               publishedAt,
+              type,
             };
             const result = onChange(modelFields);
             value = result?.body ?? value;
@@ -282,7 +291,7 @@ export default function SlideUpdateForm(props) {
       <TextField
         label="Published at"
         isRequired={true}
-        isReadOnly={false}
+        isReadOnly={true}
         type="datetime-local"
         value={
           publishedAt && convertToLocal(convertTimeStampToDate(publishedAt))
@@ -297,6 +306,7 @@ export default function SlideUpdateForm(props) {
               title,
               body,
               publishedAt: value,
+              type,
             };
             const result = onChange(modelFields);
             value = result?.publishedAt ?? value;
@@ -310,6 +320,35 @@ export default function SlideUpdateForm(props) {
         errorMessage={errors.publishedAt?.errorMessage}
         hasError={errors.publishedAt?.hasError}
         {...getOverrideProps(overrides, "publishedAt")}
+      ></TextField>
+      <TextField
+        label="Type"
+        isRequired={true}
+        isReadOnly={true}
+        value={type}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              link,
+              imageUrl,
+              title,
+              body,
+              publishedAt,
+              type: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.type ?? value;
+          }
+          if (errors.type?.hasError) {
+            runValidationTasks("type", value);
+          }
+          setType(value);
+        }}
+        onBlur={() => runValidationTasks("type", type)}
+        errorMessage={errors.type?.errorMessage}
+        hasError={errors.type?.hasError}
+        {...getOverrideProps(overrides, "type")}
       ></TextField>
       <Flex
         justifyContent="space-between"

@@ -21,7 +21,8 @@ type Article
   imageUrl: String!
   title: String!
   body: String
-  publishedAt: AWSTimestamp
+  publishedAt: AWSTimestamp!
+  type: String! @primaryKey(sortKeyFields: ["publishedAt"])
 }
 
 type Book
@@ -63,4 +64,5 @@ type Slide
   title: String!
   body: String
   publishedAt: AWSTimestamp!
+  type: String! @primaryKey(sortKeyFields: ["publishedAt"])
 }

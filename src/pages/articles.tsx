@@ -9,6 +9,10 @@ const fetchArticles = async () => {
   const { data } = await API.graphql<GraphQLQuery<ListArticlesQuery>>({
     query: listArticles,
     authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+    variables: {
+      type: "Article",
+      sortDirection: "DESC",
+    }
   });
   return data?.listArticles?.items?.filter((item): item is Article => !!item) || [];
 };

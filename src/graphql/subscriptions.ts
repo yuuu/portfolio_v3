@@ -62,6 +62,7 @@ export const onCreateArticle = /* GraphQL */ `
       title
       body
       publishedAt
+      type
       createdAt
       updatedAt
       _version
@@ -79,6 +80,7 @@ export const onUpdateArticle = /* GraphQL */ `
       title
       body
       publishedAt
+      type
       createdAt
       updatedAt
       _version
@@ -96,6 +98,7 @@ export const onDeleteArticle = /* GraphQL */ `
       title
       body
       publishedAt
+      type
       createdAt
       updatedAt
       _version
@@ -257,6 +260,7 @@ export const onCreateSlide = /* GraphQL */ `
       title
       body
       publishedAt
+      type
       createdAt
       updatedAt
       _version
@@ -274,6 +278,7 @@ export const onUpdateSlide = /* GraphQL */ `
       title
       body
       publishedAt
+      type
       createdAt
       updatedAt
       _version
@@ -291,6 +296,7 @@ export const onDeleteSlide = /* GraphQL */ `
       title
       body
       publishedAt
+      type
       createdAt
       updatedAt
       _version

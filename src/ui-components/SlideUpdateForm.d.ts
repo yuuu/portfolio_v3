@@ -19,6 +19,7 @@ export declare type SlideUpdateFormInputValues = {
     title?: string;
     body?: string;
     publishedAt?: number;
+    type?: string;
 };
 export declare type SlideUpdateFormValidationValues = {
     link?: ValidationFunction<string>;
@@ -26,6 +27,7 @@ export declare type SlideUpdateFormValidationValues = {
     title?: ValidationFunction<string>;
     body?: ValidationFunction<string>;
     publishedAt?: ValidationFunction<number>;
+    type?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type SlideUpdateFormOverridesProps = {
@@ -35,11 +37,15 @@ export declare type SlideUpdateFormOverridesProps = {
     title?: PrimitiveOverrideProps<TextFieldProps>;
     body?: PrimitiveOverrideProps<TextFieldProps>;
     publishedAt?: PrimitiveOverrideProps<TextFieldProps>;
+    type?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type SlideUpdateFormProps = React.PropsWithChildren<{
     overrides?: SlideUpdateFormOverridesProps | undefined | null;
 } & {
-    id?: string;
+    id?: {
+        type: string;
+        publishedAt: number;
+    };
     slide?: Slide;
     onSubmit?: (fields: SlideUpdateFormInputValues) => SlideUpdateFormInputValues;
     onSuccess?: (fields: SlideUpdateFormInputValues) => void;

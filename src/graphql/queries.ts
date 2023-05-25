@@ -76,14 +76,15 @@ export const syncApps = /* GraphQL */ `
   }
 `;
 export const getArticle = /* GraphQL */ `
-  query GetArticle($id: ID!) {
-    getArticle(id: $id) {
+  query GetArticle($type: String!, $publishedAt: AWSTimestamp!) {
+    getArticle(type: $type, publishedAt: $publishedAt) {
       id
       link
       imageUrl
       title
       body
       publishedAt
+      type
       createdAt
       updatedAt
       _version
@@ -94,11 +95,21 @@ export const getArticle = /* GraphQL */ `
 `;
 export const listArticles = /* GraphQL */ `
   query ListArticles(
+    $type: String
+    $publishedAt: ModelIntKeyConditionInput
     $filter: ModelArticleFilterInput
     $limit: Int
     $nextToken: String
+    $sortDirection: ModelSortDirection
   ) {
-    listArticles(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listArticles(
+      type: $type
+      publishedAt: $publishedAt
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
       items {
         id
         link
@@ -106,6 +117,7 @@ export const listArticles = /* GraphQL */ `
         title
         body
         publishedAt
+        type
         createdAt
         updatedAt
         _version
@@ -137,6 +149,7 @@ export const syncArticles = /* GraphQL */ `
         title
         body
         publishedAt
+        type
         createdAt
         updatedAt
         _version
@@ -359,14 +372,15 @@ export const syncSkills = /* GraphQL */ `
   }
 `;
 export const getSlide = /* GraphQL */ `
-  query GetSlide($id: ID!) {
-    getSlide(id: $id) {
+  query GetSlide($type: String!, $publishedAt: AWSTimestamp!) {
+    getSlide(type: $type, publishedAt: $publishedAt) {
       id
       link
       imageUrl
       title
       body
       publishedAt
+      type
       createdAt
       updatedAt
       _version
@@ -377,11 +391,21 @@ export const getSlide = /* GraphQL */ `
 `;
 export const listSlides = /* GraphQL */ `
   query ListSlides(
+    $type: String
+    $publishedAt: ModelIntKeyConditionInput
     $filter: ModelSlideFilterInput
     $limit: Int
     $nextToken: String
+    $sortDirection: ModelSortDirection
   ) {
-    listSlides(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listSlides(
+      type: $type
+      publishedAt: $publishedAt
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
       items {
         id
         link
@@ -389,6 +413,7 @@ export const listSlides = /* GraphQL */ `
         title
         body
         publishedAt
+        type
         createdAt
         updatedAt
         _version
@@ -420,6 +445,7 @@ export const syncSlides = /* GraphQL */ `
         title
         body
         publishedAt
+        type
         createdAt
         updatedAt
         _version

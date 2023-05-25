@@ -28,6 +28,7 @@ export default function SlideCreateForm(props) {
     title: "",
     body: "",
     publishedAt: "",
+    type: "",
   };
   const [link, setLink] = React.useState(initialValues.link);
   const [imageUrl, setImageUrl] = React.useState(initialValues.imageUrl);
@@ -36,6 +37,7 @@ export default function SlideCreateForm(props) {
   const [publishedAt, setPublishedAt] = React.useState(
     initialValues.publishedAt
   );
+  const [type, setType] = React.useState(initialValues.type);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setLink(initialValues.link);
@@ -43,6 +45,7 @@ export default function SlideCreateForm(props) {
     setTitle(initialValues.title);
     setBody(initialValues.body);
     setPublishedAt(initialValues.publishedAt);
+    setType(initialValues.type);
     setErrors({});
   };
   const validations = {
@@ -51,6 +54,7 @@ export default function SlideCreateForm(props) {
     title: [{ type: "Required" }],
     body: [],
     publishedAt: [{ type: "Required" }],
+    type: [{ type: "Required" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -106,6 +110,7 @@ export default function SlideCreateForm(props) {
           title,
           body,
           publishedAt,
+          type,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -165,6 +170,7 @@ export default function SlideCreateForm(props) {
               title,
               body,
               publishedAt,
+              type,
             };
             const result = onChange(modelFields);
             value = result?.link ?? value;
@@ -193,6 +199,7 @@ export default function SlideCreateForm(props) {
               title,
               body,
               publishedAt,
+              type,
             };
             const result = onChange(modelFields);
             value = result?.imageUrl ?? value;
@@ -221,6 +228,7 @@ export default function SlideCreateForm(props) {
               title: value,
               body,
               publishedAt,
+              type,
             };
             const result = onChange(modelFields);
             value = result?.title ?? value;
@@ -249,6 +257,7 @@ export default function SlideCreateForm(props) {
               title,
               body: value,
               publishedAt,
+              type,
             };
             const result = onChange(modelFields);
             value = result?.body ?? value;
@@ -281,6 +290,7 @@ export default function SlideCreateForm(props) {
               title,
               body,
               publishedAt: value,
+              type,
             };
             const result = onChange(modelFields);
             value = result?.publishedAt ?? value;
@@ -294,6 +304,35 @@ export default function SlideCreateForm(props) {
         errorMessage={errors.publishedAt?.errorMessage}
         hasError={errors.publishedAt?.hasError}
         {...getOverrideProps(overrides, "publishedAt")}
+      ></TextField>
+      <TextField
+        label="Type"
+        isRequired={true}
+        isReadOnly={false}
+        value={type}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              link,
+              imageUrl,
+              title,
+              body,
+              publishedAt,
+              type: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.type ?? value;
+          }
+          if (errors.type?.hasError) {
+            runValidationTasks("type", value);
+          }
+          setType(value);
+        }}
+        onBlur={() => runValidationTasks("type", type)}
+        errorMessage={errors.type?.errorMessage}
+        hasError={errors.type?.hasError}
+        {...getOverrideProps(overrides, "type")}
       ></TextField>
       <Flex
         justifyContent="space-between"
