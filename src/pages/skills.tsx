@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import Header from "../components/Header";
+import SubHeader from "../components/SubHeader";
 import { listSkills } from "../graphql/queries";
 import { Storage } from "aws-amplify";
 import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
@@ -34,13 +35,43 @@ export const getStaticProps = async () => {
   };
 };
 
+const languageSkills = (skills: SkillV[]) => (skills.filter((skill) => skill.category === "Language"))
+const frameworkSkills = (skills: SkillV[]) => (skills.filter((skill) => skill.category === "Framework"))
+const cloudSkills = (skills: SkillV[]) => (skills.filter((skill) => skill.category === "Cloud"))
+
 const Skills: NextPage<{ skills: SkillV[] }> = ({ skills }) => {
-  console.log(skills)
   return (
     <div className="flex flex-col flex-grow justify-start">
       <Header title="Skills" />
+      <SubHeader title="Language" />
       <dl className="flex flex-wrap justify-items-center items-center">
-        {skills.map((skill) => (
+        {languageSkills(skills).map((skill) => (
+          <div key={skill.id} className="px-4 w-1/2 md:w-1/6">
+            <div className="my-4 rounded-md">
+              <a id={skill.id} data-tooltip-content={skill.title}>
+                <img className="" src={skill.imageUrl} />
+              </a>
+              <Tooltip anchorSelect={`#${skill.id}`} />
+            </div>
+          </div>
+        ))}
+      </dl>
+      <SubHeader title="Framework" />
+      <dl className="flex flex-wrap justify-items-center items-center">
+        {frameworkSkills(skills).map((skill) => (
+          <div key={skill.id} className="px-4 w-1/2 md:w-1/6">
+            <div className="my-4 rounded-md">
+              <a id={skill.id} data-tooltip-content={skill.title}>
+                <img className="" src={skill.imageUrl} />
+              </a>
+              <Tooltip anchorSelect={`#${skill.id}`} />
+            </div>
+          </div>
+        ))}
+      </dl>
+      <SubHeader title="Cloud" />
+      <dl className="flex flex-wrap justify-items-center items-center">
+        {cloudSkills(skills).map((skill) => (
           <div key={skill.id} className="px-4 w-1/2 md:w-1/6">
             <div className="my-4 rounded-md">
               <a id={skill.id} data-tooltip-content={skill.title}>
