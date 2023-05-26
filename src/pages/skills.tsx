@@ -5,7 +5,7 @@ import { listSkills } from "../graphql/queries";
 import { Storage } from "aws-amplify";
 import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
 import { ListSkillsQuery, Skill } from "@/API";
-import { Tooltip } from 'react-tooltip'
+import { Tooltip } from "react-tooltip";
 
 type SkillV = Skill & { imageUrl?: string };
 
@@ -35,9 +35,12 @@ export const getStaticProps = async () => {
   };
 };
 
-const languageSkills = (skills: SkillV[]) => (skills.filter((skill) => skill.category === "Language"))
-const frameworkSkills = (skills: SkillV[]) => (skills.filter((skill) => skill.category === "Framework"))
-const cloudSkills = (skills: SkillV[]) => (skills.filter((skill) => skill.category === "Cloud"))
+const languageSkills = (skills: SkillV[]) =>
+  skills.filter((skill) => skill.category === "Language");
+const frameworkSkills = (skills: SkillV[]) =>
+  skills.filter((skill) => skill.category === "Framework");
+const cloudSkills = (skills: SkillV[]) =>
+  skills.filter((skill) => skill.category === "Cloud");
 
 const Skills: NextPage<{ skills: SkillV[] }> = ({ skills }) => {
   return (

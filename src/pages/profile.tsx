@@ -16,7 +16,7 @@ import Header from "@/components/Header";
 import { listProfiles } from "../graphql/queries";
 import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
 import { ListProfilesQuery, Profile } from "@/API";
-import * as dayjs from 'dayjs'
+import * as dayjs from "dayjs";
 
 const fetchProfile = async () => {
   const { data } = await API.graphql<GraphQLQuery<ListProfilesQuery>>({
@@ -112,7 +112,8 @@ const ProfilePage: NextPage<{ profile: Profile }> = ({ profile }) => {
                 </th>
                 <th className="py-2 text-left">生年月日</th>
                 <td>
-                  {profile?.birthday && dayjs.unix(profile.birthday).format('YYYY-MM-DD')}  
+                  {profile?.birthday &&
+                    dayjs.unix(profile.birthday).format("YYYY-MM-DD")}
                 </td>
               </tr>
               <tr>

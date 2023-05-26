@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import { listSlides } from "../graphql/queries";
 import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
 import { ListSlidesQuery, Slide } from "@/API";
-import * as dayjs from 'dayjs'
+import * as dayjs from "dayjs";
 
 const fetchSlides = async () => {
   const { data } = await API.graphql<GraphQLQuery<ListSlidesQuery>>({
@@ -12,7 +12,7 @@ const fetchSlides = async () => {
     variables: {
       type: "Slide",
       sortDirection: "DESC",
-    }
+    },
   });
   return data?.listSlides?.items?.filter((item): item is Slide => !!item) || [];
 };
@@ -46,7 +46,8 @@ const Slides: NextPage<{ slides: Slide[] }> = ({ slides }) => {
             </div>
             <div className="md:flex-grow md:w-1/2 w-full md:pl-16 flex flex-col items-start text-left">
               <h3 className="text-xl text-gray-600 font-bold mb-2">
-                {slide.publishedAt && dayjs.unix(slide.publishedAt).format('YYYY-MM-DD')}  
+                {slide.publishedAt &&
+                  dayjs.unix(slide.publishedAt).format("YYYY-MM-DD")}
               </h3>
               <a href={slide.link} target="_blank" rel="noreferrer">
                 <h2 className="title-font text-2xl mb-4 font-medium text-gray-900 break-all">
