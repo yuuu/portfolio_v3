@@ -21,6 +21,7 @@ export type ModelAppConditionInput = {
   and?: Array< ModelAppConditionInput | null > | null,
   or?: Array< ModelAppConditionInput | null > | null,
   not?: ModelAppConditionInput | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type ModelStringInput = {
@@ -61,6 +62,13 @@ export type ModelSizeInput = {
   ge?: number | null,
   gt?: number | null,
   between?: Array< number | null > | null,
+};
+
+export type ModelBooleanInput = {
+  ne?: boolean | null,
+  eq?: boolean | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
 };
 
 export type App = {
@@ -112,6 +120,7 @@ export type ModelArticleConditionInput = {
   and?: Array< ModelArticleConditionInput | null > | null,
   or?: Array< ModelArticleConditionInput | null > | null,
   not?: ModelArticleConditionInput | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type Article = {
@@ -164,6 +173,7 @@ export type ModelBookConditionInput = {
   and?: Array< ModelBookConditionInput | null > | null,
   or?: Array< ModelBookConditionInput | null > | null,
   not?: ModelBookConditionInput | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type Book = {
@@ -213,6 +223,7 @@ export type ModelProfileConditionInput = {
   and?: Array< ModelProfileConditionInput | null > | null,
   or?: Array< ModelProfileConditionInput | null > | null,
   not?: ModelProfileConditionInput | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type ModelIntInput = {
@@ -272,6 +283,7 @@ export type ModelSkillConditionInput = {
   and?: Array< ModelSkillConditionInput | null > | null,
   or?: Array< ModelSkillConditionInput | null > | null,
   not?: ModelSkillConditionInput | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type Skill = {
@@ -319,6 +331,7 @@ export type ModelSlideConditionInput = {
   and?: Array< ModelSlideConditionInput | null > | null,
   or?: Array< ModelSlideConditionInput | null > | null,
   not?: ModelSlideConditionInput | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type Slide = {
@@ -364,6 +377,7 @@ export type ModelAppFilterInput = {
   and?: Array< ModelAppFilterInput | null > | null,
   or?: Array< ModelAppFilterInput | null > | null,
   not?: ModelAppFilterInput | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type ModelIDInput = {
@@ -409,6 +423,7 @@ export type ModelArticleFilterInput = {
   and?: Array< ModelArticleFilterInput | null > | null,
   or?: Array< ModelArticleFilterInput | null > | null,
   not?: ModelArticleFilterInput | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export enum ModelSortDirection {
@@ -433,6 +448,7 @@ export type ModelBookFilterInput = {
   and?: Array< ModelBookFilterInput | null > | null,
   or?: Array< ModelBookFilterInput | null > | null,
   not?: ModelBookFilterInput | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type ModelBookConnection = {
@@ -452,6 +468,7 @@ export type ModelProfileFilterInput = {
   and?: Array< ModelProfileFilterInput | null > | null,
   or?: Array< ModelProfileFilterInput | null > | null,
   not?: ModelProfileFilterInput | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type ModelProfileConnection = {
@@ -469,6 +486,7 @@ export type ModelSkillFilterInput = {
   and?: Array< ModelSkillFilterInput | null > | null,
   or?: Array< ModelSkillFilterInput | null > | null,
   not?: ModelSkillFilterInput | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type ModelSkillConnection = {
@@ -489,6 +507,7 @@ export type ModelSlideFilterInput = {
   and?: Array< ModelSlideFilterInput | null > | null,
   or?: Array< ModelSlideFilterInput | null > | null,
   not?: ModelSlideFilterInput | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type ModelSlideConnection = {
@@ -507,6 +526,7 @@ export type ModelSubscriptionAppFilterInput = {
   description?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionAppFilterInput | null > | null,
   or?: Array< ModelSubscriptionAppFilterInput | null > | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type ModelSubscriptionIDInput = {
@@ -549,6 +569,7 @@ export type ModelSubscriptionArticleFilterInput = {
   type?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionArticleFilterInput | null > | null,
   or?: Array< ModelSubscriptionArticleFilterInput | null > | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type ModelSubscriptionIntInput = {
@@ -571,6 +592,7 @@ export type ModelSubscriptionBookFilterInput = {
   description?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionBookFilterInput | null > | null,
   or?: Array< ModelSubscriptionBookFilterInput | null > | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type ModelSubscriptionProfileFilterInput = {
@@ -582,6 +604,7 @@ export type ModelSubscriptionProfileFilterInput = {
   hobby?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionProfileFilterInput | null > | null,
   or?: Array< ModelSubscriptionProfileFilterInput | null > | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type ModelSubscriptionSkillFilterInput = {
@@ -591,6 +614,7 @@ export type ModelSubscriptionSkillFilterInput = {
   category?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionSkillFilterInput | null > | null,
   or?: Array< ModelSubscriptionSkillFilterInput | null > | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type ModelSubscriptionSlideFilterInput = {
@@ -603,6 +627,7 @@ export type ModelSubscriptionSlideFilterInput = {
   type?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionSlideFilterInput | null > | null,
   or?: Array< ModelSubscriptionSlideFilterInput | null > | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type CreateAppMutationVariables = {
