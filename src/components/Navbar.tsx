@@ -20,7 +20,12 @@ export const Navbar: React.FC = () => {
               <Link href="/">
                 <div className="flex space-x-4">
                   <div className="rounded-full h-8 w-8 bg-white">
-                    <img src="/images/logo.png" />
+                    <Image
+                      src="/images/logo.png"
+                      alt="yuuu&lsquo;s portfolio"
+                      width={720}
+                      height={718}
+                    />
                   </div>
                   <span className="text-white text-xl">
                     yuuu&lsquo;s portfolio

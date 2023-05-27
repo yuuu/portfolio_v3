@@ -1,5 +1,6 @@
 import React from "react";
 import { NextPage } from "next";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
@@ -41,9 +42,12 @@ const ProfilePage: NextPage<{ profile: Profile }> = ({ profile }) => {
       <Header title="Profile" />
       <div className="flex flex-col px-4 md:flex-row md:space-x-4 pb-4">
         <div className="flex-none flex justify-center">
-          <img
-            src="/images/profile.png"
+          <Image
             className="max-h-80 max-w-xs md:max-h-96 md:max-w-sm mb-4 shadow"
+            src="/images/profile.png"
+            alt="yuuu"
+            width={767}
+            height={764}
           />
         </div>
         <div className="flex-grow">

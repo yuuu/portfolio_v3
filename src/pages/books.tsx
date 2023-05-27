@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { NextPage } from "next";
 import Header from "../components/Header";
 import { listBooks } from "../graphql/queries";
@@ -46,11 +47,16 @@ const Books: NextPage<{ books: BookV[] }> = ({ books }) => {
           >
             <div className="md:w-1/4 w-3/4">
               <a href={book.link} target="_blank" rel="noreferrer">
-                <img
-                  className="object-cover object-center rounded"
-                  alt={book.title}
-                  src={book.imageUrl}
-                />
+                {
+                  book?.imageUrl &&
+                    <Image
+                      className="object-cover object-center rounded"
+                      alt={book.title}
+                      src={book.imageUrl}
+                      width={1057}
+                      height={1500}
+                    />
+                }
               </a>
             </div>
             <div className="md:flex-grow md:w-1/2 w-full md:pl-16 flex flex-col items-start text-left">

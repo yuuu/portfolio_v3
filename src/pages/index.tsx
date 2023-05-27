@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 const Home: React.FC = () => {
@@ -20,7 +21,12 @@ const Home: React.FC = () => {
         </div>
       </div>
       <div>
-        <img src="/images/logo.png" />
+        <Image
+          src="/images/logo.png"
+          alt="yuuu&lsquo;s portfolio"
+          width={720}
+          height={718}
+        />
       </div>
     </div>
   );

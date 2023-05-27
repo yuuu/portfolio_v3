@@ -4,6 +4,7 @@ import { listSlides } from "../graphql/queries";
 import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
 import { ListSlidesQuery, Slide } from "@/API";
 import * as dayjs from "dayjs";
+import Image from "next/image";
 
 const fetchSlides = async () => {
   const { data } = await API.graphql<GraphQLQuery<ListSlidesQuery>>({
@@ -37,10 +38,12 @@ const Slides: NextPage<{ slides: Slide[] }> = ({ slides }) => {
           >
             <div className="md:w-1/3 mb-4">
               <a href={slide.link} target="_blank" rel="noreferrer">
-                <img
+                <Image
                   className="object-cover object-center rounded"
                   alt={slide.title}
                   src={slide.imageUrl}
+                  width={828}
+                  height={466}
                 />
               </a>
             </div>

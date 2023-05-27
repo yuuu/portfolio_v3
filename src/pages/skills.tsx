@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Image from "next/image";
 import Header from "../components/Header";
 import SubHeader from "../components/SubHeader";
 import { listSkills } from "../graphql/queries";
@@ -52,7 +53,15 @@ const Skills: NextPage<{ skills: SkillV[] }> = ({ skills }) => {
           <div key={skill.id} className="px-4 w-1/2 md:w-1/6">
             <div className="my-4 rounded-md">
               <a id={skill.id} data-tooltip-content={skill.title}>
-                <img className="" src={skill.imageUrl} />
+                {
+                  skill?.imageUrl &&
+                    <Image
+                      alt={skill.title}
+                      src={skill.imageUrl}
+                      width={1057}
+                      height={1500}
+                    />
+                }
               </a>
               <Tooltip anchorSelect={`#${skill.id}`} />
             </div>
@@ -65,7 +74,15 @@ const Skills: NextPage<{ skills: SkillV[] }> = ({ skills }) => {
           <div key={skill.id} className="px-4 w-1/2 md:w-1/6">
             <div className="my-4 rounded-md">
               <a id={skill.id} data-tooltip-content={skill.title}>
-                <img className="" src={skill.imageUrl} />
+                {
+                  skill?.imageUrl &&
+                    <Image
+                      alt={skill.title}
+                      src={skill.imageUrl}
+                      width={1057}
+                      height={1500}
+                    />
+                }
               </a>
               <Tooltip anchorSelect={`#${skill.id}`} />
             </div>
@@ -78,7 +95,15 @@ const Skills: NextPage<{ skills: SkillV[] }> = ({ skills }) => {
           <div key={skill.id} className="px-4 w-1/2 md:w-1/6">
             <div className="my-4 rounded-md">
               <a id={skill.id} data-tooltip-content={skill.title}>
-                <img className="" src={skill.imageUrl} />
+                {
+                  skill?.imageUrl &&
+                    <Image
+                      alt={skill.title}
+                      src={skill.imageUrl}
+                      width={1057}
+                      height={1500}
+                    />
+                }
               </a>
               <Tooltip anchorSelect={`#${skill.id}`} />
             </div>

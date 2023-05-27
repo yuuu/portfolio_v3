@@ -4,6 +4,7 @@ import { listArticles } from "../graphql/queries";
 import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
 import { ListArticlesQuery, Article } from "@/API";
 import * as dayjs from "dayjs";
+import Image from "next/image";
 
 const fetchArticles = async () => {
   const { data } = await API.graphql<GraphQLQuery<ListArticlesQuery>>({
@@ -39,10 +40,12 @@ const Articles: NextPage<{ articles: Article[] }> = ({ articles }) => {
           >
             <div className="md:w-1/3 mb-4">
               <a href={article.link} target="_blank" rel="noreferrer">
-                <img
+                <Image
                   className="object-cover object-center rounded"
                   alt={article.title}
                   src={article.imageUrl}
+                  width={406}
+                  height={213}
                 />
               </a>
             </div>
