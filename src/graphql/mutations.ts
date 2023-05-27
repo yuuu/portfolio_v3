@@ -9,17 +9,19 @@ export const createApp = /* GraphQL */ `
   ) {
     createApp(input: $input, condition: $condition) {
       id
-      title
-      description
-      category
-      storageKey
       link
+      image
+      title
+      category
+      description
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const updateApp = /* GraphQL */ `
   mutation UpdateApp(
     $input: UpdateAppInput!
@@ -27,17 +29,19 @@ export const updateApp = /* GraphQL */ `
   ) {
     updateApp(input: $input, condition: $condition) {
       id
-      title
-      description
-      category
-      storageKey
       link
+      image
+      title
+      category
+      description
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const deleteApp = /* GraphQL */ `
   mutation DeleteApp(
     $input: DeleteAppInput!
@@ -45,17 +49,19 @@ export const deleteApp = /* GraphQL */ `
   ) {
     deleteApp(input: $input, condition: $condition) {
       id
-      title
-      description
-      category
-      storageKey
       link
+      image
+      title
+      category
+      description
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const createArticle = /* GraphQL */ `
   mutation CreateArticle(
     $input: CreateArticleInput!
@@ -63,17 +69,20 @@ export const createArticle = /* GraphQL */ `
   ) {
     createArticle(input: $input, condition: $condition) {
       id
+      link
+      imageUrl
       title
       body
-      image
-      link
       publishedAt
+      type
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const updateArticle = /* GraphQL */ `
   mutation UpdateArticle(
     $input: UpdateArticleInput!
@@ -81,17 +90,20 @@ export const updateArticle = /* GraphQL */ `
   ) {
     updateArticle(input: $input, condition: $condition) {
       id
+      link
+      imageUrl
       title
       body
-      image
-      link
       publishedAt
+      type
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const deleteArticle = /* GraphQL */ `
   mutation DeleteArticle(
     $input: DeleteArticleInput!
@@ -99,17 +111,20 @@ export const deleteArticle = /* GraphQL */ `
   ) {
     deleteArticle(input: $input, condition: $condition) {
       id
+      link
+      imageUrl
       title
       body
-      image
-      link
       publishedAt
+      type
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const createBook = /* GraphQL */ `
   mutation CreateBook(
     $input: CreateBookInput!
@@ -117,16 +132,18 @@ export const createBook = /* GraphQL */ `
   ) {
     createBook(input: $input, condition: $condition) {
       id
+      link
+      image
       title
       description
-      storageKey
-      link
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const updateBook = /* GraphQL */ `
   mutation UpdateBook(
     $input: UpdateBookInput!
@@ -134,16 +151,18 @@ export const updateBook = /* GraphQL */ `
   ) {
     updateBook(input: $input, condition: $condition) {
       id
+      link
+      image
       title
       description
-      storageKey
-      link
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const deleteBook = /* GraphQL */ `
   mutation DeleteBook(
     $input: DeleteBookInput!
@@ -151,16 +170,18 @@ export const deleteBook = /* GraphQL */ `
   ) {
     deleteBook(input: $input, condition: $condition) {
       id
+      link
+      image
       title
       description
-      storageKey
-      link
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const createProfile = /* GraphQL */ `
   mutation CreateProfile(
     $input: CreateProfileInput!
@@ -175,10 +196,12 @@ export const createProfile = /* GraphQL */ `
       hobby
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const updateProfile = /* GraphQL */ `
   mutation UpdateProfile(
     $input: UpdateProfileInput!
@@ -193,10 +216,12 @@ export const updateProfile = /* GraphQL */ `
       hobby
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const deleteProfile = /* GraphQL */ `
   mutation DeleteProfile(
     $input: DeleteProfileInput!
@@ -211,10 +236,12 @@ export const deleteProfile = /* GraphQL */ `
       hobby
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const createSkill = /* GraphQL */ `
   mutation CreateSkill(
     $input: CreateSkillInput!
@@ -222,14 +249,17 @@ export const createSkill = /* GraphQL */ `
   ) {
     createSkill(input: $input, condition: $condition) {
       id
+      image
       title
-      storageKey
+      category
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const updateSkill = /* GraphQL */ `
   mutation UpdateSkill(
     $input: UpdateSkillInput!
@@ -237,14 +267,17 @@ export const updateSkill = /* GraphQL */ `
   ) {
     updateSkill(input: $input, condition: $condition) {
       id
+      image
       title
-      storageKey
+      category
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const deleteSkill = /* GraphQL */ `
   mutation DeleteSkill(
     $input: DeleteSkillInput!
@@ -252,14 +285,17 @@ export const deleteSkill = /* GraphQL */ `
   ) {
     deleteSkill(input: $input, condition: $condition) {
       id
+      image
       title
-      storageKey
+      category
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const createSlide = /* GraphQL */ `
   mutation CreateSlide(
     $input: CreateSlideInput!
@@ -267,16 +303,20 @@ export const createSlide = /* GraphQL */ `
   ) {
     createSlide(input: $input, condition: $condition) {
       id
+      link
+      imageUrl
       title
       body
-      image
       publishedAt
+      type
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const updateSlide = /* GraphQL */ `
   mutation UpdateSlide(
     $input: UpdateSlideInput!
@@ -284,16 +324,20 @@ export const updateSlide = /* GraphQL */ `
   ) {
     updateSlide(input: $input, condition: $condition) {
       id
+      link
+      imageUrl
       title
       body
-      image
       publishedAt
+      type
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const deleteSlide = /* GraphQL */ `
   mutation DeleteSlide(
     $input: DeleteSlideInput!
@@ -301,13 +345,17 @@ export const deleteSlide = /* GraphQL */ `
   ) {
     deleteSlide(input: $input, condition: $condition) {
       id
+      link
+      imageUrl
       title
       body
-      image
       publishedAt
+      type
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;

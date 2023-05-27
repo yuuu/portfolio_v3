@@ -1,32 +1,40 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from "react";
+import { useForm } from "react-hook-form";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
   faBirthdayCake,
   faHeart,
   faMapMarker,
-} from '@fortawesome/free-solid-svg-icons'
-import { Profile } from '../../API'
+} from "@fortawesome/free-solid-svg-icons";
+// import { Profile } from "../../API";
+type Profile = {
+  id?: string;
+  introduction?: string;
+  residence?: string;
+  birthplace?: string;
+  birthday?: string;
+  hobby?: string;
+};
 
 type Props = {
-  profile?: Profile
-  onSubmit: (profile: Profile) => void
-  onError: () => void
-}
+  profile?: Profile;
+  onSubmit: (profile: Profile) => void;
+  onError: () => void;
+};
 
 const ProfileForm: React.FC<Props> = ({ profile, onSubmit, onError }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Profile>()
+  } = useForm<Profile>();
 
   return (
     <form className="mb-8" onSubmit={handleSubmit(onSubmit, onError)}>
       <input
         type="hidden"
-        {...register('id', { required: true })}
+        {...register("id", { required: true })}
         defaultValue={profile?.id}
       />
       <label className="block mb-4">
@@ -34,7 +42,7 @@ const ProfileForm: React.FC<Props> = ({ profile, onSubmit, onError }) => {
         <textarea
           className="mt-2 mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-100 focus:ring-1"
           rows={3}
-          {...register('introduction', { required: true })}
+          {...register("introduction", { required: true })}
           defaultValue={profile?.introduction}
         />
         <small className="mb-2 text-red-600 block">
@@ -48,7 +56,7 @@ const ProfileForm: React.FC<Props> = ({ profile, onSubmit, onError }) => {
         <textarea
           className="mt-2 mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-100 focus:ring-1"
           rows={1}
-          {...register('residence', { required: true })}
+          {...register("residence", { required: true })}
           defaultValue={profile?.residence}
         />
         <small className="mb-2 text-red-600 block">
@@ -57,13 +65,13 @@ const ProfileForm: React.FC<Props> = ({ profile, onSubmit, onError }) => {
       </label>
       <label className="block mb-4">
         <span>
-          <FontAwesomeIcon icon={faMapMarker} size="lg" className="mr-2" />{' '}
+          <FontAwesomeIcon icon={faMapMarker} size="lg" className="mr-2" />{" "}
           出身地
         </span>
         <textarea
           className="mt-2 mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-100 focus:ring-1"
           rows={1}
-          {...register('birthplace', { required: true })}
+          {...register("birthplace", { required: true })}
           defaultValue={profile?.birthplace}
         />
         <small className="mb-2 text-red-600 block">
@@ -72,13 +80,13 @@ const ProfileForm: React.FC<Props> = ({ profile, onSubmit, onError }) => {
       </label>
       <label className="block mb-4">
         <span>
-          <FontAwesomeIcon icon={faBirthdayCake} size="lg" className="mr-2" />{' '}
+          <FontAwesomeIcon icon={faBirthdayCake} size="lg" className="mr-2" />{" "}
           生年月日
         </span>
         <textarea
           className="mt-2 mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-100 focus:ring-1"
           rows={1}
-          {...register('birthday', { required: true })}
+          {...register("birthday", { required: true })}
           defaultValue={profile?.birthday}
         />
         <small className="mb-2 text-red-600 block">
@@ -92,7 +100,7 @@ const ProfileForm: React.FC<Props> = ({ profile, onSubmit, onError }) => {
         <textarea
           className="mt-2 mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-100 focus:ring-1"
           rows={1}
-          {...register('hobby', { required: true })}
+          {...register("hobby", { required: true })}
           defaultValue={profile?.hobby}
         />
         <small className="mb-2 text-red-600 block">
@@ -105,7 +113,7 @@ const ProfileForm: React.FC<Props> = ({ profile, onSubmit, onError }) => {
         className="mt-4 px-6 py-2 text-white bg-accent rounded hover:bg-accent-dark"
       />
     </form>
-  )
-}
+  );
+};
 
-export default ProfileForm
+export default ProfileForm;

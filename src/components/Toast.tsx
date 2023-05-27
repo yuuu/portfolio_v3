@@ -1,5 +1,5 @@
-import React from 'react'
-import { ToastContainer } from 'react-toastify'
+import React from "react";
+import { ToastContainer } from "react-toastify";
 
 const Toast: React.FC = () => (
   <ToastContainer
@@ -13,6 +13,6 @@ const Toast: React.FC = () => (
     draggable
     pauseOnHover
   />
-)
+);
 
-export default Toast
+export default Toast;

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
 type Props = {
-  title: string
-}
+  title: string;
+};
 
 export const Header: React.FC<Props> = (props) => {
   return (
@@ -13,7 +13,7 @@ export const Header: React.FC<Props> = (props) => {
         </h1>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

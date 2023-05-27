@@ -3,140 +3,161 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateApp = /* GraphQL */ `
-  subscription OnCreateApp($owner: String) {
-    onCreateApp(owner: $owner) {
+  subscription OnCreateApp($filter: ModelSubscriptionAppFilterInput) {
+    onCreateApp(filter: $filter) {
       id
-      title
-      description
-      category
-      storageKey
       link
+      image
+      title
+      category
+      description
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onUpdateApp = /* GraphQL */ `
-  subscription OnUpdateApp($owner: String) {
-    onUpdateApp(owner: $owner) {
+  subscription OnUpdateApp($filter: ModelSubscriptionAppFilterInput) {
+    onUpdateApp(filter: $filter) {
       id
-      title
-      description
-      category
-      storageKey
       link
+      image
+      title
+      category
+      description
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onDeleteApp = /* GraphQL */ `
-  subscription OnDeleteApp($owner: String) {
-    onDeleteApp(owner: $owner) {
+  subscription OnDeleteApp($filter: ModelSubscriptionAppFilterInput) {
+    onDeleteApp(filter: $filter) {
       id
+      link
+      image
       title
-      description
       category
-      storageKey
-      link
+      description
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onCreateArticle = /* GraphQL */ `
-  subscription OnCreateArticle($owner: String) {
-    onCreateArticle(owner: $owner) {
+  subscription OnCreateArticle($filter: ModelSubscriptionArticleFilterInput) {
+    onCreateArticle(filter: $filter) {
       id
+      link
+      imageUrl
       title
       body
-      image
-      link
       publishedAt
+      type
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onUpdateArticle = /* GraphQL */ `
-  subscription OnUpdateArticle($owner: String) {
-    onUpdateArticle(owner: $owner) {
+  subscription OnUpdateArticle($filter: ModelSubscriptionArticleFilterInput) {
+    onUpdateArticle(filter: $filter) {
       id
+      link
+      imageUrl
       title
       body
-      image
-      link
       publishedAt
+      type
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onDeleteArticle = /* GraphQL */ `
-  subscription OnDeleteArticle($owner: String) {
-    onDeleteArticle(owner: $owner) {
+  subscription OnDeleteArticle($filter: ModelSubscriptionArticleFilterInput) {
+    onDeleteArticle(filter: $filter) {
       id
+      link
+      imageUrl
       title
       body
-      image
-      link
       publishedAt
+      type
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onCreateBook = /* GraphQL */ `
-  subscription OnCreateBook($owner: String) {
-    onCreateBook(owner: $owner) {
+  subscription OnCreateBook($filter: ModelSubscriptionBookFilterInput) {
+    onCreateBook(filter: $filter) {
       id
+      link
+      image
       title
       description
-      storageKey
-      link
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onUpdateBook = /* GraphQL */ `
-  subscription OnUpdateBook($owner: String) {
-    onUpdateBook(owner: $owner) {
+  subscription OnUpdateBook($filter: ModelSubscriptionBookFilterInput) {
+    onUpdateBook(filter: $filter) {
       id
+      link
+      image
       title
       description
-      storageKey
-      link
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onDeleteBook = /* GraphQL */ `
-  subscription OnDeleteBook($owner: String) {
-    onDeleteBook(owner: $owner) {
+  subscription OnDeleteBook($filter: ModelSubscriptionBookFilterInput) {
+    onDeleteBook(filter: $filter) {
       id
+      link
+      image
       title
       description
-      storageKey
-      link
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onCreateProfile = /* GraphQL */ `
-  subscription OnCreateProfile($owner: String) {
-    onCreateProfile(owner: $owner) {
+  subscription OnCreateProfile($filter: ModelSubscriptionProfileFilterInput) {
+    onCreateProfile(filter: $filter) {
       id
       introduction
       residence
@@ -145,13 +166,15 @@ export const onCreateProfile = /* GraphQL */ `
       hobby
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onUpdateProfile = /* GraphQL */ `
-  subscription OnUpdateProfile($owner: String) {
-    onUpdateProfile(owner: $owner) {
+  subscription OnUpdateProfile($filter: ModelSubscriptionProfileFilterInput) {
+    onUpdateProfile(filter: $filter) {
       id
       introduction
       residence
@@ -160,13 +183,15 @@ export const onUpdateProfile = /* GraphQL */ `
       hobby
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onDeleteProfile = /* GraphQL */ `
-  subscription OnDeleteProfile($owner: String) {
-    onDeleteProfile(owner: $owner) {
+  subscription OnDeleteProfile($filter: ModelSubscriptionProfileFilterInput) {
+    onDeleteProfile(filter: $filter) {
       id
       introduction
       residence
@@ -175,85 +200,108 @@ export const onDeleteProfile = /* GraphQL */ `
       hobby
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onCreateSkill = /* GraphQL */ `
-  subscription OnCreateSkill($owner: String) {
-    onCreateSkill(owner: $owner) {
+  subscription OnCreateSkill($filter: ModelSubscriptionSkillFilterInput) {
+    onCreateSkill(filter: $filter) {
       id
+      image
       title
-      storageKey
+      category
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onUpdateSkill = /* GraphQL */ `
-  subscription OnUpdateSkill($owner: String) {
-    onUpdateSkill(owner: $owner) {
+  subscription OnUpdateSkill($filter: ModelSubscriptionSkillFilterInput) {
+    onUpdateSkill(filter: $filter) {
       id
+      image
       title
-      storageKey
+      category
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onDeleteSkill = /* GraphQL */ `
-  subscription OnDeleteSkill($owner: String) {
-    onDeleteSkill(owner: $owner) {
+  subscription OnDeleteSkill($filter: ModelSubscriptionSkillFilterInput) {
+    onDeleteSkill(filter: $filter) {
       id
+      image
       title
-      storageKey
+      category
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onCreateSlide = /* GraphQL */ `
-  subscription OnCreateSlide($owner: String) {
-    onCreateSlide(owner: $owner) {
+  subscription OnCreateSlide($filter: ModelSubscriptionSlideFilterInput) {
+    onCreateSlide(filter: $filter) {
       id
+      link
+      imageUrl
       title
       body
-      image
       publishedAt
+      type
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onUpdateSlide = /* GraphQL */ `
-  subscription OnUpdateSlide($owner: String) {
-    onUpdateSlide(owner: $owner) {
+  subscription OnUpdateSlide($filter: ModelSubscriptionSlideFilterInput) {
+    onUpdateSlide(filter: $filter) {
       id
+      link
+      imageUrl
       title
       body
-      image
       publishedAt
+      type
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;
 export const onDeleteSlide = /* GraphQL */ `
-  subscription OnDeleteSlide($owner: String) {
-    onDeleteSlide(owner: $owner) {
+  subscription OnDeleteSlide($filter: ModelSubscriptionSlideFilterInput) {
+    onDeleteSlide(filter: $filter) {
       id
+      link
+      imageUrl
       title
       body
-      image
       publishedAt
+      type
       createdAt
       updatedAt
-      owner
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
-`
+`;

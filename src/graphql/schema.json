@@ -87,18 +87,85 @@
               "deprecationReason": null
             },
             {
+              "name": "syncApps",
+              "description": null,
+              "args": [
+                {
+                  "name": "filter",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelAppFilterInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "nextToken",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "lastSync",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "AWSTimestamp",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModelAppConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "getArticle",
               "description": null,
               "args": [
                 {
-                  "name": "id",
+                  "name": "type",
                   "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "ID",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "publishedAt",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "AWSTimestamp",
                       "ofType": null
                     }
                   },
@@ -115,6 +182,79 @@
             },
             {
               "name": "listArticles",
+              "description": null,
+              "args": [
+                {
+                  "name": "type",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "publishedAt",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelIntKeyConditionInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "filter",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelArticleFilterInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "nextToken",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "sortDirection",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "ModelSortDirection",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModelArticleConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "syncArticles",
               "description": null,
               "args": [
                 {
@@ -143,6 +283,16 @@
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "lastSync",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "AWSTimestamp",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -227,6 +377,59 @@
               "deprecationReason": null
             },
             {
+              "name": "syncBooks",
+              "description": null,
+              "args": [
+                {
+                  "name": "filter",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelBookFilterInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "nextToken",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "lastSync",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "AWSTimestamp",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModelBookConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "getProfile",
               "description": null,
               "args": [
@@ -283,6 +486,59 @@
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModelProfileConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "syncProfiles",
+              "description": null,
+              "args": [
+                {
+                  "name": "filter",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelProfileFilterInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "nextToken",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "lastSync",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "AWSTimestamp",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -367,18 +623,85 @@
               "deprecationReason": null
             },
             {
+              "name": "syncSkills",
+              "description": null,
+              "args": [
+                {
+                  "name": "filter",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSkillFilterInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "nextToken",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "lastSync",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "AWSTimestamp",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModelSkillConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "getSlide",
               "description": null,
               "args": [
                 {
-                  "name": "id",
+                  "name": "type",
                   "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "ID",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "publishedAt",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "AWSTimestamp",
                       "ofType": null
                     }
                   },
@@ -395,6 +718,79 @@
             },
             {
               "name": "listSlides",
+              "description": null,
+              "args": [
+                {
+                  "name": "type",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "publishedAt",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelIntKeyConditionInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "filter",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSlideFilterInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "nextToken",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "sortDirection",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "ModelSortDirection",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ModelSlideConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "syncSlides",
               "description": null,
               "args": [
                 {
@@ -423,6 +819,16 @@
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "lastSync",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "AWSTimestamp",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -464,7 +870,7 @@
               "deprecationReason": null
             },
             {
-              "name": "title",
+              "name": "link",
               "description": null,
               "args": [],
               "type": {
@@ -480,7 +886,23 @@
               "deprecationReason": null
             },
             {
-              "name": "description",
+              "name": "image",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
               "description": null,
               "args": [],
               "type": {
@@ -500,45 +922,21 @@
               "description": null,
               "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "storageKey",
+              "name": "description",
               "description": null,
               "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "link",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -576,13 +974,45 @@
               "deprecationReason": null
             },
             {
-              "name": "owner",
+              "name": "_version",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_deleted",
               "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "Boolean",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_lastChangedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "AWSTimestamp",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -617,6 +1047,36 @@
           "kind": "SCALAR",
           "name": "AWSDateTime",
           "description": "The `AWSDateTime` scalar type provided by AWS AppSync, represents a valid ***extended*** [ISO 8601 DateTime](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) string. In other words, this scalar type accepts datetime strings of the form `YYYY-MM-DDThh:mm:ss.SSSZ`.  The scalar can also accept \"negative years\" of the form `-YYYY` which correspond to years before `0000`. For example, \"**-2017-01-01T00:00Z**\" and \"**-9999-01-01T00:00Z**\" are both valid datetime strings.  The field after the two digit seconds field is a nanoseconds field. It can accept between 1 and 9 digits. So, for example, \"**1970-01-01T12:00:00.2Z**\", \"**1970-01-01T12:00:00.277Z**\" and \"**1970-01-01T12:00:00.123456789Z**\" are all valid datetime strings.  The seconds and nanoseconds fields are optional (the seconds field must be specified if the nanoseconds field is to be used).  The [time zone offset](https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators) is compulsory for this scalar. The time zone offset must either be `Z` (representing the UTC time zone) or be in the format `±hh:mm:ss`. The seconds field in the timezone offset will be considered valid even though it is not part of the ISO 8601 standard.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Int",
+          "description": "Built-in Int",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Boolean",
+          "description": "Built-in Boolean",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "AWSTimestamp",
+          "description": "The `AWSTimestamp` scalar type provided by AWS AppSync, represents the number of seconds that have elapsed since `1970-01-01T00:00Z`. Negative values are also accepted and these represent the number of seconds till `1970-01-01T00:00Z`.  Timestamps are serialized and deserialized as integers. The minimum supported timestamp value is **`-31557014167219200`** which corresponds to `-1000000000-01-01T00:00Z`. The maximum supported timestamp value is **`31556889864403199`** which corresponds to `1000000000-12-31T23:59:59.999999999Z`.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -659,6 +1119,18 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "startedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSTimestamp",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -683,7 +1155,7 @@
               "defaultValue": null
             },
             {
-              "name": "title",
+              "name": "link",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -693,7 +1165,17 @@
               "defaultValue": null
             },
             {
-              "name": "description",
+              "name": "image",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -713,17 +1195,7 @@
               "defaultValue": null
             },
             {
-              "name": "storageKey",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "link",
+              "name": "description",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -766,6 +1238,16 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "ModelAppFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -916,16 +1398,6 @@
               "defaultValue": null
             }
           ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "SCALAR",
-          "name": "Boolean",
-          "description": "Built-in Boolean",
-          "fields": null,
-          "inputFields": null,
           "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
@@ -1087,16 +1559,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "SCALAR",
-          "name": "Int",
-          "description": "Built-in Int",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
           "kind": "INPUT_OBJECT",
           "name": "ModelStringInput",
           "description": null,
@@ -1242,6 +1704,57 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelBooleanInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "eq",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "attributeExists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "attributeType",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "ModelAttributeTypes",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "Article",
           "description": null,
@@ -1256,6 +1769,38 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "link",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
                   "ofType": null
                 }
               },
@@ -1283,45 +1828,9 @@
               "description": null,
               "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "image",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "link",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1335,7 +1844,23 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "AWSDateTime",
+                  "name": "AWSTimestamp",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
                   "ofType": null
                 }
               },
@@ -1375,13 +1900,45 @@
               "deprecationReason": null
             },
             {
-              "name": "owner",
+              "name": "_version",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_deleted",
               "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "Boolean",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_lastChangedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "AWSTimestamp",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1428,10 +1985,97 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "startedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSTimestamp",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelIntKeyConditionInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "eq",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "le",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ge",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "between",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -1447,6 +2091,26 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "ModelIDInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "link",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1472,27 +2136,17 @@
               "defaultValue": null
             },
             {
-              "name": "image",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "link",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
               "name": "publishedAt",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelIntInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "type",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -1538,10 +2192,148 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelIntInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "eq",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "le",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ge",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "between",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "attributeExists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "attributeType",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "ModelAttributeTypes",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "ModelSortDirection",
+          "description": null,
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -1559,6 +2351,38 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "link",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "image",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
                   "ofType": null
                 }
               },
@@ -1586,45 +2410,9 @@
               "description": null,
               "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "storageKey",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "link",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1662,13 +2450,45 @@
               "deprecationReason": null
             },
             {
-              "name": "owner",
+              "name": "_version",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_deleted",
               "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "Boolean",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_lastChangedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "AWSTimestamp",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1715,6 +2535,18 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "startedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSTimestamp",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -1739,6 +2571,26 @@
               "defaultValue": null
             },
             {
+              "name": "link",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "image",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "title",
               "description": null,
               "type": {
@@ -1750,26 +2602,6 @@
             },
             {
               "name": "description",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "storageKey",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "link",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -1812,6 +2644,16 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "ModelBookFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1899,7 +2741,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "AWSTimestamp",
                   "ofType": null
                 }
               },
@@ -1955,13 +2797,45 @@
               "deprecationReason": null
             },
             {
-              "name": "owner",
+              "name": "_version",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_deleted",
               "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "Boolean",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_lastChangedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "AWSTimestamp",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2004,6 +2878,18 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "startedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSTimestamp",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -2066,7 +2952,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
+                "name": "ModelIntInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2118,6 +3004,16 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -2146,6 +3042,22 @@
               "deprecationReason": null
             },
             {
+              "name": "image",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "title",
               "description": null,
               "args": [],
@@ -2162,17 +3074,13 @@
               "deprecationReason": null
             },
             {
-              "name": "storageKey",
+              "name": "category",
               "description": null,
               "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2210,13 +3118,45 @@
               "deprecationReason": null
             },
             {
-              "name": "owner",
+              "name": "_version",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_deleted",
               "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "Boolean",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_lastChangedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "AWSTimestamp",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2263,6 +3203,18 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "startedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSTimestamp",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -2287,6 +3239,16 @@
               "defaultValue": null
             },
             {
+              "name": "image",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "title",
               "description": null,
               "type": {
@@ -2297,7 +3259,7 @@
               "defaultValue": null
             },
             {
-              "name": "storageKey",
+              "name": "category",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -2343,6 +3305,16 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -2371,6 +3343,38 @@
               "deprecationReason": null
             },
             {
+              "name": "link",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "title",
               "description": null,
               "args": [],
@@ -2391,29 +3395,9 @@
               "description": null,
               "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "image",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2427,7 +3411,23 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "AWSDateTime",
+                  "name": "AWSTimestamp",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
                   "ofType": null
                 }
               },
@@ -2467,13 +3467,45 @@
               "deprecationReason": null
             },
             {
-              "name": "owner",
+              "name": "_version",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_deleted",
               "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "Boolean",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_lastChangedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "AWSTimestamp",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2520,6 +3552,18 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "startedAt",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AWSTimestamp",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -2539,6 +3583,26 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "ModelIDInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "link",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2564,17 +3628,17 @@
               "defaultValue": null
             },
             {
-              "name": "image",
+              "name": "publishedAt",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
+                "name": "ModelIntInput",
                 "ofType": null
               },
               "defaultValue": null
             },
             {
-              "name": "publishedAt",
+              "name": "type",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -2617,6 +3681,16 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "ModelSlideFilterInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -3320,7 +4394,7 @@
               "defaultValue": null
             },
             {
-              "name": "title",
+              "name": "link",
               "description": null,
               "type": {
                 "kind": "NON_NULL",
@@ -3334,7 +4408,21 @@
               "defaultValue": null
             },
             {
-              "name": "description",
+              "name": "image",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
               "description": null,
               "type": {
                 "kind": "NON_NULL",
@@ -3351,41 +4439,29 @@
               "name": "category",
               "description": null,
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
             {
-              "name": "storageKey",
+              "name": "description",
               "description": null,
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
             {
-              "name": "link",
+              "name": "_version",
               "description": null,
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -3401,7 +4477,7 @@
           "fields": null,
           "inputFields": [
             {
-              "name": "title",
+              "name": "link",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -3411,7 +4487,17 @@
               "defaultValue": null
             },
             {
-              "name": "description",
+              "name": "image",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -3431,17 +4517,7 @@
               "defaultValue": null
             },
             {
-              "name": "storageKey",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "link",
+              "name": "description",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -3487,6 +4563,16 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -3514,7 +4600,7 @@
               "defaultValue": null
             },
             {
-              "name": "title",
+              "name": "link",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -3524,7 +4610,17 @@
               "defaultValue": null
             },
             {
-              "name": "description",
+              "name": "image",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -3544,7 +4640,7 @@
               "defaultValue": null
             },
             {
-              "name": "storageKey",
+              "name": "description",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -3554,11 +4650,11 @@
               "defaultValue": null
             },
             {
-              "name": "link",
+              "name": "_version",
               "description": null,
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "Int",
                 "ofType": null
               },
               "defaultValue": null
@@ -3587,6 +4683,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "_version",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -3610,6 +4716,34 @@
               "defaultValue": null
             },
             {
+              "name": "link",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "title",
               "description": null,
               "type": {
@@ -3627,41 +4761,9 @@
               "name": "body",
               "description": null,
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "image",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "link",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -3673,9 +4775,33 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "AWSDateTime",
+                  "name": "AWSTimestamp",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "type",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_version",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -3691,6 +4817,26 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "link",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "title",
               "description": null,
               "type": {
@@ -3702,36 +4848,6 @@
             },
             {
               "name": "body",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "image",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "link",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "publishedAt",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -3777,6 +4893,16 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -3793,13 +4919,29 @@
               "name": "id",
               "description": null,
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "link",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -3824,31 +4966,39 @@
               "defaultValue": null
             },
             {
-              "name": "image",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "link",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
               "name": "publishedAt",
               "description": null,
               "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "AWSTimestamp",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "type",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_version",
+              "description": null,
+              "type": {
                 "kind": "SCALAR",
-                "name": "AWSDateTime",
+                "name": "Int",
                 "ofType": null
               },
               "defaultValue": null
@@ -3865,16 +5015,40 @@
           "fields": null,
           "inputFields": [
             {
-              "name": "id",
+              "name": "type",
               "description": null,
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "ID",
+                  "name": "String",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "publishedAt",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "AWSTimestamp",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_version",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -3900,6 +5074,34 @@
               "defaultValue": null
             },
             {
+              "name": "link",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "image",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "title",
               "description": null,
               "type": {
@@ -3917,41 +5119,19 @@
               "name": "description",
               "description": null,
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
             {
-              "name": "storageKey",
+              "name": "_version",
               "description": null,
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "link",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -3967,6 +5147,26 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "link",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "image",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "title",
               "description": null,
               "type": {
@@ -3978,26 +5178,6 @@
             },
             {
               "name": "description",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "storageKey",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "link",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -4043,6 +5223,16 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -4070,6 +5260,26 @@
               "defaultValue": null
             },
             {
+              "name": "link",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "image",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "title",
               "description": null,
               "type": {
@@ -4090,21 +5300,11 @@
               "defaultValue": null
             },
             {
-              "name": "storageKey",
+              "name": "_version",
               "description": null,
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "link",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
+                "name": "Int",
                 "ofType": null
               },
               "defaultValue": null
@@ -4131,6 +5331,16 @@
                   "name": "ID",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_version",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -4205,7 +5415,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "AWSTimestamp",
                   "ofType": null
                 }
               },
@@ -4222,6 +5432,16 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_version",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -4271,7 +5491,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
+                "name": "ModelIntInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4320,6 +5540,16 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "ModelProfileConditionInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4384,7 +5614,7 @@
               "description": null,
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "AWSTimestamp",
                 "ofType": null
               },
               "defaultValue": null
@@ -4395,6 +5625,16 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_version",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               },
               "defaultValue": null
@@ -4423,6 +5663,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "_version",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -4446,6 +5696,20 @@
               "defaultValue": null
             },
             {
+              "name": "image",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "title",
               "description": null,
               "type": {
@@ -4460,16 +5724,22 @@
               "defaultValue": null
             },
             {
-              "name": "storageKey",
+              "name": "category",
               "description": null,
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_version",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -4485,6 +5755,16 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "image",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "title",
               "description": null,
               "type": {
@@ -4495,7 +5775,7 @@
               "defaultValue": null
             },
             {
-              "name": "storageKey",
+              "name": "category",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -4541,6 +5821,16 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -4568,6 +5858,16 @@
               "defaultValue": null
             },
             {
+              "name": "image",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "title",
               "description": null,
               "type": {
@@ -4578,11 +5878,21 @@
               "defaultValue": null
             },
             {
-              "name": "storageKey",
+              "name": "category",
               "description": null,
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_version",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               },
               "defaultValue": null
@@ -4611,6 +5921,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "_version",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -4634,6 +5954,34 @@
               "defaultValue": null
             },
             {
+              "name": "link",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "title",
               "description": null,
               "type": {
@@ -4651,27 +5999,9 @@
               "name": "body",
               "description": null,
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "image",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -4683,9 +6013,33 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "AWSDateTime",
+                  "name": "AWSTimestamp",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "type",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_version",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -4701,6 +6055,26 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "link",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "title",
               "description": null,
               "type": {
@@ -4712,26 +6086,6 @@
             },
             {
               "name": "body",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "image",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelStringInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "publishedAt",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -4777,6 +6131,16 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -4793,13 +6157,29 @@
               "name": "id",
               "description": null,
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "link",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -4824,21 +6204,39 @@
               "defaultValue": null
             },
             {
-              "name": "image",
+              "name": "publishedAt",
               "description": null,
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "AWSTimestamp",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             },
             {
-              "name": "publishedAt",
+              "name": "type",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_version",
               "description": null,
               "type": {
                 "kind": "SCALAR",
-                "name": "AWSDateTime",
+                "name": "Int",
                 "ofType": null
               },
               "defaultValue": null
@@ -4855,16 +6253,40 @@
           "fields": null,
           "inputFields": [
             {
-              "name": "id",
+              "name": "type",
               "description": null,
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "ID",
+                  "name": "String",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "publishedAt",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "AWSTimestamp",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_version",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -4883,11 +6305,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionAppFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -4906,11 +6328,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionAppFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -4929,11 +6351,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionAppFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -4952,11 +6374,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionArticleFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -4975,11 +6397,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionArticleFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -4998,11 +6420,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionArticleFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -5021,11 +6443,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionBookFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -5044,11 +6466,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionBookFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -5067,11 +6489,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionBookFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -5090,11 +6512,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionProfileFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -5113,11 +6535,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionProfileFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -5136,11 +6558,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionProfileFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -5159,11 +6581,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionSkillFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -5182,11 +6604,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionSkillFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -5205,11 +6627,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionSkillFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -5228,11 +6650,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionSlideFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -5251,11 +6673,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionSlideFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -5274,11 +6696,11 @@
               "description": null,
               "args": [
                 {
-                  "name": "owner",
+                  "name": "filter",
                   "description": null,
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
+                    "kind": "INPUT_OBJECT",
+                    "name": "ModelSubscriptionSlideFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -5300,46 +6722,104 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "ModelBooleanInput",
+          "name": "ModelSubscriptionAppFilterInput",
           "description": null,
           "fields": null,
           "inputFields": [
             {
-              "name": "ne",
+              "name": "id",
               "description": null,
               "type": {
-                "kind": "SCALAR",
-                "name": "Boolean",
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionIDInput",
                 "ofType": null
               },
               "defaultValue": null
             },
             {
-              "name": "eq",
+              "name": "link",
               "description": null,
               "type": {
-                "kind": "SCALAR",
-                "name": "Boolean",
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
                 "ofType": null
               },
               "defaultValue": null
             },
             {
-              "name": "attributeExists",
+              "name": "image",
               "description": null,
               "type": {
-                "kind": "SCALAR",
-                "name": "Boolean",
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
                 "ofType": null
               },
               "defaultValue": null
             },
             {
-              "name": "attributeType",
+              "name": "title",
               "description": null,
               "type": {
-                "kind": "ENUM",
-                "name": "ModelAttributeTypes",
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "category",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "and",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelSubscriptionAppFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "or",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelSubscriptionAppFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -5351,7 +6831,412 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "ModelIntInput",
+          "name": "ModelSubscriptionIDInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "eq",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "le",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ge",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "contains",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "notContains",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "between",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "beginsWith",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "notIn",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelSubscriptionStringInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "eq",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "le",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ge",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "contains",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "notContains",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "between",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "beginsWith",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "notIn",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelSubscriptionArticleFilterInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionIDInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "link",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "body",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "publishedAt",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionIntInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "type",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "and",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelSubscriptionArticleFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "or",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelSubscriptionArticleFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelSubscriptionIntInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -5430,7 +7315,462 @@
               "defaultValue": null
             },
             {
-              "name": "attributeExists",
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "notIn",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelSubscriptionBookFilterInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionIDInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "link",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "image",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "description",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "and",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelSubscriptionBookFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "or",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelSubscriptionBookFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelSubscriptionProfileFilterInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionIDInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "introduction",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "residence",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "birthplace",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "birthday",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionIntInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "hobby",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "and",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelSubscriptionProfileFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "or",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelSubscriptionProfileFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelSubscriptionSkillFilterInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionIDInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "image",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "category",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "and",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelSubscriptionSkillFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "or",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelSubscriptionSkillFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelSubscriptionSlideFilterInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionIDInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "link",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "imageUrl",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "title",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "body",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "publishedAt",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionIntInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "type",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSubscriptionStringInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "and",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelSubscriptionSlideFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "or",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ModelSubscriptionSlideFilterInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_deleted",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ModelSubscriptionBooleanInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "ne",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -5440,11 +7780,11 @@
               "defaultValue": null
             },
             {
-              "name": "attributeType",
+              "name": "eq",
               "description": null,
               "type": {
-                "kind": "ENUM",
-                "name": "ModelAttributeTypes",
+                "kind": "SCALAR",
+                "name": "Boolean",
                 "ofType": null
               },
               "defaultValue": null
@@ -5570,26 +7910,116 @@
           "possibleTypes": null
         },
         {
-          "kind": "ENUM",
-          "name": "ModelSortDirection",
+          "kind": "INPUT_OBJECT",
+          "name": "ModelSubscriptionFloatInput",
           "description": null,
           "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [
+          "inputFields": [
             {
-              "name": "ASC",
+              "name": "ne",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
             },
             {
-              "name": "DESC",
+              "name": "eq",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "le",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ge",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "between",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "notIn",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
             }
           ],
+          "interfaces": null,
+          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -6464,26 +8894,8 @@
           "onField": true
         },
         {
-          "name": "aws_lambda",
-          "description": "Tells the service this field/object has access authorized by a Lambda Authorizer.",
-          "locations": ["OBJECT", "FIELD_DEFINITION"],
-          "args": [],
-          "onOperation": false,
-          "onFragment": false,
-          "onField": false
-        },
-        {
-          "name": "aws_iam",
-          "description": "Tells the service this field/object has access authorized by sigv4 signing.",
-          "locations": ["OBJECT", "FIELD_DEFINITION"],
-          "args": [],
-          "onOperation": false,
-          "onFragment": false,
-          "onField": false
-        },
-        {
-          "name": "aws_oidc",
-          "description": "Tells the service this field/object has access authorized by an OIDC token.",
+          "name": "aws_api_key",
+          "description": "Tells the service this field/object has access authorized by an API key.",
           "locations": ["OBJECT", "FIELD_DEFINITION"],
           "args": [],
           "onOperation": false,
@@ -6498,6 +8910,39 @@
             {
               "name": "mutations",
               "description": "List of mutations which will trigger this subscription when they are called.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "onOperation": false,
+          "onFragment": false,
+          "onField": false
+        },
+        {
+          "name": "aws_lambda",
+          "description": "Tells the service this field/object has access authorized by a Lambda Authorizer.",
+          "locations": ["OBJECT", "FIELD_DEFINITION"],
+          "args": [],
+          "onOperation": false,
+          "onFragment": false,
+          "onField": false
+        },
+        {
+          "name": "aws_cognito_user_pools",
+          "description": "Tells the service this field/object has access authorized by a Cognito User Pools token.",
+          "locations": ["OBJECT", "FIELD_DEFINITION"],
+          "args": [
+            {
+              "name": "cognito_groups",
+              "description": "List of cognito user pool groups which have access on this field",
               "type": {
                 "kind": "LIST",
                 "name": null,
@@ -6539,6 +8984,26 @@
           "onField": false
         },
         {
+          "name": "deprecated",
+          "description": null,
+          "locations": ["FIELD_DEFINITION", "ENUM_VALUE"],
+          "args": [
+            {
+              "name": "reason",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": "\"No longer supported\""
+            }
+          ],
+          "onOperation": false,
+          "onFragment": false,
+          "onField": false
+        },
+        {
           "name": "aws_publish",
           "description": "Tells the service which subscriptions will be published to when this mutation is called. This directive is deprecated use @aws_susbscribe directive instead.",
           "locations": ["FIELD_DEFINITION"],
@@ -6563,52 +9028,17 @@
           "onField": false
         },
         {
-          "name": "aws_cognito_user_pools",
-          "description": "Tells the service this field/object has access authorized by a Cognito User Pools token.",
+          "name": "aws_oidc",
+          "description": "Tells the service this field/object has access authorized by an OIDC token.",
           "locations": ["OBJECT", "FIELD_DEFINITION"],
-          "args": [
-            {
-              "name": "cognito_groups",
-              "description": "List of cognito user pool groups which have access on this field",
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
+          "args": [],
           "onOperation": false,
           "onFragment": false,
           "onField": false
         },
         {
-          "name": "deprecated",
-          "description": null,
-          "locations": ["FIELD_DEFINITION", "ENUM_VALUE"],
-          "args": [
-            {
-              "name": "reason",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": "\"No longer supported\""
-            }
-          ],
-          "onOperation": false,
-          "onFragment": false,
-          "onField": false
-        },
-        {
-          "name": "aws_api_key",
-          "description": "Tells the service this field/object has access authorized by an API key.",
+          "name": "aws_iam",
+          "description": "Tells the service this field/object has access authorized by sigv4 signing.",
           "locations": ["OBJECT", "FIELD_DEFINITION"],
           "args": [],
           "onOperation": false,

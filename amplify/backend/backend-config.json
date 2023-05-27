@@ -1,74 +1,44 @@
 {
-  "hosting": {
-    "amplifyhosting": {
-      "service": "amplifyhosting",
-      "type": "cicd",
-      "lastPushTimeStamp": "2022-01-07T21:44:48.466Z"
-    }
-  },
   "api": {
-    "portfolio": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
+    "portfoliov3": {
+      "dependsOn": [],
       "output": {
         "authConfig": {
+          "additionalAuthenticationProviders": [],
           "defaultAuthentication": {
             "authenticationType": "AWS_IAM"
-          },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-              "userPoolConfig": {
-                "userPoolId": "authportfolio88ead49188ead491"
-              }
-            }
-          ]
+          }
         }
-      }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
     }
   },
   "auth": {
-    "portfolio88ead49188ead491": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
+    "portfoliov372b8084c": {
       "customAuth": false,
+      "dependsOn": [],
       "frontendAuthConfig": {
-        "socialProviders": [],
-        "usernameAttributes": [],
-        "signupAttributes": ["EMAIL"],
-        "passwordProtectionSettings": {
-          "passwordPolicyMinLength": 8,
-          "passwordPolicyCharacters": []
-        },
         "mfaConfiguration": "OFF",
         "mfaTypes": ["SMS"],
-        "verificationMechanisms": ["EMAIL"]
-      }
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": ["EMAIL"],
+        "socialProviders": [],
+        "usernameAttributes": ["EMAIL"],
+        "verificationMechanisms": ["PHONE_NUMBER"]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
     }
   },
-  "function": {
-    "portfolioNpm": {
+  "storage": {
+    "s3d3a133b0": {
+      "dependsOn": [],
       "providerPlugin": "awscloudformation",
-      "service": "LambdaLayer",
-      "build": true
-    },
-    "fetchQiita": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "portfolio",
-          "attributes": ["GraphQLAPIIdOutput", "GraphQLAPIEndpointOutput"]
-        },
-        {
-          "category": "function",
-          "resourceName": "portfolioNpm",
-          "attributes": ["Arn"]
-        }
-      ]
+      "service": "S3"
     }
   }
 }

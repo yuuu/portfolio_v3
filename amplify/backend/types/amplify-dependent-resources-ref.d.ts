@@ -1,31 +1,26 @@
 export type AmplifyDependentResourcesAttributes = {
   api: {
-    portfolio: {
-      GraphQLAPIIdOutput: 'string'
-      GraphQLAPIEndpointOutput: 'string'
-    }
-  }
+    portfoliov3: {
+      GraphQLAPIEndpointOutput: "string";
+      GraphQLAPIIdOutput: "string";
+    };
+  };
   auth: {
-    portfolio88ead49188ead491: {
-      IdentityPoolId: 'string'
-      IdentityPoolName: 'string'
-      UserPoolId: 'string'
-      UserPoolArn: 'string'
-      UserPoolName: 'string'
-      AppClientIDWeb: 'string'
-      AppClientID: 'string'
-    }
-  }
-  function: {
-    portfolioNpm: {
-      Arn: 'string'
-    }
-    fetchQiita: {
-      Name: 'string'
-      Arn: 'string'
-      Region: 'string'
-      LambdaExecutionRole: 'string'
-      CloudWatchEventRule: 'string'
-    }
-  }
-}
+    portfoliov372b8084c: {
+      AppClientID: "string";
+      AppClientIDWeb: "string";
+      CreatedSNSRole: "string";
+      IdentityPoolId: "string";
+      IdentityPoolName: "string";
+      UserPoolArn: "string";
+      UserPoolId: "string";
+      UserPoolName: "string";
+    };
+  };
+  storage: {
+    s3d3a133b0: {
+      BucketName: "string";
+      Region: "string";
+    };
+  };
+};

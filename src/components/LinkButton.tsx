@@ -1,9 +1,10 @@
-import React from 'react'
-import Link from 'next/link'
+import React, { ReactNode } from "react";
+import Link from "next/link";
 
 type Props = {
-  href: string
-}
+  href: string;
+  children: ReactNode;
+};
 
 const LinkButton: React.FC<Props> = ({ href, children }) => {
   return (
@@ -12,7 +13,7 @@ const LinkButton: React.FC<Props> = ({ href, children }) => {
         {children}
       </button>
     </Link>
-  )
-}
+  );
+};
 
-export default LinkButton
+export default LinkButton;
