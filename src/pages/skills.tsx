@@ -2,20 +2,24 @@ import { NextPage } from "next";
 import Image from "next/image";
 import Header from "../components/Header";
 import SubHeader from "../components/SubHeader";
-import { listSkills } from "../graphql/queries";
+import { skillsByTypeAndOrder } from "../graphql/queries";
 import { Storage } from "aws-amplify";
 import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
-import { ListSkillsQuery, Skill } from "@/API";
+import { Skill, SkillsByTypeAndOrderQuery } from "@/API";
 import { Tooltip } from "react-tooltip";
 
 type SkillV = Skill & { imageUrl?: string };
 
 const fetchSkills = async () => {
-  const { data } = await API.graphql<GraphQLQuery<ListSkillsQuery>>({
-    query: listSkills,
+  const { data } = await API.graphql<GraphQLQuery<SkillsByTypeAndOrderQuery>>({
+    query: skillsByTypeAndOrder,
     authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+    variables: {
+      type: "Skill",
+      sortDirection: "ASC",
+    }
   });
-  return data?.listSkills?.items?.filter((item): item is Skill => !!item) || [];
+  return data?.skillsByTypeAndOrder?.items?.filter((item): item is Skill => !!item) || [];
 };
 
 const attachImages = async (skills: SkillV[]) => {

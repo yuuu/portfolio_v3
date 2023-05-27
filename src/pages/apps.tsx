@@ -1,20 +1,24 @@
 import React from "react";
 import { NextPage } from "next";
 import Header from "../components/Header";
-import { listApps } from "../graphql/queries";
+import { appsByTypeAndOrder } from "../graphql/queries";
 import { Storage } from "aws-amplify";
 import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
-import { ListAppsQuery, App } from "@/API";
+import { App, AppsByTypeAndOrderQuery } from "@/API";
 import Image from "next/image";
 
 type AppV = App & { imageUrl?: string };
 
 const fetchApps = async () => {
-  const { data } = await API.graphql<GraphQLQuery<ListAppsQuery>>({
-    query: listApps,
+  const { data } = await API.graphql<GraphQLQuery<AppsByTypeAndOrderQuery>>({
+    query: appsByTypeAndOrder,
     authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+    variables: {
+      type: "App",
+      sortDirection: "ASC",
+    }
   });
-  return data?.listApps?.items?.filter((item): item is App => !!item) || [];
+  return data?.appsByTypeAndOrder?.items?.filter((item): item is App => !!item) || [];
 };
 
 const attachImages = async (apps: AppV[]) => {

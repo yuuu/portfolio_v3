@@ -2,19 +2,23 @@ import React from "react";
 import Image from "next/image";
 import { NextPage } from "next";
 import Header from "../components/Header";
-import { listBooks } from "../graphql/queries";
+import { booksByTypeAndOrder } from "../graphql/queries";
 import { Storage } from "aws-amplify";
 import { API, GraphQLQuery, GRAPHQL_AUTH_MODE } from "@aws-amplify/api";
-import { ListBooksQuery, Book } from "@/API";
+import { Book, BooksByTypeAndOrderQuery } from "@/API";
 
 type BookV = Book & { imageUrl?: string };
 
 const fetchBooks = async () => {
-  const { data } = await API.graphql<GraphQLQuery<ListBooksQuery>>({
-    query: listBooks,
+  const { data } = await API.graphql<GraphQLQuery<BooksByTypeAndOrderQuery>>({
+    query: booksByTypeAndOrder,
     authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+    variables: {
+      type: "Book",
+      sortDirection: "ASC",
+    }
   });
-  return data?.listBooks?.items?.filter((item): item is Book => !!item) || [];
+  return data?.booksByTypeAndOrder?.items?.filter((item): item is Book => !!item) || [];
 };
 
 const attachImages = async (books: BookV[]) => {
