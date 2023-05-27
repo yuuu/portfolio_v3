@@ -66,7 +66,11 @@ const Skills: NextPage<{ skills: SkillV[] }> = ({ skills }) => {
             {skills.map((skill) => (
               <div key={skill.id} className="px-4 w-1/2 md:w-1/6">
                 <div className="my-4 rounded-md">
-                  <a className="tooltip" data-tooltip-id={skill.id} data-tooltip-content={skill.title}>
+                  <a
+                    className="tooltip"
+                    data-tooltip-id={skill.id}
+                    data-tooltip-content={skill.title}
+                  >
                     {skill?.imageUrl && (
                       <Image
                         alt={skill.title}
