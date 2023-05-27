@@ -15,7 +15,7 @@ const fetchBooks = async () => {
     authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
     variables: {
       type: "Book",
-      sortDirection: "ASC",
+      sortDirection: "DESC",
     }
   });
   return data?.booksByTypeAndOrder?.items?.filter((item): item is Book => !!item) || [];

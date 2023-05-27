@@ -15,7 +15,7 @@ const fetchApps = async () => {
     authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
     variables: {
       type: "App",
-      sortDirection: "ASC",
+      sortDirection: "DESC",
     }
   });
   return data?.appsByTypeAndOrder?.items?.filter((item): item is App => !!item) || [];
