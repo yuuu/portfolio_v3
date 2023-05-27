@@ -19,6 +19,8 @@ type EagerApp = {
   readonly title: string;
   readonly category?: string | null;
   readonly description?: string | null;
+  readonly order: number;
+  readonly type: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 };
@@ -34,6 +36,8 @@ type LazyApp = {
   readonly title: string;
   readonly category?: string | null;
   readonly description?: string | null;
+  readonly order: number;
+  readonly type: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 };
@@ -102,6 +106,8 @@ type EagerBook = {
   readonly image: string;
   readonly title: string;
   readonly description?: string | null;
+  readonly order: number;
+  readonly type: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 };
@@ -116,6 +122,8 @@ type LazyBook = {
   readonly image: string;
   readonly title: string;
   readonly description?: string | null;
+  readonly order: number;
+  readonly type: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 };
@@ -181,6 +189,8 @@ type EagerSkill = {
   readonly image: string;
   readonly title: string;
   readonly category?: string | null;
+  readonly order: number;
+  readonly type: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 };
@@ -194,6 +204,8 @@ type LazySkill = {
   readonly image: string;
   readonly title: string;
   readonly category?: string | null;
+  readonly order: number;
+  readonly type: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 };

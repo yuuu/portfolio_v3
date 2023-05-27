@@ -21,6 +21,8 @@ export declare type AppCreateFormInputValues = {
   title?: string;
   category?: string;
   description?: string;
+  order?: number;
+  type?: string;
 };
 export declare type AppCreateFormValidationValues = {
   link?: ValidationFunction<string>;
@@ -28,6 +30,8 @@ export declare type AppCreateFormValidationValues = {
   title?: ValidationFunction<string>;
   category?: ValidationFunction<string>;
   description?: ValidationFunction<string>;
+  order?: ValidationFunction<number>;
+  type?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> &
   React.DOMAttributes<HTMLDivElement>;
@@ -38,6 +42,8 @@ export declare type AppCreateFormOverridesProps = {
   title?: PrimitiveOverrideProps<TextFieldProps>;
   category?: PrimitiveOverrideProps<TextFieldProps>;
   description?: PrimitiveOverrideProps<TextFieldProps>;
+  order?: PrimitiveOverrideProps<TextFieldProps>;
+  type?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type AppCreateFormProps = React.PropsWithChildren<
   {

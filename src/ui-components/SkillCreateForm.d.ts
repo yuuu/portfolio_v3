@@ -19,11 +19,15 @@ export declare type SkillCreateFormInputValues = {
   image?: string;
   title?: string;
   category?: string;
+  order?: number;
+  type?: string;
 };
 export declare type SkillCreateFormValidationValues = {
   image?: ValidationFunction<string>;
   title?: ValidationFunction<string>;
   category?: ValidationFunction<string>;
+  order?: ValidationFunction<number>;
+  type?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> &
   React.DOMAttributes<HTMLDivElement>;
@@ -32,6 +36,8 @@ export declare type SkillCreateFormOverridesProps = {
   image?: PrimitiveOverrideProps<TextFieldProps>;
   title?: PrimitiveOverrideProps<TextFieldProps>;
   category?: PrimitiveOverrideProps<TextFieldProps>;
+  order?: PrimitiveOverrideProps<TextFieldProps>;
+  type?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type SkillCreateFormProps = React.PropsWithChildren<
   {

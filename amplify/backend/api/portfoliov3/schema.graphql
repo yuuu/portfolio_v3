@@ -11,6 +11,8 @@ type App
   title: String!
   category: String
   description: String
+  order: Int!
+  type: String! @index(sortKeyFields: ["order"])
 }
 
 type Article
@@ -33,6 +35,8 @@ type Book
   image: String!
   title: String!
   description: String
+  order: Int!
+  type: String! @index(sortKeyFields: ["order"])
 }
 
 type Profile
@@ -53,6 +57,8 @@ type Skill
   image: String!
   title: String!
   category: String
+  order: Int!
+  type: String! @index(sortKeyFields: ["order"])
 }
 
 type Slide

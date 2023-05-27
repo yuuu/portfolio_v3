@@ -20,11 +20,15 @@ export declare type SkillUpdateFormInputValues = {
   image?: string;
   title?: string;
   category?: string;
+  order?: number;
+  type?: string;
 };
 export declare type SkillUpdateFormValidationValues = {
   image?: ValidationFunction<string>;
   title?: ValidationFunction<string>;
   category?: ValidationFunction<string>;
+  order?: ValidationFunction<number>;
+  type?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> &
   React.DOMAttributes<HTMLDivElement>;
@@ -33,12 +37,17 @@ export declare type SkillUpdateFormOverridesProps = {
   image?: PrimitiveOverrideProps<TextFieldProps>;
   title?: PrimitiveOverrideProps<TextFieldProps>;
   category?: PrimitiveOverrideProps<TextFieldProps>;
+  order?: PrimitiveOverrideProps<TextFieldProps>;
+  type?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type SkillUpdateFormProps = React.PropsWithChildren<
   {
     overrides?: SkillUpdateFormOverridesProps | undefined | null;
   } & {
-    id?: string;
+    id?: {
+      type: string;
+      order: number;
+    };
     skill?: Skill;
     onSubmit?: (
       fields: SkillUpdateFormInputValues

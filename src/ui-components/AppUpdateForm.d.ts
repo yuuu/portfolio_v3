@@ -22,6 +22,8 @@ export declare type AppUpdateFormInputValues = {
   title?: string;
   category?: string;
   description?: string;
+  order?: number;
+  type?: string;
 };
 export declare type AppUpdateFormValidationValues = {
   link?: ValidationFunction<string>;
@@ -29,6 +31,8 @@ export declare type AppUpdateFormValidationValues = {
   title?: ValidationFunction<string>;
   category?: ValidationFunction<string>;
   description?: ValidationFunction<string>;
+  order?: ValidationFunction<number>;
+  type?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> &
   React.DOMAttributes<HTMLDivElement>;
@@ -39,12 +43,17 @@ export declare type AppUpdateFormOverridesProps = {
   title?: PrimitiveOverrideProps<TextFieldProps>;
   category?: PrimitiveOverrideProps<TextFieldProps>;
   description?: PrimitiveOverrideProps<TextFieldProps>;
+  order?: PrimitiveOverrideProps<TextFieldProps>;
+  type?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type AppUpdateFormProps = React.PropsWithChildren<
   {
     overrides?: AppUpdateFormOverridesProps | undefined | null;
   } & {
-    id?: string;
+    id?: {
+      type: string;
+      order: number;
+    };
     app?: App;
     onSubmit?: (fields: AppUpdateFormInputValues) => AppUpdateFormInputValues;
     onSuccess?: (fields: AppUpdateFormInputValues) => void;

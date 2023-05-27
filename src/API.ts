@@ -9,6 +9,8 @@ export type CreateAppInput = {
   title: string;
   category?: string | null;
   description?: string | null;
+  order: number;
+  type: string;
   _version?: number | null;
 };
 
@@ -18,6 +20,8 @@ export type ModelAppConditionInput = {
   title?: ModelStringInput | null;
   category?: ModelStringInput | null;
   description?: ModelStringInput | null;
+  order?: ModelIntInput | null;
+  type?: ModelStringInput | null;
   and?: Array<ModelAppConditionInput | null> | null;
   or?: Array<ModelAppConditionInput | null> | null;
   not?: ModelAppConditionInput | null;
@@ -63,6 +67,18 @@ export type ModelSizeInput = {
   between?: Array<number | null> | null;
 };
 
+export type ModelIntInput = {
+  ne?: number | null;
+  eq?: number | null;
+  le?: number | null;
+  lt?: number | null;
+  ge?: number | null;
+  gt?: number | null;
+  between?: Array<number | null> | null;
+  attributeExists?: boolean | null;
+  attributeType?: ModelAttributeTypes | null;
+};
+
 export type ModelBooleanInput = {
   ne?: boolean | null;
   eq?: boolean | null;
@@ -78,6 +94,8 @@ export type App = {
   title: string;
   category?: string | null;
   description?: string | null;
+  order: number;
+  type: string;
   createdAt: string;
   updatedAt: string;
   _version: number;
@@ -92,6 +110,8 @@ export type UpdateAppInput = {
   title?: string | null;
   category?: string | null;
   description?: string | null;
+  order?: number | null;
+  type?: string | null;
   _version?: number | null;
 };
 
@@ -161,6 +181,8 @@ export type CreateBookInput = {
   image: string;
   title: string;
   description?: string | null;
+  order: number;
+  type: string;
   _version?: number | null;
 };
 
@@ -169,6 +191,8 @@ export type ModelBookConditionInput = {
   image?: ModelStringInput | null;
   title?: ModelStringInput | null;
   description?: ModelStringInput | null;
+  order?: ModelIntInput | null;
+  type?: ModelStringInput | null;
   and?: Array<ModelBookConditionInput | null> | null;
   or?: Array<ModelBookConditionInput | null> | null;
   not?: ModelBookConditionInput | null;
@@ -182,6 +206,8 @@ export type Book = {
   image: string;
   title: string;
   description?: string | null;
+  order: number;
+  type: string;
   createdAt: string;
   updatedAt: string;
   _version: number;
@@ -195,6 +221,8 @@ export type UpdateBookInput = {
   image?: string | null;
   title?: string | null;
   description?: string | null;
+  order?: number | null;
+  type?: string | null;
   _version?: number | null;
 };
 
@@ -223,18 +251,6 @@ export type ModelProfileConditionInput = {
   or?: Array<ModelProfileConditionInput | null> | null;
   not?: ModelProfileConditionInput | null;
   _deleted?: ModelBooleanInput | null;
-};
-
-export type ModelIntInput = {
-  ne?: number | null;
-  eq?: number | null;
-  le?: number | null;
-  lt?: number | null;
-  ge?: number | null;
-  gt?: number | null;
-  between?: Array<number | null> | null;
-  attributeExists?: boolean | null;
-  attributeType?: ModelAttributeTypes | null;
 };
 
 export type Profile = {
@@ -272,6 +288,8 @@ export type CreateSkillInput = {
   image: string;
   title: string;
   category?: string | null;
+  order: number;
+  type: string;
   _version?: number | null;
 };
 
@@ -279,6 +297,8 @@ export type ModelSkillConditionInput = {
   image?: ModelStringInput | null;
   title?: ModelStringInput | null;
   category?: ModelStringInput | null;
+  order?: ModelIntInput | null;
+  type?: ModelStringInput | null;
   and?: Array<ModelSkillConditionInput | null> | null;
   or?: Array<ModelSkillConditionInput | null> | null;
   not?: ModelSkillConditionInput | null;
@@ -291,6 +311,8 @@ export type Skill = {
   image: string;
   title: string;
   category?: string | null;
+  order: number;
+  type: string;
   createdAt: string;
   updatedAt: string;
   _version: number;
@@ -303,6 +325,8 @@ export type UpdateSkillInput = {
   image?: string | null;
   title?: string | null;
   category?: string | null;
+  order?: number | null;
+  type?: string | null;
   _version?: number | null;
 };
 
@@ -373,6 +397,8 @@ export type ModelAppFilterInput = {
   title?: ModelStringInput | null;
   category?: ModelStringInput | null;
   description?: ModelStringInput | null;
+  order?: ModelIntInput | null;
+  type?: ModelStringInput | null;
   and?: Array<ModelAppFilterInput | null> | null;
   or?: Array<ModelAppFilterInput | null> | null;
   not?: ModelAppFilterInput | null;
@@ -443,6 +469,8 @@ export type ModelBookFilterInput = {
   image?: ModelStringInput | null;
   title?: ModelStringInput | null;
   description?: ModelStringInput | null;
+  order?: ModelIntInput | null;
+  type?: ModelStringInput | null;
   and?: Array<ModelBookFilterInput | null> | null;
   or?: Array<ModelBookFilterInput | null> | null;
   not?: ModelBookFilterInput | null;
@@ -481,6 +509,8 @@ export type ModelSkillFilterInput = {
   image?: ModelStringInput | null;
   title?: ModelStringInput | null;
   category?: ModelStringInput | null;
+  order?: ModelIntInput | null;
+  type?: ModelStringInput | null;
   and?: Array<ModelSkillFilterInput | null> | null;
   or?: Array<ModelSkillFilterInput | null> | null;
   not?: ModelSkillFilterInput | null;
@@ -522,6 +552,8 @@ export type ModelSubscriptionAppFilterInput = {
   title?: ModelSubscriptionStringInput | null;
   category?: ModelSubscriptionStringInput | null;
   description?: ModelSubscriptionStringInput | null;
+  order?: ModelSubscriptionIntInput | null;
+  type?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionAppFilterInput | null> | null;
   or?: Array<ModelSubscriptionAppFilterInput | null> | null;
   _deleted?: ModelBooleanInput | null;
@@ -557,6 +589,18 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array<string | null> | null;
 };
 
+export type ModelSubscriptionIntInput = {
+  ne?: number | null;
+  eq?: number | null;
+  le?: number | null;
+  lt?: number | null;
+  ge?: number | null;
+  gt?: number | null;
+  between?: Array<number | null> | null;
+  in?: Array<number | null> | null;
+  notIn?: Array<number | null> | null;
+};
+
 export type ModelSubscriptionArticleFilterInput = {
   id?: ModelSubscriptionIDInput | null;
   link?: ModelSubscriptionStringInput | null;
@@ -570,24 +614,14 @@ export type ModelSubscriptionArticleFilterInput = {
   _deleted?: ModelBooleanInput | null;
 };
 
-export type ModelSubscriptionIntInput = {
-  ne?: number | null;
-  eq?: number | null;
-  le?: number | null;
-  lt?: number | null;
-  ge?: number | null;
-  gt?: number | null;
-  between?: Array<number | null> | null;
-  in?: Array<number | null> | null;
-  notIn?: Array<number | null> | null;
-};
-
 export type ModelSubscriptionBookFilterInput = {
   id?: ModelSubscriptionIDInput | null;
   link?: ModelSubscriptionStringInput | null;
   image?: ModelSubscriptionStringInput | null;
   title?: ModelSubscriptionStringInput | null;
   description?: ModelSubscriptionStringInput | null;
+  order?: ModelSubscriptionIntInput | null;
+  type?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionBookFilterInput | null> | null;
   or?: Array<ModelSubscriptionBookFilterInput | null> | null;
   _deleted?: ModelBooleanInput | null;
@@ -610,6 +644,8 @@ export type ModelSubscriptionSkillFilterInput = {
   image?: ModelSubscriptionStringInput | null;
   title?: ModelSubscriptionStringInput | null;
   category?: ModelSubscriptionStringInput | null;
+  order?: ModelSubscriptionIntInput | null;
+  type?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionSkillFilterInput | null> | null;
   or?: Array<ModelSubscriptionSkillFilterInput | null> | null;
   _deleted?: ModelBooleanInput | null;
@@ -642,6 +678,8 @@ export type CreateAppMutation = {
     title: string;
     category?: string | null;
     description?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -664,6 +702,8 @@ export type UpdateAppMutation = {
     title: string;
     category?: string | null;
     description?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -686,6 +726,8 @@ export type DeleteAppMutation = {
     title: string;
     category?: string | null;
     description?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -776,6 +818,8 @@ export type CreateBookMutation = {
     image: string;
     title: string;
     description?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -797,6 +841,8 @@ export type UpdateBookMutation = {
     image: string;
     title: string;
     description?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -818,6 +864,8 @@ export type DeleteBookMutation = {
     image: string;
     title: string;
     description?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -904,6 +952,8 @@ export type CreateSkillMutation = {
     image: string;
     title: string;
     category?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -924,6 +974,8 @@ export type UpdateSkillMutation = {
     image: string;
     title: string;
     category?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -944,6 +996,8 @@ export type DeleteSkillMutation = {
     image: string;
     title: string;
     category?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -1034,6 +1088,8 @@ export type GetAppQuery = {
     title: string;
     category?: string | null;
     description?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -1059,6 +1115,8 @@ export type ListAppsQuery = {
       title: string;
       category?: string | null;
       description?: string | null;
+      order: number;
+      type: string;
       createdAt: string;
       updatedAt: string;
       _version: number;
@@ -1088,6 +1146,8 @@ export type SyncAppsQuery = {
       title: string;
       category?: string | null;
       description?: string | null;
+      order: number;
+      type: string;
       createdAt: string;
       updatedAt: string;
       _version: number;
@@ -1196,6 +1256,8 @@ export type GetBookQuery = {
     image: string;
     title: string;
     description?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -1220,6 +1282,8 @@ export type ListBooksQuery = {
       image: string;
       title: string;
       description?: string | null;
+      order: number;
+      type: string;
       createdAt: string;
       updatedAt: string;
       _version: number;
@@ -1248,6 +1312,8 @@ export type SyncBooksQuery = {
       image: string;
       title: string;
       description?: string | null;
+      order: number;
+      type: string;
       createdAt: string;
       updatedAt: string;
       _version: number;
@@ -1348,6 +1414,8 @@ export type GetSkillQuery = {
     image: string;
     title: string;
     category?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -1371,6 +1439,8 @@ export type ListSkillsQuery = {
       image: string;
       title: string;
       category?: string | null;
+      order: number;
+      type: string;
       createdAt: string;
       updatedAt: string;
       _version: number;
@@ -1398,6 +1468,8 @@ export type SyncSkillsQuery = {
       image: string;
       title: string;
       category?: string | null;
+      order: number;
+      type: string;
       createdAt: string;
       updatedAt: string;
       _version: number;
@@ -1494,6 +1566,102 @@ export type SyncSlidesQuery = {
   } | null;
 };
 
+export type AppsByTypeAndOrderQueryVariables = {
+  type: string;
+  order?: ModelIntKeyConditionInput | null;
+  sortDirection?: ModelSortDirection | null;
+  filter?: ModelAppFilterInput | null;
+  limit?: number | null;
+  nextToken?: string | null;
+};
+
+export type AppsByTypeAndOrderQuery = {
+  appsByTypeAndOrder?: {
+    __typename: "ModelAppConnection";
+    items: Array<{
+      __typename: "App";
+      id: string;
+      link: string;
+      image: string;
+      title: string;
+      category?: string | null;
+      description?: string | null;
+      order: number;
+      type: string;
+      createdAt: string;
+      updatedAt: string;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
+    } | null>;
+    nextToken?: string | null;
+    startedAt?: number | null;
+  } | null;
+};
+
+export type BooksByTypeAndOrderQueryVariables = {
+  type: string;
+  order?: ModelIntKeyConditionInput | null;
+  sortDirection?: ModelSortDirection | null;
+  filter?: ModelBookFilterInput | null;
+  limit?: number | null;
+  nextToken?: string | null;
+};
+
+export type BooksByTypeAndOrderQuery = {
+  booksByTypeAndOrder?: {
+    __typename: "ModelBookConnection";
+    items: Array<{
+      __typename: "Book";
+      id: string;
+      link: string;
+      image: string;
+      title: string;
+      description?: string | null;
+      order: number;
+      type: string;
+      createdAt: string;
+      updatedAt: string;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
+    } | null>;
+    nextToken?: string | null;
+    startedAt?: number | null;
+  } | null;
+};
+
+export type SkillsByTypeAndOrderQueryVariables = {
+  type: string;
+  order?: ModelIntKeyConditionInput | null;
+  sortDirection?: ModelSortDirection | null;
+  filter?: ModelSkillFilterInput | null;
+  limit?: number | null;
+  nextToken?: string | null;
+};
+
+export type SkillsByTypeAndOrderQuery = {
+  skillsByTypeAndOrder?: {
+    __typename: "ModelSkillConnection";
+    items: Array<{
+      __typename: "Skill";
+      id: string;
+      image: string;
+      title: string;
+      category?: string | null;
+      order: number;
+      type: string;
+      createdAt: string;
+      updatedAt: string;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
+    } | null>;
+    nextToken?: string | null;
+    startedAt?: number | null;
+  } | null;
+};
+
 export type OnCreateAppSubscriptionVariables = {
   filter?: ModelSubscriptionAppFilterInput | null;
 };
@@ -1507,6 +1675,8 @@ export type OnCreateAppSubscription = {
     title: string;
     category?: string | null;
     description?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -1528,6 +1698,8 @@ export type OnUpdateAppSubscription = {
     title: string;
     category?: string | null;
     description?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -1549,6 +1721,8 @@ export type OnDeleteAppSubscription = {
     title: string;
     category?: string | null;
     description?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -1635,6 +1809,8 @@ export type OnCreateBookSubscription = {
     image: string;
     title: string;
     description?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -1655,6 +1831,8 @@ export type OnUpdateBookSubscription = {
     image: string;
     title: string;
     description?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -1675,6 +1853,8 @@ export type OnDeleteBookSubscription = {
     image: string;
     title: string;
     description?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -1757,6 +1937,8 @@ export type OnCreateSkillSubscription = {
     image: string;
     title: string;
     category?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -1776,6 +1958,8 @@ export type OnUpdateSkillSubscription = {
     image: string;
     title: string;
     category?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -1795,6 +1979,8 @@ export type OnDeleteSkillSubscription = {
     image: string;
     title: string;
     category?: string | null;
+    order: number;
+    type: string;
     createdAt: string;
     updatedAt: string;
     _version: number;

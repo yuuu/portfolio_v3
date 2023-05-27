@@ -26,21 +26,29 @@ export default function SkillCreateForm(props) {
     image: "",
     title: "",
     category: "",
+    order: "",
+    type: "",
   };
   const [image, setImage] = React.useState(initialValues.image);
   const [title, setTitle] = React.useState(initialValues.title);
   const [category, setCategory] = React.useState(initialValues.category);
+  const [order, setOrder] = React.useState(initialValues.order);
+  const [type, setType] = React.useState(initialValues.type);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setImage(initialValues.image);
     setTitle(initialValues.title);
     setCategory(initialValues.category);
+    setOrder(initialValues.order);
+    setType(initialValues.type);
     setErrors({});
   };
   const validations = {
     image: [{ type: "Required" }],
     title: [{ type: "Required" }],
     category: [],
+    order: [{ type: "Required" }],
+    type: [{ type: "Required" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -71,6 +79,8 @@ export default function SkillCreateForm(props) {
           image,
           title,
           category,
+          order,
+          type,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -128,6 +138,8 @@ export default function SkillCreateForm(props) {
               image: value,
               title,
               category,
+              order,
+              type,
             };
             const result = onChange(modelFields);
             value = result?.image ?? value;
@@ -154,6 +166,8 @@ export default function SkillCreateForm(props) {
               image,
               title: value,
               category,
+              order,
+              type,
             };
             const result = onChange(modelFields);
             value = result?.title ?? value;
@@ -180,6 +194,8 @@ export default function SkillCreateForm(props) {
               image,
               title,
               category: value,
+              order,
+              type,
             };
             const result = onChange(modelFields);
             value = result?.category ?? value;
@@ -193,6 +209,66 @@ export default function SkillCreateForm(props) {
         errorMessage={errors.category?.errorMessage}
         hasError={errors.category?.hasError}
         {...getOverrideProps(overrides, "category")}
+      ></TextField>
+      <TextField
+        label="Order"
+        isRequired={true}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={order}
+        onChange={(e) => {
+          let value = isNaN(parseInt(e.target.value))
+            ? e.target.value
+            : parseInt(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              image,
+              title,
+              category,
+              order: value,
+              type,
+            };
+            const result = onChange(modelFields);
+            value = result?.order ?? value;
+          }
+          if (errors.order?.hasError) {
+            runValidationTasks("order", value);
+          }
+          setOrder(value);
+        }}
+        onBlur={() => runValidationTasks("order", order)}
+        errorMessage={errors.order?.errorMessage}
+        hasError={errors.order?.hasError}
+        {...getOverrideProps(overrides, "order")}
+      ></TextField>
+      <TextField
+        label="Type"
+        isRequired={true}
+        isReadOnly={false}
+        value={type}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              image,
+              title,
+              category,
+              order,
+              type: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.type ?? value;
+          }
+          if (errors.type?.hasError) {
+            runValidationTasks("type", value);
+          }
+          setType(value);
+        }}
+        onBlur={() => runValidationTasks("type", type)}
+        errorMessage={errors.type?.errorMessage}
+        hasError={errors.type?.hasError}
+        {...getOverrideProps(overrides, "type")}
       ></TextField>
       <Flex
         justifyContent="space-between"

@@ -21,12 +21,16 @@ export declare type BookUpdateFormInputValues = {
   image?: string;
   title?: string;
   description?: string;
+  order?: number;
+  type?: string;
 };
 export declare type BookUpdateFormValidationValues = {
   link?: ValidationFunction<string>;
   image?: ValidationFunction<string>;
   title?: ValidationFunction<string>;
   description?: ValidationFunction<string>;
+  order?: ValidationFunction<number>;
+  type?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> &
   React.DOMAttributes<HTMLDivElement>;
@@ -36,12 +40,17 @@ export declare type BookUpdateFormOverridesProps = {
   image?: PrimitiveOverrideProps<TextFieldProps>;
   title?: PrimitiveOverrideProps<TextFieldProps>;
   description?: PrimitiveOverrideProps<TextFieldProps>;
+  order?: PrimitiveOverrideProps<TextFieldProps>;
+  type?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type BookUpdateFormProps = React.PropsWithChildren<
   {
     overrides?: BookUpdateFormOverridesProps | undefined | null;
   } & {
-    id?: string;
+    id?: {
+      type: string;
+      order: number;
+    };
     book?: Book;
     onSubmit?: (fields: BookUpdateFormInputValues) => BookUpdateFormInputValues;
     onSuccess?: (fields: BookUpdateFormInputValues) => void;

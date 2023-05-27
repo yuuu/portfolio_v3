@@ -45,6 +45,20 @@ export const schema = {
           isRequired: false,
           attributes: [],
         },
+        order: {
+          name: "order",
+          isArray: false,
+          type: "Int",
+          isRequired: true,
+          attributes: [],
+        },
+        type: {
+          name: "type",
+          isArray: false,
+          type: "String",
+          isRequired: true,
+          attributes: [],
+        },
         createdAt: {
           name: "createdAt",
           isArray: false,
@@ -68,6 +82,12 @@ export const schema = {
         {
           type: "model",
           properties: {},
+        },
+        {
+          type: "key",
+          properties: {
+            fields: ["type", "order"],
+          },
         },
         {
           type: "auth",
@@ -217,6 +237,20 @@ export const schema = {
           isRequired: false,
           attributes: [],
         },
+        order: {
+          name: "order",
+          isArray: false,
+          type: "Int",
+          isRequired: true,
+          attributes: [],
+        },
+        type: {
+          name: "type",
+          isArray: false,
+          type: "String",
+          isRequired: true,
+          attributes: [],
+        },
         createdAt: {
           name: "createdAt",
           isArray: false,
@@ -240,6 +274,12 @@ export const schema = {
         {
           type: "model",
           properties: {},
+        },
+        {
+          type: "key",
+          properties: {
+            fields: ["type", "order"],
+          },
         },
         {
           type: "auth",
@@ -369,6 +409,20 @@ export const schema = {
           isRequired: false,
           attributes: [],
         },
+        order: {
+          name: "order",
+          isArray: false,
+          type: "Int",
+          isRequired: true,
+          attributes: [],
+        },
+        type: {
+          name: "type",
+          isArray: false,
+          type: "String",
+          isRequired: true,
+          attributes: [],
+        },
         createdAt: {
           name: "createdAt",
           isArray: false,
@@ -392,6 +446,12 @@ export const schema = {
         {
           type: "model",
           properties: {},
+        },
+        {
+          type: "key",
+          properties: {
+            fields: ["type", "order"],
+          },
         },
         {
           type: "auth",
@@ -507,5 +567,5 @@ export const schema = {
   enums: {},
   nonModels: {},
   codegenVersion: "3.4.3",
-  version: "b9e87086b12aed19fa61a8c58226a8ae",
+  version: "6480769dcc7745582fde3f85d1df14a6",
 };

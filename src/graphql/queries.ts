@@ -11,6 +11,8 @@ export const getApp = /* GraphQL */ `
       title
       category
       description
+      order
+      type
       createdAt
       updatedAt
       _version
@@ -33,6 +35,8 @@ export const listApps = /* GraphQL */ `
         title
         category
         description
+        order
+        type
         createdAt
         updatedAt
         _version
@@ -64,6 +68,8 @@ export const syncApps = /* GraphQL */ `
         title
         category
         description
+        order
+        type
         createdAt
         updatedAt
         _version
@@ -169,6 +175,8 @@ export const getBook = /* GraphQL */ `
       image
       title
       description
+      order
+      type
       createdAt
       updatedAt
       _version
@@ -190,6 +198,8 @@ export const listBooks = /* GraphQL */ `
         image
         title
         description
+        order
+        type
         createdAt
         updatedAt
         _version
@@ -220,6 +230,8 @@ export const syncBooks = /* GraphQL */ `
         image
         title
         description
+        order
+        type
         createdAt
         updatedAt
         _version
@@ -311,6 +323,8 @@ export const getSkill = /* GraphQL */ `
       image
       title
       category
+      order
+      type
       createdAt
       updatedAt
       _version
@@ -331,6 +345,8 @@ export const listSkills = /* GraphQL */ `
         image
         title
         category
+        order
+        type
         createdAt
         updatedAt
         _version
@@ -360,6 +376,8 @@ export const syncSkills = /* GraphQL */ `
         image
         title
         category
+        order
+        type
         createdAt
         updatedAt
         _version
@@ -445,6 +463,114 @@ export const syncSlides = /* GraphQL */ `
         title
         body
         publishedAt
+        type
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const appsByTypeAndOrder = /* GraphQL */ `
+  query AppsByTypeAndOrder(
+    $type: String!
+    $order: ModelIntKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelAppFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    appsByTypeAndOrder(
+      type: $type
+      order: $order
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        link
+        image
+        title
+        category
+        description
+        order
+        type
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const booksByTypeAndOrder = /* GraphQL */ `
+  query BooksByTypeAndOrder(
+    $type: String!
+    $order: ModelIntKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelBookFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    booksByTypeAndOrder(
+      type: $type
+      order: $order
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        link
+        image
+        title
+        description
+        order
+        type
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const skillsByTypeAndOrder = /* GraphQL */ `
+  query SkillsByTypeAndOrder(
+    $type: String!
+    $order: ModelIntKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelSkillFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    skillsByTypeAndOrder(
+      type: $type
+      order: $order
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        image
+        title
+        category
+        order
         type
         createdAt
         updatedAt

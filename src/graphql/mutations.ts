@@ -14,6 +14,8 @@ export const createApp = /* GraphQL */ `
       title
       category
       description
+      order
+      type
       createdAt
       updatedAt
       _version
@@ -34,6 +36,8 @@ export const updateApp = /* GraphQL */ `
       title
       category
       description
+      order
+      type
       createdAt
       updatedAt
       _version
@@ -54,6 +58,8 @@ export const deleteApp = /* GraphQL */ `
       title
       category
       description
+      order
+      type
       createdAt
       updatedAt
       _version
@@ -136,6 +142,8 @@ export const createBook = /* GraphQL */ `
       image
       title
       description
+      order
+      type
       createdAt
       updatedAt
       _version
@@ -155,6 +163,8 @@ export const updateBook = /* GraphQL */ `
       image
       title
       description
+      order
+      type
       createdAt
       updatedAt
       _version
@@ -174,6 +184,8 @@ export const deleteBook = /* GraphQL */ `
       image
       title
       description
+      order
+      type
       createdAt
       updatedAt
       _version
@@ -252,6 +264,8 @@ export const createSkill = /* GraphQL */ `
       image
       title
       category
+      order
+      type
       createdAt
       updatedAt
       _version
@@ -270,6 +284,8 @@ export const updateSkill = /* GraphQL */ `
       image
       title
       category
+      order
+      type
       createdAt
       updatedAt
       _version
@@ -288,6 +304,8 @@ export const deleteSkill = /* GraphQL */ `
       image
       title
       category
+      order
+      type
       createdAt
       updatedAt
       _version

@@ -20,12 +20,16 @@ export declare type BookCreateFormInputValues = {
   image?: string;
   title?: string;
   description?: string;
+  order?: number;
+  type?: string;
 };
 export declare type BookCreateFormValidationValues = {
   link?: ValidationFunction<string>;
   image?: ValidationFunction<string>;
   title?: ValidationFunction<string>;
   description?: ValidationFunction<string>;
+  order?: ValidationFunction<number>;
+  type?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> &
   React.DOMAttributes<HTMLDivElement>;
@@ -35,6 +39,8 @@ export declare type BookCreateFormOverridesProps = {
   image?: PrimitiveOverrideProps<TextFieldProps>;
   title?: PrimitiveOverrideProps<TextFieldProps>;
   description?: PrimitiveOverrideProps<TextFieldProps>;
+  order?: PrimitiveOverrideProps<TextFieldProps>;
+  type?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type BookCreateFormProps = React.PropsWithChildren<
   {
