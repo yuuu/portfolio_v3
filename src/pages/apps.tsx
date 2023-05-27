@@ -16,9 +16,11 @@ const fetchApps = async () => {
     variables: {
       type: "App",
       sortDirection: "DESC",
-    }
+    },
   });
-  return data?.appsByTypeAndOrder?.items?.filter((item): item is App => !!item) || [];
+  return (
+    data?.appsByTypeAndOrder?.items?.filter((item): item is App => !!item) || []
+  );
 };
 
 const attachImages = async (apps: AppV[]) => {

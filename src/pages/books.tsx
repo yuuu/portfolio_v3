@@ -16,9 +16,12 @@ const fetchBooks = async () => {
     variables: {
       type: "Book",
       sortDirection: "DESC",
-    }
+    },
   });
-  return data?.booksByTypeAndOrder?.items?.filter((item): item is Book => !!item) || [];
+  return (
+    data?.booksByTypeAndOrder?.items?.filter((item): item is Book => !!item) ||
+    []
+  );
 };
 
 const attachImages = async (books: BookV[]) => {

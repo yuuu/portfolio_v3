@@ -17,9 +17,13 @@ const fetchSkills = async () => {
     variables: {
       type: "Skill",
       sortDirection: "ASC",
-    }
+    },
   });
-  return data?.skillsByTypeAndOrder?.items?.filter((item): item is Skill => !!item) || [];
+  return (
+    data?.skillsByTypeAndOrder?.items?.filter(
+      (item): item is Skill => !!item
+    ) || []
+  );
 };
 
 const attachImages = async (skills: SkillV[]) => {
@@ -62,7 +66,7 @@ const Skills: NextPage<{ skills: SkillV[] }> = ({ skills }) => {
             {skills.map((skill) => (
               <div key={skill.id} className="px-4 w-1/2 md:w-1/6">
                 <div className="my-4 rounded-md">
-                  <a id={skill.id} data-tooltip-content={skill.title}>
+                  <a className="tooltip" data-tooltip-id={skill.id} data-tooltip-content={skill.title}>
                     {skill?.imageUrl && (
                       <Image
                         alt={skill.title}
@@ -72,10 +76,10 @@ const Skills: NextPage<{ skills: SkillV[] }> = ({ skills }) => {
                       />
                     )}
                   </a>
-                  <Tooltip anchorSelect={`#${skill.id}`} />
                 </div>
               </div>
             ))}
+            <Tooltip anchorSelect=".tooltip" />
           </dl>
         </div>
       ))}
