@@ -44,16 +44,15 @@ const Apps: NextPage<{ apps: AppV[] }> = ({ apps }) => {
           <div key={app.id} className="md:w-1/3 px-4 mb-8">
             <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
               <a href={app.link} target="_blank" rel="noreferrer">
-                {
-                  app?.imageUrl &&
-                    <Image
-                      className="lg:h-64 md:h-64 w-full object-cover object-center"
-                      src={app?.imageUrl}
-                      alt={app.title}
-                      width={370}
-                      height={192}
-                    />
-                }
+                {app?.imageUrl && (
+                  <Image
+                    className="lg:h-64 md:h-64 w-full object-cover object-center"
+                    src={app?.imageUrl}
+                    alt={app.title}
+                    width={370}
+                    height={192}
+                  />
+                )}
               </a>
               <div className="p-6">
                 <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">

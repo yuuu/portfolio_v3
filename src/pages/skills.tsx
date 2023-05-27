@@ -47,69 +47,34 @@ const Skills: NextPage<{ skills: SkillV[] }> = ({ skills }) => {
   return (
     <div className="flex flex-col flex-grow justify-start">
       <Header title="Skills" />
-      <SubHeader title="Language" />
-      <dl className="flex flex-wrap justify-items-center items-center">
-        {languageSkills(skills).map((skill) => (
-          <div key={skill.id} className="px-4 w-1/2 md:w-1/6">
-            <div className="my-4 rounded-md">
-              <a id={skill.id} data-tooltip-content={skill.title}>
-                {
-                  skill?.imageUrl &&
-                    <Image
-                      alt={skill.title}
-                      src={skill.imageUrl}
-                      width={1057}
-                      height={1500}
-                    />
-                }
-              </a>
-              <Tooltip anchorSelect={`#${skill.id}`} />
-            </div>
-          </div>
-        ))}
-      </dl>
-      <SubHeader title="Framework" />
-      <dl className="flex flex-wrap justify-items-center items-center">
-        {frameworkSkills(skills).map((skill) => (
-          <div key={skill.id} className="px-4 w-1/2 md:w-1/6">
-            <div className="my-4 rounded-md">
-              <a id={skill.id} data-tooltip-content={skill.title}>
-                {
-                  skill?.imageUrl &&
-                    <Image
-                      alt={skill.title}
-                      src={skill.imageUrl}
-                      width={1057}
-                      height={1500}
-                    />
-                }
-              </a>
-              <Tooltip anchorSelect={`#${skill.id}`} />
-            </div>
-          </div>
-        ))}
-      </dl>
-      <SubHeader title="Cloud" />
-      <dl className="flex flex-wrap justify-items-center items-center">
-        {cloudSkills(skills).map((skill) => (
-          <div key={skill.id} className="px-4 w-1/2 md:w-1/6">
-            <div className="my-4 rounded-md">
-              <a id={skill.id} data-tooltip-content={skill.title}>
-                {
-                  skill?.imageUrl &&
-                    <Image
-                      alt={skill.title}
-                      src={skill.imageUrl}
-                      width={1057}
-                      height={1500}
-                    />
-                }
-              </a>
-              <Tooltip anchorSelect={`#${skill.id}`} />
-            </div>
-          </div>
-        ))}
-      </dl>
+      {[
+        { skills: languageSkills(skills), name: "Language" },
+        { skills: frameworkSkills(skills), name: "Framework" },
+        { skills: cloudSkills(skills), name: "Cloud" },
+      ].map(({ skills, name }) => (
+        <div key={name}>
+          <SubHeader title={name} />
+          <dl className="flex flex-wrap justify-items-center items-center">
+            {skills.map((skill) => (
+              <div key={skill.id} className="px-4 w-1/2 md:w-1/6">
+                <div className="my-4 rounded-md">
+                  <a id={skill.id} data-tooltip-content={skill.title}>
+                    {skill?.imageUrl && (
+                      <Image
+                        alt={skill.title}
+                        src={skill.imageUrl}
+                        width={1057}
+                        height={1500}
+                      />
+                    )}
+                  </a>
+                  <Tooltip anchorSelect={`#${skill.id}`} />
+                </div>
+              </div>
+            ))}
+          </dl>
+        </div>
+      ))}
     </div>
   );
 };
