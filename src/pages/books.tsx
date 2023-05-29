@@ -38,7 +38,7 @@ export const getStaticProps = async () => {
   const booksV = await attachImages(books);
   return {
     props: { books: booksV },
-    revalidate: 60,
+    revalidate: 3600,
   };
 };
 

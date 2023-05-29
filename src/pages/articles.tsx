@@ -24,7 +24,7 @@ export const getStaticProps = async () => {
   const articles = await fetchArticles();
   return {
     props: { articles },
-    revalidate: 60,
+    revalidate: 3600,
   };
 };
 

@@ -22,7 +22,7 @@ export const getStaticProps = async () => {
   const slides = await fetchSlides();
   return {
     props: { slides },
-    revalidate: 60,
+    revalidate: 3600,
   };
 };
 

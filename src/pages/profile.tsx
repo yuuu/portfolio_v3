@@ -32,7 +32,7 @@ export const getStaticProps = async () => {
   const profile = await fetchProfile();
   return {
     props: { profile },
-    revalidate: 60,
+    revalidate: 3600,
   };
 };
 
