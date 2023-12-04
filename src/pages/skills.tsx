@@ -40,7 +40,7 @@ export const getStaticProps = async () => {
   const skillsV = await attachImages(skills);
   return {
     props: { skills: skillsV },
-    revalidate: 3600,
+    revalidate: 86400,
   };
 };
 

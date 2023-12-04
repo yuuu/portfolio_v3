@@ -32,9 +32,8 @@ export const getStaticProps = async () => {
   const profile = await fetchProfile();
   return {
     props: { profile },
-    revalidate: 3600,
   };
-};
+}
 
 const ProfilePage: NextPage<{ profile: Profile }> = ({ profile }) => {
   return (
