@@ -37,6 +37,7 @@ export const getStaticProps = async () => {
   const appsV = await attachImages(apps);
   return {
     props: { apps: appsV },
+    revalidate: 86400,
   };
 };
 
